@@ -30,9 +30,11 @@ extension View {
             self
             Text("\(title)")
                 .opacity(shouldShow ? 1 : 0)
-                .padding(20)
+                .padding(.leading, 24)
                 .font(.custom("Sora-Regular", size: 16))
                 .foregroundColor(.textFieldColor.opacity(0.3))
+                .allowsHitTesting(false)
         }
+        .background(Color.clear)
     }
 }
