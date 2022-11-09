@@ -11,6 +11,7 @@
 		AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAF291B4B2B00C598AA /* ContentView.swift */; };
 		AC4C1FB2291B4B2C00C598AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */; };
 		AC4C1FB5291B4B2C00C598AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4C1FB4291B4B2C00C598AA /* Preview Assets.xcassets */; };
+		DB36D74F291B5CB300A6B04B /* NotificationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB36D74E291B5CB300A6B04B /* NotificationItemView.swift */; };
 		DB9B5530291B5829009C76F0 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B552F291B5829009C76F0 /* NotificationsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,7 @@
 		AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC4C1FB4291B4B2C00C598AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC4C1FB6291B4B2C00C598AA /* FitzeSeller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitzeSeller.entitlements; sourceTree = "<group>"; };
+		DB36D74E291B5CB300A6B04B /* NotificationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItemView.swift; sourceTree = "<group>"; };
 		DB9B552F291B5829009C76F0 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				DB9B552F291B5829009C76F0 /* NotificationsView.swift */,
+				DB36D74E291B5CB300A6B04B /* NotificationItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			files = (
 				AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */,
 				AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */,
+				DB36D74F291B5CB300A6B04B /* NotificationItemView.swift in Sources */,
 				DB9B5530291B5829009C76F0 /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
