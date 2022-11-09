@@ -27,7 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let window = NSApplication.shared.windows.first!
 //        window.titlebarAppearsTransparent = true
-        window.backgroundColor = .white
+        
+        window.backgroundColor = .white // Change to background color
+        
+        
 //        window.standardWindowButton(.closeButton)!.isHidden = true
 //        window.standardWindowButton(.miniaturizeButton)!.isHidden = true
 //        window.standardWindowButton(.zoomButton)!.isHidden = true
