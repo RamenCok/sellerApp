@@ -18,7 +18,6 @@ struct FitzeSellerApp: App {
                 .preferredColorScheme(.light)
         }
         .windowToolbarStyle(.unifiedCompact(showsTitle: false))
-        .windowStyle(.hiddenTitleBar)
     }
 }
 
@@ -33,5 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        window.standardWindowButton(.miniaturizeButton)!.isHidden = true
 //        window.standardWindowButton(.zoomButton)!.isHidden = true
         window.titlebarSeparatorStyle = .none
+        window.center()
     }
 }
