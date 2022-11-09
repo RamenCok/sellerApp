@@ -46,7 +46,7 @@ struct SignUpLoginView: View {
                         }
                         .buttonStyle(SecondaryButton())
                         .scaleEffect(isHoverApple ? 1.05 : 1)
-                        .animation(.spring(), value: isHoverApple)
+                        .animation(.linear(duration: 0.1), value: isHoverApple)
                         .onHover { hover in
                             isHoverApple = hover
                         }
@@ -94,7 +94,7 @@ struct SignUpLoginView: View {
                                 .font(.custom("Sora-Regular", size: 20))
                             
                             Button {
-                                showSubview(view: AnyView(LoginView()))
+                                showSubview(view: AnyView(SignUpView()))
                             } label: {
                                 Text("Sign Up")
                                     .underline()

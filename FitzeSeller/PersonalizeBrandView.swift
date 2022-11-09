@@ -43,9 +43,10 @@ struct PersonalizeBrandView: View {
                 }.buttonStyle(.plain)
                 
                 VStack(spacing: 81) {
-                    TextField("Brand Name",text: $brandName)
+                    TextField("",text: $brandName)
                         .textFieldStyle(RoundedTextFieldStyle())
                         .frame(width: 446)
+                        .placeholder(when: brandName.isEmpty, text: "Brand Name") {}
                     
                     Button {
                         appState.switchScene = .main

@@ -16,4 +16,23 @@ extension Color {
     public static let tertiaryColor = Color("tertiaryColor")
     public static let textColor = Color("textColor")
     public static let textFieldBG = Color("textFieldBG")
+    public static let textFieldColor = Color("textFieldColor")
+}
+
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        text title: String,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+
+        ZStack(alignment: alignment) {
+            self
+            Text("\(title)")
+                .opacity(shouldShow ? 1 : 0)
+                .padding(20)
+                .font(.custom("Sora-Regular", size: 16))
+                .foregroundColor(.textFieldColor.opacity(0.3))
+        }
+    }
 }

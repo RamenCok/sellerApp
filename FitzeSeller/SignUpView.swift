@@ -30,14 +30,17 @@ struct SignUpView: View {
             
             VStack(spacing: 78) {
                 VStack(spacing: 15) {
-                    TextField("Email",text: $email)
+                    TextField("",text: $email)
                         .textFieldStyle(RoundedTextFieldStyle())
+                        .placeholder(when: email.isEmpty, text: "Email") {}
                     
-                    CustomSecureField(label: "Password", text: $password)
+                    CustomSecureField(label: "", text: $password)
                         .textFieldStyle(RoundedTextFieldStyle())
+                        .placeholder(when: password.isEmpty, text: "Password") {}
                     
-                    CustomSecureField(label: "Confirm Password", text: $confirmPassword)
+                    CustomSecureField(label: "", text: $confirmPassword)
                         .textFieldStyle(RoundedTextFieldStyle())
+                        .placeholder(when: confirmPassword.isEmpty, text: "Confirm Password") {}
                 }.frame(width: 446)
                 
                 Button {

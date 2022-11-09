@@ -14,7 +14,7 @@ struct RoundedTextFieldStyle: TextFieldStyle {
             .padding(.vertical)
             .padding(.horizontal, 24)
             .font(.custom("Sora-Regular", size: 16))
-            .foregroundColor(.textColor)
+            .foregroundColor(.textFieldColor)
             .background(
                 Color.textFieldBG
             )
