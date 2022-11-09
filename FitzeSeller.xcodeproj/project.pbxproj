@@ -11,6 +11,10 @@
 		AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAF291B4B2B00C598AA /* ContentView.swift */; };
 		AC4C1FB2291B4B2C00C598AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */; };
 		AC4C1FB5291B4B2C00C598AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4C1FB4291B4B2C00C598AA /* Preview Assets.xcassets */; };
+		DB9B5523291B53E9009C76F0 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B5522291B53E9009C76F0 /* NavigationView.swift */; };
+		DB9B5527291B5497009C76F0 /* NavBarIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B5526291B5497009C76F0 /* NavBarIcons.swift */; };
+		DB9B5529291B56BE009C76F0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B5528291B56BE009C76F0 /* ProfileView.swift */; };
+		DB9B552B291B56F3009C76F0 /* BottomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B552A291B56F3009C76F0 /* BottomButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,10 @@
 		AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC4C1FB4291B4B2C00C598AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC4C1FB6291B4B2C00C598AA /* FitzeSeller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitzeSeller.entitlements; sourceTree = "<group>"; };
+		DB9B5522291B53E9009C76F0 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		DB9B5526291B5497009C76F0 /* NavBarIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarIcons.swift; sourceTree = "<group>"; };
+		DB9B5528291B56BE009C76F0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DB9B552A291B56F3009C76F0 /* BottomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			children = (
 				AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */,
 				AC4C1FAF291B4B2B00C598AA /* ContentView.swift */,
+				DB9B5521291B53CA009C76F0 /* Navigation View */,
 				AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */,
 				AC4C1FB6291B4B2C00C598AA /* FitzeSeller.entitlements */,
 				AC4C1FB3291B4B2C00C598AA /* Preview Content */,
@@ -67,6 +76,25 @@
 				AC4C1FB4291B4B2C00C598AA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DB9B5521291B53CA009C76F0 /* Navigation View */ = {
+			isa = PBXGroup;
+			children = (
+				DB9B5524291B5430009C76F0 /* View */,
+			);
+			path = "Navigation View";
+			sourceTree = "<group>";
+		};
+		DB9B5524291B5430009C76F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB9B5522291B53E9009C76F0 /* NavigationView.swift */,
+				DB9B5526291B5497009C76F0 /* NavBarIcons.swift */,
+				DB9B5528291B56BE009C76F0 /* ProfileView.swift */,
+				DB9B552A291B56F3009C76F0 /* BottomButtonView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +168,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */,
+				DB9B5523291B53E9009C76F0 /* NavigationView.swift in Sources */,
+				DB9B5529291B56BE009C76F0 /* ProfileView.swift in Sources */,
+				DB9B552B291B56F3009C76F0 /* BottomButtonView.swift in Sources */,
+				DB9B5527291B5497009C76F0 /* NavBarIcons.swift in Sources */,
 				AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,7 +302,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FitzeSeller/Preview Content\"";
-				DEVELOPMENT_TEAM = 8XZM6ZXT9F;
+				DEVELOPMENT_TEAM = L7SMRXB5WV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -297,7 +329,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FitzeSeller/Preview Content\"";
-				DEVELOPMENT_TEAM = 8XZM6ZXT9F;
+				DEVELOPMENT_TEAM = L7SMRXB5WV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
