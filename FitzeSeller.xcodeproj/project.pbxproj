@@ -11,6 +11,7 @@
 		AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAF291B4B2B00C598AA /* ContentView.swift */; };
 		AC4C1FB2291B4B2C00C598AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */; };
 		AC4C1FB5291B4B2C00C598AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4C1FB4291B4B2C00C598AA /* Preview Assets.xcassets */; };
+		DBF39DD6291C010700CE5CE4 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF39DD5291C010700CE5CE4 /* ProductDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC4C1FB4291B4B2C00C598AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC4C1FB6291B4B2C00C598AA /* FitzeSeller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitzeSeller.entitlements; sourceTree = "<group>"; };
+		DBF39DD5291C010700CE5CE4 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		AC4C1FAC291B4B2B00C598AA /* FitzeSeller */ = {
 			isa = PBXGroup;
 			children = (
+				DBF39DD2291C00CB00CE5CE4 /* Product Detail View */,
 				AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */,
 				AC4C1FAF291B4B2B00C598AA /* ContentView.swift */,
 				AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */,
@@ -67,6 +70,30 @@
 				AC4C1FB4291B4B2C00C598AA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DBF39DD2291C00CB00CE5CE4 /* Product Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				DBF39DD4291C00DD00CE5CE4 /* View Model */,
+				DBF39DD3291C00D800CE5CE4 /* View */,
+			);
+			path = "Product Detail View";
+			sourceTree = "<group>";
+		};
+		DBF39DD3291C00D800CE5CE4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBF39DD5291C010700CE5CE4 /* ProductDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBF39DD4291C00DD00CE5CE4 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +168,7 @@
 			files = (
 				AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */,
 				AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */,
+				DBF39DD6291C010700CE5CE4 /* ProductDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
