@@ -13,21 +13,26 @@ struct ProductDetailView: View {
     
     var body: some View {
         
-        HStack(spacing: 65) {
-            Image("test")
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: 476, maxHeight: 680, alignment: .center)
-                .background(Color.white)
-                .cornerRadius(32)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 32)
-                        .stroke(lineWidth: 1)
-                        .foregroundColor(.gray.opacity(0.15))
-                }
-                .shadow(color: .gray.opacity(0.1), radius: 46, x: 0, y: 4)
+        VStack(alignment: .leading, spacing: 34) {
             
-            ProductTextView()
+            ProductAlertView()
+            
+            HStack(spacing: 65) {
+                Image("test")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: 476, maxHeight: 680, alignment: .center)
+                    .background(Color.white)
+                    .cornerRadius(32)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 32)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor(.gray.opacity(0.15))
+                    }
+                    .shadow(color: .gray.opacity(0.1), radius: 46, x: 0, y: 4)
+                
+                ProductTextView()
+            }
         }
         .padding(100)
     }
