@@ -12,11 +12,10 @@ class AppState: ObservableObject {
     enum CurrentView: Int {
         case login
         case main
-        case productList
     }
     
-//    @AppStorage("scene") var switchScene = CurrentView.onboarding
-    @Published var switchScene = CurrentView.productList
+//    @AppStorage("scene") var switchScene = CurrentView.login
+    @Published var switchScene = CurrentView.main
 }
 
 struct ContentView: View {
@@ -33,24 +32,16 @@ struct ContentView: View {
                     .environmentObject(appState)
                     .environmentObject(viewModel)
                     .background(Background())
-                    .frame(minWidth: 1728 / 1.5, minHeight: 1117 / 1.5)
-                    .transition(transition)
-            
-            case .main:
-                MainView()
-                    .environmentObject(appState)
-                    .background(Background())
-                    .frame(minWidth: 1728 / 1.5, minHeight: 1117 / 1.5)
+                    .frame(minWidth: 1600 / 1.5, minHeight: 1000 / 1.5)
                     .transition(transition)
                 
-            case .productList:
-                ProductListView()
+            case .main:
+                MainView(cards: Card.data)
                     .environmentObject(appState)
                     .environmentObject(viewModel)
                     .background(Background())
-                    .frame(minWidth: 1728 / 1.5, minHeight: 1117 / 1.5)
+                    .frame(minWidth: 1600 / 1.5, minHeight: 1000 / 1.5)
                     .transition(transition)
-                
             }
         }
         .animation(.default, value: appState.switchScene)

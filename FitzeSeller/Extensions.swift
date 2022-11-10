@@ -13,10 +13,12 @@ extension Color {
     public static let disabledColorButtonText = Color("disabledColorButtonText")
     public static let primaryButtonColor = Color("primaryButtonColor")
     public static let primaryColor = Color("primaryColor")
+    public static let primaryColorOnly = Color("primaryColorOnly")
     public static let tertiaryColor = Color("tertiaryColor")
     public static let textColor = Color("textColor")
     public static let textFieldBG = Color("textFieldBG")
     public static let textFieldColor = Color("textFieldColor")
+    public static let redColor = Color("redColor")
 }
 
 extension View {
