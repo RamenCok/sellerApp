@@ -23,11 +23,9 @@ struct NavigationView: View {
             //MARK: - Tab Bar
             VStack(alignment: .leading, spacing: 0) {
                 
-                Spacer(minLength: 100)
-                
                 ProfileView()
-                
-                Spacer()
+                    .padding(.top, 100)
+                    .padding(.bottom, 96)
                 
                 Group {
                     NavBarIcons(iconName: "wand.and.rays", tabBarName: "Live", selectedTab: $vm.selectedTab)
@@ -40,8 +38,7 @@ struct NavigationView: View {
                 Spacer(minLength: 200)
                 
                 BottomButtonView()
-                
-                Spacer(minLength: 60)
+                    .padding(.bottom, 60)
             }
             .frame(maxHeight: .infinity)
             .background(Color.white)
