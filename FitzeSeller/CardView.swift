@@ -69,12 +69,12 @@ struct CardView: View {
         }
         .frame(width: 253, alignment: .topLeading)
         .background(Color.white)
-        .cornerRadius(16)
+        .cornerRadius(32)
 //        .overlay(
 //            RoundedRectangle(cornerRadius: 16)
 //                .stroke(.gray.opacity(0.2))
 //        )
-        .shadow(color: .gray.opacity(0.05), radius: 14, x: 0, y: 4)
+//        .shadow(color: .gray.opacity(0.05), radius: 14, x: 0, y: 4)
     }
 }
 

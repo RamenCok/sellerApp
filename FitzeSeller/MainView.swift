@@ -11,7 +11,7 @@ class CurrentMainView: ObservableObject {
     enum CurrentMainView: Int {
         case live
         case onreview
-        case gridpicker
+        case emptystate
     }
     
     @Published var switchMainView = CurrentMainView.live
@@ -39,7 +39,7 @@ struct MainView: View {
                 }.buttonStyle(.borderless)
                 
                 Button {
-                    currentMainView.switchMainView = .gridpicker
+                    currentMainView.switchMainView = .emptystate
                 } label: {
                     Text("Grid Picker")
                 }.buttonStyle(.borderless)
@@ -53,8 +53,8 @@ struct MainView: View {
             case .onreview:
                 ProductListView(ListName: items[1], cards: cards)
                     .onAppear {self.cards = Card.data.filter { $0.tag == items[1] }}
-            case .gridpicker:
-                GridPicker()
+            case .emptystate:
+                EmptyState()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

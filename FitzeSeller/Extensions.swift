@@ -19,6 +19,7 @@ extension Color {
     public static let textFieldBG = Color("textFieldBG")
     public static let textFieldColor = Color("textFieldColor")
     public static let redColor = Color("redColor")
+    public static let lightGrey2 = Color("lightGrey2")
 }
 
 extension View {

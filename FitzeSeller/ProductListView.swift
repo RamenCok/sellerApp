@@ -125,10 +125,12 @@ struct ProductListView: View {
                             } label: {
                                 CardView(card: card)
                                     .overlay(
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .stroke(selectedItems.contains(card) ? Color.primaryColor : Color.gray, lineWidth: selectedItems.contains(card) ? 5 : 1)
+                                        RoundedRectangle(cornerRadius: 32)
+                                            .stroke(selectedItems.contains(card) ? Color.primaryColor : Color.gray.opacity(0.2), lineWidth: selectedItems.contains(card) ? 3 : 1)
                                     )
-                            }.buttonStyle(.plain)
+                                    .shadow(color: selectedItems.contains(card) ? .clear : .gray.opacity(0.05), radius: 28, x: 0, y: 4)
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                     .padding(.bottom, 20)
