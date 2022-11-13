@@ -24,7 +24,6 @@
 		0E879406291B6BD600649AC7 /* PersonalizeBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879405291B6BD600649AC7 /* PersonalizeBrandView.swift */; };
 		0E879408291B92FB00649AC7 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879407291B92FB00649AC7 /* ProductListView.swift */; };
 		0E87940A291B967B00649AC7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879409291B967B00649AC7 /* CardView.swift */; };
-		0E87940C291C0B6700649AC7 /* TestGridPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E87940B291C0B6700649AC7 /* TestGridPicker.swift */; };
 		0EA6F347291CA57700BB5F25 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6F346291CA57700BB5F25 /* Card.swift */; };
 		0EA6F349291D12B700BB5F25 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6F348291D12B700BB5F25 /* ProductDetailsView.swift */; };
 		0EAF5858291DE8D100AC5E93 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF5857291DE8D100AC5E93 /* EmptyState.swift */; };
@@ -53,7 +52,6 @@
 		0E879405291B6BD600649AC7 /* PersonalizeBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizeBrandView.swift; sourceTree = "<group>"; };
 		0E879407291B92FB00649AC7 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		0E879409291B967B00649AC7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		0E87940B291C0B6700649AC7 /* TestGridPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGridPicker.swift; sourceTree = "<group>"; };
 		0EA6F346291CA57700BB5F25 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0EA6F348291D12B700BB5F25 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		0EAF5857291DE8D100AC5E93 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				0E879405291B6BD600649AC7 /* PersonalizeBrandView.swift */,
 				0E879407291B92FB00649AC7 /* ProductListView.swift */,
 				0E879409291B967B00649AC7 /* CardView.swift */,
-				0E87940B291C0B6700649AC7 /* TestGridPicker.swift */,
 				0EA6F346291CA57700BB5F25 /* Card.swift */,
 				0EA6F348291D12B700BB5F25 /* ProductDetailsView.swift */,
 				0EAF5857291DE8D100AC5E93 /* EmptyState.swift */,
@@ -216,7 +213,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EA6F349291D12B700BB5F25 /* ProductDetailsView.swift in Sources */,
-				0E87940C291C0B6700649AC7 /* TestGridPicker.swift in Sources */,
 				0EA6F347291CA57700BB5F25 /* Card.swift in Sources */,
 				0E8793FE291B581800649AC7 /* LabelledDivider.swift in Sources */,
 				AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */,

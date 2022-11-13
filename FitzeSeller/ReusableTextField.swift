@@ -22,6 +22,7 @@ struct RoundedTextFieldStyle: TextFieldStyle {
     }
 }
 
+// Custom SecureField with Eye toggle
 struct CustomSecureField : View {
     var label : String
     @Binding var text : String

@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-// Define observable
 class AppState: ObservableObject {
     enum CurrentView: Int {
         case login
         case main
     }
     
-//    @AppStorage("scene") var switchScene = CurrentView.login
+    // Store App State with AppStorage
+    // @AppStorage("scene") var switchScene = CurrentView.login
     @Published var switchScene = CurrentView.main
 }
 
@@ -25,6 +25,8 @@ struct ContentView: View {
     let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
     
     var body: some View {
+        // Inject viewmodel as environment object here
+        // All view must be framed with maxWidth and maxHeight as Infinity
         Group {
             switch (appState.switchScene) {
             case .login:

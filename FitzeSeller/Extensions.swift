@@ -23,6 +23,7 @@ extension Color {
 }
 
 extension View {
+    // Custom placeholder for Textfield, so that it works in dark mode
     func placeholder<Content: View>(
         when shouldShow: Bool,
         text title: String,

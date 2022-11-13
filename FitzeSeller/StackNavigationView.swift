@@ -41,6 +41,7 @@ struct StackNavigationView<RootContent>: View where RootContent: View {
         let contentView: () -> Content
         
         var body: some View {
+            // Overlay with Back Button
             ZStack {
                 Button {
                     withAnimation(.easeOut(duration: 0.3)) {

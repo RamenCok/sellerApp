@@ -48,10 +48,10 @@ struct MainView: View {
             
             switch (currentMainView.switchMainView) {
             case .live:
-                ProductListView(ListName: items[0], cards: cards)
+                ProductListView(ListName: items[0], cards: $cards)
                     .onAppear {self.cards = Card.data.filter { $0.tag == items[0] }}
             case .onreview:
-                ProductListView(ListName: items[1], cards: cards)
+                ProductListView(ListName: items[1], cards: $cards)
                     .onAppear {self.cards = Card.data.filter { $0.tag == items[1] }}
             case .emptystate:
                 EmptyState()

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductListView: View {
     let ListName: String
-    let cards: [Card]
+    @Binding var cards: [Card]
     
     var searchResults: [Card] {
         if searchText.isEmpty {
@@ -17,7 +17,6 @@ struct ProductListView: View {
         }
         else {
             return cards.filter { $0.productName.lowercased().contains(searchText.lowercased())
-                
             }
         }
     }
@@ -27,6 +26,7 @@ struct ProductListView: View {
     @State var searchText = ""
     @State var isSelected = false
     @State  var selectedItems: [Card] = []
+    @State private var showAlert = false
     
     @State private var currentSubview = AnyView(LoginView())
     @State private var showingSubview = false
@@ -71,13 +71,24 @@ struct ProductListView: View {
                     if isSelected {
                         HStack(spacing: 27) {
                             Button {
-                                
+                                showAlert = true
                             } label: {
                                 Text("Delete")
                                     .font(.custom("Sora-Semibold", size: 24))
                                     .foregroundColor(.redColor)
                                     .underline()
                             }.buttonStyle(.plain)
+                                .alert("Important message", isPresented: $showAlert) {
+                                    Button("OK", role: .cancel) {
+                                        // delete item
+                                        for card in selectedItems {
+                                            cards.removeAll(where: { $0 == card } )
+                                        }
+                                        // delete di database
+                                        isSelected.toggle()
+                                        selectedItems.removeAll()
+                                    }
+                                }
                             
                             Button {
                                 isSelected.toggle()
@@ -114,7 +125,7 @@ struct ProductListView: View {
                             Button {
                                 if isSelected {
                                     if selectedItems.contains(card) {
-                                        selectedItems.removeAll { $0 == card}
+                                        selectedItems.removeAll { $0 == card }
                                     } else {
                                         selectedItems.append(card)
                                     }
@@ -129,6 +140,13 @@ struct ProductListView: View {
                                             .stroke(selectedItems.contains(card) ? Color.primaryColor : Color.gray.opacity(0.2), lineWidth: selectedItems.contains(card) ? 3 : 1)
                                     )
                                     .shadow(color: selectedItems.contains(card) ? .clear : .gray.opacity(0.05), radius: 28, x: 0, y: 4)
+                                    .contextMenu {
+                                        Button(action: {
+                                            // delete item in items array
+                                        }){
+                                            Text("Delete")
+                                        }
+                                    }
                             }
                             .buttonStyle(.plain)
                         }
@@ -154,7 +172,7 @@ struct ProductListView: View {
 
 struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductListView(ListName: "Live", cards: Card.data)
+        MainView(cards: Card.data)
             .background(Background())
             .frame(minWidth: 1728 / 1.5, minHeight: 1117 / 1.5)
     }
