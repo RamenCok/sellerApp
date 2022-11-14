@@ -18,6 +18,7 @@ struct FitzeSellerApp: App {
                 .preferredColorScheme(.light)
         }
         .windowToolbarStyle(.unifiedCompact(showsTitle: false))
+        .commands { SidebarCommands() }
     }
 }
 
@@ -28,9 +29,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let window = NSApplication.shared.windows.first!
 //        window.titlebarAppearsTransparent = true
         
-        window.backgroundColor = .white // Change to background color
-        
-        
+        window.backgroundColor = NSColor(Color.backgroundColor) // Change to background color
+//        window.aspectRatio = NSSize(width: 16, height: 10)
+
 //        window.standardWindowButton(.closeButton)!.isHidden = true
 //        window.standardWindowButton(.miniaturizeButton)!.isHidden = true
 //        window.standardWindowButton(.zoomButton)!.isHidden = true
@@ -38,3 +39,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
     }
 }
+    

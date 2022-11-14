@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E8793EA291B4E9C00649AC7 /* Sora-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E8793E7291B4E9C00649AC7 /* Sora-Regular.otf */; };
+		0E8793EB291B4E9C00649AC7 /* Sora-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E8793E8291B4E9C00649AC7 /* Sora-Bold.otf */; };
+		0E8793EC291B4E9C00649AC7 /* Sora-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E8793E9291B4E9C00649AC7 /* Sora-SemiBold.otf */; };
+		0E8793F0291B50DB00649AC7 /* StackNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8793EF291B50DB00649AC7 /* StackNavigationView.swift */; };
+		0E8793F2291B51E200649AC7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8793F1291B51E200649AC7 /* Extensions.swift */; };
+		0E8793F4291B527200649AC7 /* ReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8793F3291B527200649AC7 /* ReusableButton.swift */; };
+		0E8793F6291B53B100649AC7 /* SignUpLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8793F5291B53B100649AC7 /* SignUpLoginView.swift */; };
+		0E8793F8291B55A900649AC7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8793F7291B55A900649AC7 /* AuthViewModel.swift */; };
+		0E8793FA291B55E200649AC7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8793F9291B55E200649AC7 /* MainView.swift */; };
+		0E8793FC291B563F00649AC7 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8793FB291B563F00649AC7 /* Background.swift */; };
+		0E8793FE291B581800649AC7 /* LabelledDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8793FD291B581800649AC7 /* LabelledDivider.swift */; };
+		0E879400291B630F00649AC7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8793FF291B630F00649AC7 /* LoginView.swift */; };
+		0E879402291B66B300649AC7 /* ReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879401291B66B300649AC7 /* ReusableTextField.swift */; };
+		0E879404291B6B5300649AC7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879403291B6B5300649AC7 /* SignUpView.swift */; };
+		0E879406291B6BD600649AC7 /* PersonalizeBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879405291B6BD600649AC7 /* PersonalizeBrandView.swift */; };
+		0E879408291B92FB00649AC7 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879407291B92FB00649AC7 /* ProductListView.swift */; };
+		0E87940A291B967B00649AC7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879409291B967B00649AC7 /* CardView.swift */; };
+		0EA6F347291CA57700BB5F25 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6F346291CA57700BB5F25 /* Card.swift */; };
+		0EA6F349291D12B700BB5F25 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6F348291D12B700BB5F25 /* ProductDetailsView.swift */; };
+		0EAF5858291DE8D100AC5E93 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF5857291DE8D100AC5E93 /* EmptyState.swift */; };
 		AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */; };
 		AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAF291B4B2B00C598AA /* ContentView.swift */; };
 		AC4C1FB2291B4B2C00C598AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */; };
@@ -23,6 +43,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E8793E7291B4E9C00649AC7 /* Sora-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Regular.otf"; sourceTree = "<group>"; };
+		0E8793E8291B4E9C00649AC7 /* Sora-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Bold.otf"; sourceTree = "<group>"; };
+		0E8793E9291B4E9C00649AC7 /* Sora-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-SemiBold.otf"; sourceTree = "<group>"; };
+		0E8793ED291B4EB700649AC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0E8793EF291B50DB00649AC7 /* StackNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackNavigationView.swift; sourceTree = "<group>"; };
+		0E8793F1291B51E200649AC7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0E8793F3291B527200649AC7 /* ReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableButton.swift; sourceTree = "<group>"; };
+		0E8793F5291B53B100649AC7 /* SignUpLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLoginView.swift; sourceTree = "<group>"; };
+		0E8793F7291B55A900649AC7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		0E8793F9291B55E200649AC7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0E8793FB291B563F00649AC7 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		0E8793FD291B581800649AC7 /* LabelledDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelledDivider.swift; sourceTree = "<group>"; };
+		0E8793FF291B630F00649AC7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0E879401291B66B300649AC7 /* ReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTextField.swift; sourceTree = "<group>"; };
+		0E879403291B6B5300649AC7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		0E879405291B6BD600649AC7 /* PersonalizeBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizeBrandView.swift; sourceTree = "<group>"; };
+		0E879407291B92FB00649AC7 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		0E879409291B967B00649AC7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0EA6F346291CA57700BB5F25 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		0EA6F348291D12B700BB5F25 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		0EAF5857291DE8D100AC5E93 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		AC4C1FAA291B4B2B00C598AA /* FitzeSeller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitzeSeller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitzeSellerApp.swift; sourceTree = "<group>"; };
 		AC4C1FAF291B4B2B00C598AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E8793E6291B4E9C00649AC7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0E8793E7291B4E9C00649AC7 /* Sora-Regular.otf */,
+				0E8793E8291B4E9C00649AC7 /* Sora-Bold.otf */,
+				0E8793E9291B4E9C00649AC7 /* Sora-SemiBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		AC4C1FA1291B4B2B00C598AA = {
 			isa = PBXGroup;
 			children = (
@@ -72,12 +123,31 @@
 			children = (
 				DB9B552C291B5806009C76F0 /* Notification View */,
 				DBF39DD2291C00CB00CE5CE4 /* Product Detail View */,
+				0E8793EF291B50DB00649AC7 /* StackNavigationView.swift */,
+				0E8793F1291B51E200649AC7 /* Extensions.swift */,
+				0E8793F3291B527200649AC7 /* ReusableButton.swift */,
+				0E8793ED291B4EB700649AC7 /* Info.plist */,
 				AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */,
 				AC4C1FAF291B4B2B00C598AA /* ContentView.swift */,
 				DB9B5521291B53CA009C76F0 /* Navigation View */,
 				AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */,
 				AC4C1FB6291B4B2C00C598AA /* FitzeSeller.entitlements */,
+				0E8793E6291B4E9C00649AC7 /* Fonts */,
 				AC4C1FB3291B4B2C00C598AA /* Preview Content */,
+				0E8793F5291B53B100649AC7 /* SignUpLoginView.swift */,
+				0E8793F7291B55A900649AC7 /* AuthViewModel.swift */,
+				0E8793F9291B55E200649AC7 /* MainView.swift */,
+				0E8793FB291B563F00649AC7 /* Background.swift */,
+				0E8793FD291B581800649AC7 /* LabelledDivider.swift */,
+				0E8793FF291B630F00649AC7 /* LoginView.swift */,
+				0E879401291B66B300649AC7 /* ReusableTextField.swift */,
+				0E879403291B6B5300649AC7 /* SignUpView.swift */,
+				0E879405291B6BD600649AC7 /* PersonalizeBrandView.swift */,
+				0E879407291B92FB00649AC7 /* ProductListView.swift */,
+				0E879409291B967B00649AC7 /* CardView.swift */,
+				0EA6F346291CA57700BB5F25 /* Card.swift */,
+				0EA6F348291D12B700BB5F25 /* ProductDetailsView.swift */,
+				0EAF5857291DE8D100AC5E93 /* EmptyState.swift */,
 			);
 			path = FitzeSeller;
 			sourceTree = "<group>";
@@ -218,8 +288,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E8793EA291B4E9C00649AC7 /* Sora-Regular.otf in Resources */,
 				AC4C1FB5291B4B2C00C598AA /* Preview Assets.xcassets in Resources */,
 				AC4C1FB2291B4B2C00C598AA /* Assets.xcassets in Resources */,
+				0E8793EB291B4E9C00649AC7 /* Sora-Bold.otf in Resources */,
+				0E8793EC291B4E9C00649AC7 /* Sora-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +303,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EA6F349291D12B700BB5F25 /* ProductDetailsView.swift in Sources */,
+				0EA6F347291CA57700BB5F25 /* Card.swift in Sources */,
+				0E8793FE291B581800649AC7 /* LabelledDivider.swift in Sources */,
 				AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */,
 				DB9B5523291B53E9009C76F0 /* NavigationView.swift in Sources */,
 				DB9B5529291B56BE009C76F0 /* ProfileView.swift in Sources */,
@@ -237,10 +313,24 @@
 				DB9B5527291B5497009C76F0 /* NavBarIcons.swift in Sources */,
 				DB01CC3D291D5A4200002942 /* ProductAlertView.swift in Sources */,
 				DB12245E291CACE700F6ECD4 /* ProductTextView.swift in Sources */,
+				0E8793FA291B55E200649AC7 /* MainView.swift in Sources */,
+				0E8793F4291B527200649AC7 /* ReusableButton.swift in Sources */,
+				0EAF5858291DE8D100AC5E93 /* EmptyState.swift in Sources */,
+				0E879402291B66B300649AC7 /* ReusableTextField.swift in Sources */,
+				0E8793F6291B53B100649AC7 /* SignUpLoginView.swift in Sources */,
+				0E8793F8291B55A900649AC7 /* AuthViewModel.swift in Sources */,
+				0E8793FC291B563F00649AC7 /* Background.swift in Sources */,
+				0E879404291B6B5300649AC7 /* SignUpView.swift in Sources */,
+				0E879408291B92FB00649AC7 /* ProductListView.swift in Sources */,
 				AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */,
 				DB36D74F291B5CB300A6B04B /* NotificationItemView.swift in Sources */,
 				DB9B5530291B5829009C76F0 /* NotificationsView.swift in Sources */,
 				DBF39DD6291C010700CE5CE4 /* ProductDetailView.swift in Sources */,
+				0E879400291B630F00649AC7 /* LoginView.swift in Sources */,
+				0E8793F0291B50DB00649AC7 /* StackNavigationView.swift in Sources */,
+				0E8793F2291B51E200649AC7 /* Extensions.swift in Sources */,
+				0E87940A291B967B00649AC7 /* CardView.swift in Sources */,
+				0E879406291B6BD600649AC7 /* PersonalizeBrandView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,10 +460,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FitzeSeller/Preview Content\"";
-				DEVELOPMENT_TEAM = L7SMRXB5WV;
+				DEVELOPMENT_TEAM = 625ZX732CB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FitzeSeller/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -397,10 +488,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FitzeSeller/Preview Content\"";
-				DEVELOPMENT_TEAM = L7SMRXB5WV;
+				DEVELOPMENT_TEAM = 625ZX732CB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FitzeSeller/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
