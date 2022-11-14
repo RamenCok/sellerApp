@@ -11,7 +11,7 @@ struct PrimaryButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .padding()
-            .frame(width: 462)
+            .frame(maxWidth: .infinity)
             .font(.custom("Sora-Regular", size: 16))
             .foregroundColor(.white)
             .background(
@@ -25,7 +25,7 @@ struct SecondaryButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .padding()
-            .frame(width: 462)
+            .frame(maxWidth: .infinity)
             .font(.custom("Sora-Regular", size: 16))
             .foregroundColor(.primaryColor)
             .overlay{

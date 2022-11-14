@@ -74,7 +74,6 @@ struct SignUpLoginView: View {
                     
                     LabelledDivider(label: "or")
                         .font(.custom("Sora-Regular", size: 15))
-                        .frame(width: 462)
                     
                     VStack(spacing: 25) {
                         Button {
@@ -105,6 +104,7 @@ struct SignUpLoginView: View {
                         }
                     }
                 }
+                .frame(width: 462)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }

@@ -62,35 +62,19 @@ struct ProductTextView: View {
                     print("COK")
                 } label: {
                     Text("Edit Product")
-                        .frame(maxWidth: .infinity)
                 }
-                .padding()
-                .font(.custom("Sora-Regular", size: 16))
-                .foregroundColor(.primaryColor)
-                .overlay{
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color.primaryColor, lineWidth: 2)
-                }
-                .background(Color.backgroundColor)
+                .buttonStyle(SecondaryButton())
                 
                 Button {
                     
                 } label: {
                     if product.tag == "Archived" {
                         Text("Publish to Live")
-                            .frame(maxWidth: .infinity)
                     } else {
                         Text("Archive")
-                            .frame(maxWidth: .infinity)
                     }
                 }
-                .padding()
-                .font(.custom("Sora-Regular", size: 16))
-                .foregroundColor(.white)
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.primaryButtonColor)
-                )
+                .buttonStyle(PrimaryButton())
             }
             .buttonStyle(.plain)
         }

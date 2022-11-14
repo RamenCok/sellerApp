@@ -45,6 +45,7 @@ struct LoginView: View {
                     Text("Log In")
                 }
                 .buttonStyle(PrimaryButton())
+                .frame(width: 462)
                 .disabled(email.isEmpty || password.isEmpty)
                 .opacity(email.isEmpty || password.isEmpty ? 0.6 : 1)
                 .scaleEffect(!email.isEmpty && !password.isEmpty && isHoverLogin ? 1.05 : 1)

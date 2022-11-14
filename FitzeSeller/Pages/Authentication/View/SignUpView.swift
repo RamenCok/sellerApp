@@ -49,6 +49,7 @@ struct SignUpView: View {
                     Text("Create account")
                 }
                 .buttonStyle(PrimaryButton())
+                .frame(width: 462)
                 .disabled(email.isEmpty || password.isEmpty || confirmPassword.isEmpty)
                 .opacity(email.isEmpty || password.isEmpty || confirmPassword.isEmpty ? 0.6 : 1)
                 .scaleEffect(!email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty && isHoverCreateAccount ? 1.05 : 1)

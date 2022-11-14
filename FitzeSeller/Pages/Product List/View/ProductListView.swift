@@ -80,13 +80,17 @@ struct ProductListView: View {
                                         .foregroundColor(.redColor)
                                         .underline()
                                 }.buttonStyle(.plain)
-                                    .alert("Important message", isPresented: $showAlert) {
-                                        Button("OK", role: .cancel) {
+                                    .alert("Are you sure want to delete?", isPresented: $showAlert) {
+                                        Button("Sure", role: .destructive) {
                                             // delete item
                                             for card in selectedItems {
                                                 products.removeAll(where: { $0 == card } )
                                             }
                                             // delete di database
+                                            isSelected.toggle()
+                                            selectedItems.removeAll()
+                                        }
+                                        Button("Cancel", role: .cancel) {
                                             isSelected.toggle()
                                             selectedItems.removeAll()
                                         }
@@ -142,13 +146,6 @@ struct ProductListView: View {
                                                 .stroke(selectedItems.contains(product) ? Color.primaryColor : Color.gray.opacity(0.2), lineWidth: selectedItems.contains(product) ? 3 : 1)
                                         )
                                         .shadow(color: selectedItems.contains(product) ? .clear : .gray.opacity(0.05), radius: 28, x: 0, y: 4)
-                                        .contextMenu {
-                                            Button(action: {
-                                                // delete item in items array
-                                            }){
-                                                Text("Delete")
-                                            }
-                                        }
                                 }
                                 .buttonStyle(.plain)
                             }
