@@ -52,19 +52,14 @@ struct NavigationView: View {
                 switch vm.selectedTab {
                 case "Live":
                     ProductListView(ListName: "Live", products: $products)
-                        .onAppear {self.products = Product.data.filter { $0.tag == "Live" }}
                 case "On Review":
                     ProductListView(ListName: "On Review", products: $products)
-                        .onAppear {self.products = Product.data.filter { $0.tag == "On Review" }}
                 case "Need Action":
                     ProductListView(ListName: "Need Action", products: $products)
-                        .onAppear {self.products = Product.data.filter { $0.tag == "Need Action" }}
                 case "Archived":
                     ProductListView(ListName: "Archived", products: $products)
-                        .onAppear {self.products = Product.data.filter { $0.tag == "Archived" }}
                 case "Draft":
                     ProductListView(ListName: "Draft", products: $products)
-                        .onAppear {self.products = Product.data.filter { $0.tag == "Draft" }}
                 default: Text("")
                 }
             }

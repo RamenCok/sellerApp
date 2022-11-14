@@ -125,34 +125,38 @@ struct ProductListView: View {
                         
                     }
                     
-                    ScrollView(showsIndicators: false) {
-                        LazyVGrid(columns: adaptiveColumns, spacing: 62) {
-                            ForEach(searchResults, id: \.id) { product in
-                                Button {
-                                    if isSelected {
-                                        if selectedItems.contains(product) {
-                                            selectedItems.removeAll { $0 == product }
-                                        } else {
-                                            selectedItems.append(product)
+                    if products.count == 0 {
+                        EmptyState(tag: ListName)
+                    } else {
+                        ScrollView(showsIndicators: false) {
+                            LazyVGrid(columns: adaptiveColumns, spacing: 62) {
+                                ForEach(searchResults, id: \.id) { product in
+                                    Button {
+                                        if isSelected {
+                                            if selectedItems.contains(product) {
+                                                selectedItems.removeAll { $0 == product }
+                                            } else {
+                                                selectedItems.append(product)
+                                            }
                                         }
+                                        else {
+                                            showSubview(view: AnyView(ProductDetailView(product: product)))
+                                        }
+                                    } label: {
+                                        CardView(product: product)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 32)
+                                                    .stroke(selectedItems.contains(product) ? Color.primaryColor : Color.gray.opacity(0.2), lineWidth: selectedItems.contains(product) ? 3 : 1)
+                                            )
+                                            .shadow(color: selectedItems.contains(product) ? .clear : .gray.opacity(0.05), radius: 28, x: 0, y: 4)
                                     }
-                                    else {
-                                        showSubview(view: AnyView(ProductDetailView(product: product)))
-                                    }
-                                } label: {
-                                    CardView(product: product)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 32)
-                                                .stroke(selectedItems.contains(product) ? Color.primaryColor : Color.gray.opacity(0.2), lineWidth: selectedItems.contains(product) ? 3 : 1)
-                                        )
-                                        .shadow(color: selectedItems.contains(product) ? .clear : .gray.opacity(0.05), radius: 28, x: 0, y: 4)
+                                    .buttonStyle(.plain)
                                 }
-                                .buttonStyle(.plain)
                             }
+                            .padding(.bottom, 20)
+                            .padding([.top, .leading], 5)
+                            .frame(alignment: .leading)
                         }
-                        .padding(.bottom, 20)
-                        .padding([.top, .leading], 5)
-                        .frame(alignment: .leading)
                     }
                 }
                 .padding(.horizontal, 40)
@@ -164,6 +168,7 @@ struct ProductListView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .onAppear {self.products = Product.data.filter { $0.tag == ListName }}
     }
     
     private func showSubview(view: AnyView) {
