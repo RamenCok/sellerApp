@@ -14,13 +14,14 @@ class AppState: ObservableObject {
     }
     
     // Store App State with AppStorage
-    // @AppStorage("scene") var switchScene = CurrentView.login
-    @Published var switchScene = CurrentView.main
+     @AppStorage("scene") var switchScene = CurrentView.login
+//    @Published var switchScene = CurrentView.main
 }
 
 struct ContentView: View {
     @StateObject var appState = AppState()
     @StateObject var viewModel = AuthViewModel()
+    @StateObject var navViewModel = NavigationViewModel()
     
     let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
     
@@ -38,11 +39,11 @@ struct ContentView: View {
                     .transition(transition)
                 
             case .main:
-                MainView(cards: Card.data)
+                NavigationView(products: Product.data)
                     .environmentObject(appState)
-                    .environmentObject(viewModel)
+                    .environmentObject(navViewModel)
                     .background(Background())
-                    .frame(minWidth: 1600 / 1.5, minHeight: 1000 / 1.5)
+//                    .frame(minWidth: 1600 / 1.5, minHeight: 1000 / 1.5)
                     .transition(transition)
             }
         }

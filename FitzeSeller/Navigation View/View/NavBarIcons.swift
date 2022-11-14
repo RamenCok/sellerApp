@@ -40,7 +40,7 @@ struct NavBarIcons: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .foregroundColor(selectedTab == tabBarName ? .red : .gray.opacity(0.5))
+        .foregroundColor(selectedTab == tabBarName ? .primaryColor : .gray.opacity(0.5))
     }
 }
 

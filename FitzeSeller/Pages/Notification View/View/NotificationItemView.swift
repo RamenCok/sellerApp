@@ -30,7 +30,7 @@ struct NotificationItemView: View {
                 
                 // Notificaton Content
                 Text("Your product Lela Textured A-line Dress is published to Live.")
-                    .font(.custom("Sora-Medium", size: 20))
+                    .font(.custom("Sora-Regular", size: 20))
                     .foregroundColor(.black)
                     .lineLimit(2)
                     .frame(width: 312)

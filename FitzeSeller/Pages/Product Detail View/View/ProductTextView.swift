@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ProductTextView: View {
     
+    let product: Product
+    
     var brandName: String = ""
-    var productName: String = ""
-    var colors: [Color] = [.blue, .red, .pink]
     var productDesc: String = ""
     
     var primaryButtonText: String = ""
@@ -28,8 +28,8 @@ struct ProductTextView: View {
                     .font(.custom("Sora-Semibold", size: 24))
                     .padding(.bottom, 10)
                 
-                Text("Zip Through Borg Jacket")
-                    .foregroundColor(.black)
+                Text("\(product.productName)")
+                    .foregroundColor(.textColor)
                     .font(.custom("Sora-Bold", size: 40))
                     .lineLimit(2)
                     .padding(.bottom, 45)
@@ -37,9 +37,9 @@ struct ProductTextView: View {
             
             // MARK: - Colors
             HStack(spacing: 16) {
-                ForEach(0..<colors.count) { color in
+                ForEach(0..<product.productColors.count) { color in
                     Circle()
-                        .foregroundColor(colors[color])
+                        .foregroundColor(product.productColors[color])
                         .scaledToFit()
                         .frame(maxWidth: 31, alignment: .center)
                 }
@@ -50,7 +50,7 @@ struct ProductTextView: View {
             ScrollView {
                 Text("Dreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional side Dreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional sideDreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional sideDreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional sideDreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional sideDreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional sideDreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional side")
                     .font(.custom("Sora-Regular", size: 16))
-                    .foregroundColor(.gray)
+                    .foregroundColor(.textColor)
             }
             .frame(maxHeight: 268, alignment: .center)
             .padding(.bottom, 47)
@@ -62,37 +62,38 @@ struct ProductTextView: View {
                     print("COK")
                 } label: {
                     Text("Edit Product")
-                        .font(.custom("Sora-Medium", size: 16))
-                        .padding(.vertical, 16)
                         .frame(maxWidth: .infinity)
-                        .background(Color.white.opacity(0.0000001))
                 }
-                .foregroundColor(.blue)
-                .overlay {
+                .padding()
+                .font(.custom("Sora-Regular", size: 16))
+                .foregroundColor(.primaryColor)
+                .overlay{
                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(lineWidth: 1)
-                        .foregroundColor(.blue)
+                        .stroke(Color.primaryColor, lineWidth: 2)
                 }
+                .background(Color.backgroundColor)
                 
                 Button {
                     
                 } label: {
                     Text("Archive")
-                        .font(.custom("Sora-Medium", size: 16))
-                        .padding(.vertical, 16)
                         .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
                 }
-                .cornerRadius(16)
+                .padding()
+                .font(.custom("Sora-Regular", size: 16))
+                .foregroundColor(.white)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color.primaryButtonColor)
+                )
             }
             .buttonStyle(.plain)
         }
     }
 }
 
-struct ProductTextView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductTextView()
-    }
-}
+//struct ProductTextView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProductTextView()
+//    }
+//}

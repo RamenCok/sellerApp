@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductDetailView: View {
     
     let screen = NSScreen.main?.visibleFrame
+    let product: Product
     
     var body: some View {
         
@@ -31,15 +32,15 @@ struct ProductDetailView: View {
                     }
                     .shadow(color: .gray.opacity(0.1), radius: 46, x: 0, y: 4)
                 
-                ProductTextView()
+                ProductTextView(product: product)
             }
         }
         .padding(100)
     }
 }
 
-struct ProductDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductDetailView()
-    }
-}
+//struct ProductDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProductDetailView()
+//    }
+//}

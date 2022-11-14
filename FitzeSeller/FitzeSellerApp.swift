@@ -15,7 +15,7 @@ struct FitzeSellerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .preferredColorScheme(.light)
+//                .preferredColorScheme(.light)
         }
         .windowToolbarStyle(.unifiedCompact(showsTitle: false))
         .commands { SidebarCommands() }

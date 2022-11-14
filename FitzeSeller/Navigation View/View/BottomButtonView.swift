@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BottomButtonView: View {
     
+    @EnvironmentObject var appState: AppState
+    
     var body: some View {
         
         VStack(spacing: 16) {
@@ -17,24 +19,24 @@ struct BottomButtonView: View {
                 print("DEBUG: add new product")
             } label: {
                 Text("Add a new product")
-                    .font(.custom("Sora-Medium", size: 16))
+                    .font(.custom("Sora-Regular", size: 16))
                     .padding(.vertical, 16)
                     .padding(.horizontal, 80)
                     .frame(maxHeight: 54)
                     .foregroundColor(.white)
-                    .background(Color.blue)
+                    .background(Color.primaryButtonColor)
                     .cornerRadius(16)
             }
             .frame(maxWidth: 375, alignment: .center)
             .buttonStyle(.plain)
             
             Button {
-                
+                appState.switchScene = .login
             } label: {
                 Text("Log Out")
-                    .font(.custom("Sora-Medium", size: 16))
+                    .font(.custom("Sora-Regular", size: 16))
                     .underline()
-                    .foregroundColor(.red)
+                    .foregroundColor(.redColor)
             }
             .buttonStyle(.plain)
         }

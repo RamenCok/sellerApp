@@ -14,7 +14,9 @@ class NavigationViewModel: ObservableObject {
 
 struct NavigationView: View {
     
-    @StateObject var vm = NavigationViewModel()
+    @EnvironmentObject var vm: NavigationViewModel
+    
+    @State var products: [Product]
     
     var body: some View {
         
@@ -41,39 +43,42 @@ struct NavigationView: View {
                     .padding(.bottom, 60)
             }
             .frame(maxHeight: .infinity)
-            .background(Color.white)
+            .background(Color.backgroundColor)
             .shadow(color: .gray.opacity(0.25), radius: 43, x: 0, y: 0)
             
             //MARK: - Tab Content
             ZStack {
                 
                 switch vm.selectedTab {
-                    case "Live": Text("Live")
-                    case "On Review": Text("On Review")
-                    case "Need Action": Text("Need Action")
-                    case "Archive": Text("Archive")
-                    case "Draft": Text("Draft")
-                    default: Text("")
+                case "Live":
+                    ProductListView(ListName: "Live", products: $products)
+                        .onAppear {self.products = Product.data.filter { $0.tag == "Live" }}
+                case "On Review":
+                    ProductListView(ListName: "On Review", products: $products)
+                        .onAppear {self.products = Product.data.filter { $0.tag == "On Review" }}
+                case "Need Action":
+                    ProductListView(ListName: "Need Action", products: $products)
+                        .onAppear {self.products = Product.data.filter { $0.tag == "Need Action" }}
+                case "Archive":
+                    ProductListView(ListName: "Archive", products: $products)
+                        .onAppear {self.products = Product.data.filter { $0.tag == "Archive" }}
+                case "Draft":
+                    ProductListView(ListName: "Draft", products: $products)
+                        .onAppear {self.products = Product.data.filter { $0.tag == "Draft" }}
+                default: Text("")
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .ignoresSafeArea(.all, edges: .all)
-        .background(
-            
-            // WILL BE REPLACED WITH A REUSABLE BACKGROUND
-            Image("bg")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-            // WILL BE REPLACED WITH A REUSABLE BACKGROUND
-        )
         .environmentObject(vm)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
 
 struct NavigationView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView()
+        NavigationView(products: Product.data)
     }
 }

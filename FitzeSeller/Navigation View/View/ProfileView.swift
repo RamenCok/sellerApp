@@ -21,18 +21,18 @@ struct ProfileView: View {
             VStack(alignment: .leading) {
                 
                 Text("Love, Bonito")
-                    .font(.custom("Sora-Medium", size: 20))
+                    .font(.custom("Sora-Regular", size: 20))
                 
                 Button {
                     
                 } label: {
                     Text("Edit Profile")
-                        .font(.custom("Sora-Medium", size: 16))
+                        .font(.custom("Sora-Regular", size: 16))
                         .underline()
                 }
                 .buttonStyle(.plain)
             }
-            .foregroundColor(.black)
+            .foregroundColor(.textColor)
         }
         .padding(.leading, 32)
     }
