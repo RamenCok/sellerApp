@@ -35,7 +35,7 @@ struct ContentView: View {
                     .environmentObject(appState)
                     .environmentObject(viewModel)
                     .background(Background())
-                    .frame(minWidth: 1600 / 1.5, minHeight: 1000 / 1.5)
+                    .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
                     .transition(transition)
                 
             case .main:
@@ -43,7 +43,7 @@ struct ContentView: View {
                     .environmentObject(appState)
                     .environmentObject(navViewModel)
                     .background(Background())
-//                    .frame(minWidth: 1600 / 1.5, minHeight: 1000 / 1.5)
+                    .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
                     .transition(transition)
             }
         }

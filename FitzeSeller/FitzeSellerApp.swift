@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
         let window = NSApplication.shared.windows.first!
-//        window.titlebarAppearsTransparent = true
+        window.titlebarAppearsTransparent = true
         
         window.backgroundColor = NSColor(Color.backgroundColor) // Change to background color
 //        window.aspectRatio = NSSize(width: 16, height: 10)

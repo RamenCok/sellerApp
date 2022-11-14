@@ -76,9 +76,9 @@ struct NavigationView: View {
     }
 }
 
-
-struct NavigationView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView(products: Product.data)
-    }
-}
+//
+//struct NavigationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView(products: Product.data)
+//    }
+//}

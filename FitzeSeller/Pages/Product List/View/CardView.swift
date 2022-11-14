@@ -22,7 +22,7 @@ struct CardView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(height: 60, alignment: .topLeading)
                     .font(.custom("Sora-Bold", size: 20))
-                    .foregroundColor(.primaryColorOnly)
+                    .foregroundColor(.black)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
                 
