@@ -76,8 +76,13 @@ struct ProductTextView: View {
                 Button {
                     
                 } label: {
-                    Text("Archive")
-                        .frame(maxWidth: .infinity)
+                    if product.tag == "Archived" {
+                        Text("Publish to Live")
+                            .frame(maxWidth: .infinity)
+                    } else {
+                        Text("Archive")
+                            .frame(maxWidth: .infinity)
+                    }
                 }
                 .padding()
                 .font(.custom("Sora-Regular", size: 16))

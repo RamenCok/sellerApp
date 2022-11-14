@@ -9,23 +9,44 @@ import SwiftUI
 
 struct ProductAlertView: View {
     
-    var alertImageName: String = ""
-    var alertMessage: String = ""
-    var alertColor: Color = Color.red
+    let tag: String
+    var alertImageName: String {
+        if tag == "Need Action" {
+            return "exclamationmark.circle"
+        }
+        else {
+            return "rectangle.and.text.magnifyingglass"
+        }
+    }
+    var alertMessage: String {
+        if tag == "Need Action" {
+            return "This product needs some revision"
+        }
+        else {
+            return "This product is on review"
+        }
+    }
+    var alertColor: Color {
+        if tag == "Need Action" {
+            return .red
+        }
+        else {
+            return .orange
+        }
+    }
     
     var body: some View {
         
         HStack {
-            
-            Image(systemName: "exclamationmark.circle")
+            Image(systemName: alertImageName)
                 .font(.system(size: 16, weight: .semibold))
             
-            Text("This product needs some revision")
+            Text("\(alertMessage)")
                 .font(.custom("Sora-Semibold", size: 16))
         }
         .foregroundColor(.white)
         .padding(16)
-        .background(Color.red)
+        .background(alertColor)
         .cornerRadius(11)
         .shadow(color: .gray.opacity(0.1), radius: 46, x: 0, y: 4)
     }
@@ -33,6 +54,6 @@ struct ProductAlertView: View {
 
 struct ProductAlertView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductAlertView()
+        ProductAlertView(tag: Product.data[0].tag)
     }
 }

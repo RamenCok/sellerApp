@@ -16,8 +16,10 @@ struct ProductDetailView: View {
         
         VStack(alignment: .leading, spacing: 34) {
             
-            ProductAlertView()
-            
+            if product.tag == "On Review" || product.tag == "Need Action" {
+                ProductAlertView(tag: product.tag)
+            }
+           
             HStack(spacing: 65) {
                 Image("test")
                     .resizable()

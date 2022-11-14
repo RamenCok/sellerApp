@@ -26,7 +26,7 @@ extension Product {
             Product(productName: "[Live] Borg 6", productColors: [.red, .blue, .green, .red, .blue, .green, .red, .blue, .green], tag: "Live"),
             Product(productName: "[OR] Zip Through Borg 7", productColors: [.green, .yellow, .red, .blue], tag: "On Review"),
             Product(productName: "[OR] Zip Through Borg 8", productColors: [.red, .blue, .black], tag: "On Review"),
-            Product(productName: "[Live] Borg 9", productColors: [.red, .blue, .teal], tag: "Archive"),
+            Product(productName: "[Live] Borg 9", productColors: [.red, .blue, .teal], tag: "Archived"),
             Product(productName: "[Live] Borg 10", productColors: [.red, .yellow, .green], tag: "Draft"),
         ]
     }()

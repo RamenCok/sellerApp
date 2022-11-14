@@ -23,7 +23,7 @@
 		0E879406291B6BD600649AC7 /* PersonalizeBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879405291B6BD600649AC7 /* PersonalizeBrandView.swift */; };
 		0E879408291B92FB00649AC7 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879407291B92FB00649AC7 /* ProductListView.swift */; };
 		0E87940A291B967B00649AC7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879409291B967B00649AC7 /* CardView.swift */; };
-		0EA6F347291CA57700BB5F25 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6F346291CA57700BB5F25 /* Card.swift */; };
+		0EA6F347291CA57700BB5F25 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6F346291CA57700BB5F25 /* Product.swift */; };
 		0EAF5858291DE8D100AC5E93 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF5857291DE8D100AC5E93 /* EmptyState.swift */; };
 		AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */; };
 		AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAF291B4B2B00C598AA /* ContentView.swift */; };
@@ -59,7 +59,7 @@
 		0E879405291B6BD600649AC7 /* PersonalizeBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizeBrandView.swift; sourceTree = "<group>"; };
 		0E879407291B92FB00649AC7 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		0E879409291B967B00649AC7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		0EA6F346291CA57700BB5F25 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		0EA6F346291CA57700BB5F25 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0EAF5857291DE8D100AC5E93 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		AC4C1FAA291B4B2B00C598AA /* FitzeSeller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitzeSeller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitzeSellerApp.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		AC8B0F64292201CF00E8F9F9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0EA6F346291CA57700BB5F25 /* Card.swift */,
+				0EA6F346291CA57700BB5F25 /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EA6F347291CA57700BB5F25 /* Card.swift in Sources */,
+				0EA6F347291CA57700BB5F25 /* Product.swift in Sources */,
 				0E8793FE291B581800649AC7 /* LabelledDivider.swift in Sources */,
 				AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */,
 				DB9B5523291B53E9009C76F0 /* NavigationView.swift in Sources */,
@@ -534,7 +534,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FitzeSeller/Preview Content\"";
-				DEVELOPMENT_TEAM = 8XZM6ZXT9F;
+				DEVELOPMENT_TEAM = 625ZX732CB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -562,7 +562,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FitzeSeller/Preview Content\"";
-				DEVELOPMENT_TEAM = 8XZM6ZXT9F;
+				DEVELOPMENT_TEAM = 625ZX732CB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

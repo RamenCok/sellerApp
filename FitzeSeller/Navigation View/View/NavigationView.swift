@@ -33,7 +33,7 @@ struct NavigationView: View {
                     NavBarIcons(iconName: "wand.and.rays", tabBarName: "Live", selectedTab: $vm.selectedTab)
                     NavBarIcons(iconName: "rectangle.and.text.magnifyingglass", tabBarName: "On Review", selectedTab: $vm.selectedTab)
                     NavBarIcons(iconName: "exclamationmark.circle", tabBarName: "Need Action", selectedTab: $vm.selectedTab)
-                    NavBarIcons(iconName: "archivebox", tabBarName: "Archive", selectedTab: $vm.selectedTab)
+                    NavBarIcons(iconName: "archivebox", tabBarName: "Archived", selectedTab: $vm.selectedTab)
                     NavBarIcons(iconName: "folder", tabBarName: "Draft", selectedTab: $vm.selectedTab)
                 }
                 
@@ -59,9 +59,9 @@ struct NavigationView: View {
                 case "Need Action":
                     ProductListView(ListName: "Need Action", products: $products)
                         .onAppear {self.products = Product.data.filter { $0.tag == "Need Action" }}
-                case "Archive":
-                    ProductListView(ListName: "Archive", products: $products)
-                        .onAppear {self.products = Product.data.filter { $0.tag == "Archive" }}
+                case "Archived":
+                    ProductListView(ListName: "Archived", products: $products)
+                        .onAppear {self.products = Product.data.filter { $0.tag == "Archived" }}
                 case "Draft":
                     ProductListView(ListName: "Draft", products: $products)
                         .onAppear {self.products = Product.data.filter { $0.tag == "Draft" }}
