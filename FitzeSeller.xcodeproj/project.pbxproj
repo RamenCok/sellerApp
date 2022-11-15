@@ -25,6 +25,7 @@
 		0E87940A291B967B00649AC7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879409291B967B00649AC7 /* CardView.swift */; };
 		0EA6F347291CA57700BB5F25 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6F346291CA57700BB5F25 /* Product.swift */; };
 		0EAF5858291DE8D100AC5E93 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF5857291DE8D100AC5E93 /* EmptyState.swift */; };
+		AC38B6AE2923569A002EB3B2 /* DraftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6AD2923569A002EB3B2 /* DraftCardView.swift */; };
 		AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */; };
 		AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAF291B4B2B00C598AA /* ContentView.swift */; };
 		AC4C1FB2291B4B2C00C598AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		0E879409291B967B00649AC7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0EA6F346291CA57700BB5F25 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0EAF5857291DE8D100AC5E93 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
+		AC38B6AD2923569A002EB3B2 /* DraftCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftCardView.swift; sourceTree = "<group>"; };
 		AC4C1FAA291B4B2B00C598AA /* FitzeSeller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitzeSeller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitzeSellerApp.swift; sourceTree = "<group>"; };
 		AC4C1FAF291B4B2B00C598AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				0E879407291B92FB00649AC7 /* ProductListView.swift */,
 				0E879409291B967B00649AC7 /* CardView.swift */,
+				AC38B6AD2923569A002EB3B2 /* DraftCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */,
 				DB36D74F291B5CB300A6B04B /* NotificationItemView.swift in Sources */,
 				DB9B5530291B5829009C76F0 /* NotificationsView.swift in Sources */,
+				AC38B6AE2923569A002EB3B2 /* DraftCardView.swift in Sources */,
 				DBF39DD6291C010700CE5CE4 /* ProductDetailView.swift in Sources */,
 				0E879400291B630F00649AC7 /* LoginView.swift in Sources */,
 				0E8793F0291B50DB00649AC7 /* StackNavigationView.swift in Sources */,
@@ -534,7 +538,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FitzeSeller/Preview Content\"";
-				DEVELOPMENT_TEAM = 625ZX732CB;
+				DEVELOPMENT_TEAM = 8XZM6ZXT9F;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -562,7 +566,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FitzeSeller/Preview Content\"";
-				DEVELOPMENT_TEAM = 625ZX732CB;
+				DEVELOPMENT_TEAM = 8XZM6ZXT9F;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

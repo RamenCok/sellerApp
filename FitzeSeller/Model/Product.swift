@@ -28,6 +28,8 @@ extension Product {
             Product(productName: "[OR] Zip Through Borg 8", productColors: [.red, .blue, .black], tag: "On Review"),
             Product(productName: "[Live] Borg 9", productColors: [.red, .blue, .teal], tag: "Archived"),
             Product(productName: "[Live] Borg 10", productColors: [.red, .yellow, .green], tag: "Draft"),
+            Product(productName: "[Live] Borg 10", productColors: [.red, .yellow, .green], tag: "Draft"),
+            Product(productName: "[Live] Borg 10", productColors: [.red, .yellow, .green], tag: "Draft"),
         ]
     }()
 }
