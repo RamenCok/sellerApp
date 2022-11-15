@@ -11,11 +11,12 @@ class AppState: ObservableObject {
     enum CurrentView: Int {
         case login
         case main
+        case cok
     }
     
     // Store App State with AppStorage
-     @AppStorage("scene") var switchScene = CurrentView.login
-//    @Published var switchScene = CurrentView.main
+//     @AppStorage("scene") var switchScene = CurrentView.cok
+    @Published var switchScene = CurrentView.cok
 }
 
 struct ContentView: View {
@@ -42,6 +43,11 @@ struct ContentView: View {
                 NavigationView(products: Product.data)
                     .environmentObject(appState)
                     .environmentObject(navViewModel)
+                    .background(Background())
+                    .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
+                    .transition(transition)
+            case .cok:
+                ReusableAddVariantView()
                     .background(Background())
                     .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
                     .transition(transition)
