@@ -40,6 +40,7 @@
 		DB9B5530291B5829009C76F0 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B552F291B5829009C76F0 /* NotificationsView.swift */; };
 		DBF29DF529232FDB00D6A333 /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF29DF429232FDB00D6A333 /* AssetView.swift */; };
 		DBF29DF7292330FD00D6A333 /* AirForce.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DBF29DF6292330FD00D6A333 /* AirForce.usdz */; };
+		DBF29DF92923362800D6A333 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF29DF82923362800D6A333 /* RadioButton.swift */; };
 		DBF39DD6291C010700CE5CE4 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF39DD5291C010700CE5CE4 /* ProductDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		DB9B552F291B5829009C76F0 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		DBF29DF429232FDB00D6A333 /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		DBF29DF6292330FD00D6A333 /* AirForce.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = AirForce.usdz; sourceTree = "<group>"; };
+		DBF29DF82923362800D6A333 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		DBF39DD5291C010700CE5CE4 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +221,7 @@
 				0E8793EF291B50DB00649AC7 /* StackNavigationView.swift */,
 				0E8793F3291B527200649AC7 /* ReusableButton.swift */,
 				0EAF5857291DE8D100AC5E93 /* EmptyState.swift */,
+				DBF29DF82923362800D6A333 /* RadioButton.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				0E879402291B66B300649AC7 /* ReusableTextField.swift in Sources */,
 				0E8793F6291B53B100649AC7 /* SignUpLoginView.swift in Sources */,
 				0E8793F8291B55A900649AC7 /* AuthViewModel.swift in Sources */,
+				DBF29DF92923362800D6A333 /* RadioButton.swift in Sources */,
 				0E8793FC291B563F00649AC7 /* Background.swift in Sources */,
 				0E879404291B6B5300649AC7 /* SignUpView.swift in Sources */,
 				0E879408291B92FB00649AC7 /* ProductListView.swift in Sources */,
