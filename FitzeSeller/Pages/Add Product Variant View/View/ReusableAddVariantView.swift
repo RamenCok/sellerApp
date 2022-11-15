@@ -51,7 +51,14 @@ struct ReusableAddVariantView: View {
                     .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
                 
                 Button {
-                    print("OPEN FINDER")
+                    NSOpenPanel.openImage { data in
+                        print("DEBUG: \(data)")
+                        let saveURL = NSOpenPanel.showSavePanel{ result1 in
+                            try? data.map({ nsdata in
+                                nsdata.write(to: result1, atomically: true)
+                            })
+                        }
+                    }
                 } label: {
                     Text("Select file from your computer")
                         .font(.custom("Sora-Medium", size: 12))
