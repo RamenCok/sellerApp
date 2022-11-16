@@ -30,6 +30,7 @@
 		AC38B6F0292494FA002EB3B2 /* TimelineTiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6EF292494FA002EB3B2 /* TimelineTiles.swift */; };
 		AC38B6F22924D356002EB3B2 /* ReusableGenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6F12924D356002EB3B2 /* ReusableGenderButton.swift */; };
 		AC38B6F42924E4BE002EB3B2 /* FormHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6F32924E4BE002EB3B2 /* FormHeading.swift */; };
+		AC38B6F62925595E002EB3B2 /* OpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6F52925595E002EB3B2 /* OpenPanel.swift */; };
 		AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */; };
 		AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAF291B4B2B00C598AA /* ContentView.swift */; };
 		AC4C1FB2291B4B2C00C598AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		AC38B6EF292494FA002EB3B2 /* TimelineTiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTiles.swift; sourceTree = "<group>"; };
 		AC38B6F12924D356002EB3B2 /* ReusableGenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableGenderButton.swift; sourceTree = "<group>"; };
 		AC38B6F32924E4BE002EB3B2 /* FormHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHeading.swift; sourceTree = "<group>"; };
+		AC38B6F52925595E002EB3B2 /* OpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPanel.swift; sourceTree = "<group>"; };
 		AC4C1FAA291B4B2B00C598AA /* FitzeSeller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitzeSeller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitzeSellerApp.swift; sourceTree = "<group>"; };
 		AC4C1FAF291B4B2B00C598AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				0E8793F1291B51E200649AC7 /* Extensions.swift */,
+				AC38B6F52925595E002EB3B2 /* OpenPanel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				0E8793F4291B527200649AC7 /* ReusableButton.swift in Sources */,
 				0EAF5858291DE8D100AC5E93 /* EmptyState.swift in Sources */,
 				0E879402291B66B300649AC7 /* ReusableTextField.swift in Sources */,
+				AC38B6F62925595E002EB3B2 /* OpenPanel.swift in Sources */,
 				0E8793F6291B53B100649AC7 /* SignUpLoginView.swift in Sources */,
 				0E8793F8291B55A900649AC7 /* AuthViewModel.swift in Sources */,
 				0E8793FC291B563F00649AC7 /* Background.swift in Sources */,

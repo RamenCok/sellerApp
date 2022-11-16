@@ -67,10 +67,14 @@ struct AddProductView: View {
                     VStack(alignment: .leading){
                         FormHeading(text: "Product Thumbnail (Real Photo)")
                         Button {
-                            print("Something")
+                            NSOpenPanel.openImage { result in
+                                print(result)
+                            }
                         } label: {
                             Image(systemName: "plus")
                                 .font(.system(size: 32))
+                                .frame(width: 178, height: 178)
+                                .background(Color.textFieldBG)
                         }.frame(width: 178, height: 178)
                             .background(Color.textFieldBG)
                             .cornerRadius(20)
