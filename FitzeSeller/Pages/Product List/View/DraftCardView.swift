@@ -33,6 +33,7 @@ struct DraftCardView: View {
             RoundedRectangle(cornerRadius: 32)
                 .stroke(Color.lightGrey2, lineWidth: 1)
         )
+        .background(Color.white)
     }
 }
 
