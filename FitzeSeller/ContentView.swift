@@ -47,7 +47,7 @@ struct ContentView: View {
                     .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
                     .transition(transition)
             case .cok:
-                ReusableAddVariantView()
+                AddProductVariantView()
                     .background(Background())
                     .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
                     .transition(transition)

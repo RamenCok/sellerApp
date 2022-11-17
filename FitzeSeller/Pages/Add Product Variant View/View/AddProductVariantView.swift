@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddProductVariantView: View {
     
+    @State var colors = [Color]()
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 37) {
@@ -18,12 +20,37 @@ struct AddProductVariantView: View {
             
             ScrollView(.vertical, showsIndicators: true) {
                 
-                ClickToAddVariantButtonView()
+                VStack(spacing: 30) {
+                    
+                    ForEach(0..<colors.count, id: \.self) { color in
+                        
+                        ReusableAddVariantView(color: getBindingColor(forIndex: color)) {
+                            
+                        }
+                    }
+                    
+                    ClickToAddVariantButtonView(colors: $colors)
+                }
             }
+            
+            Button {
+                for i in 0..<colors.count {
+                    print("DEBUG: \(colors[i].toHex() ?? "FFFFFF")")
+                }
+            } label: {
+                Text("PRINT COLOR COKKKKKK")
+            }
+
         }
-        .padding()
+        .padding(40)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Background())
+    }
+    
+    func getBindingColor(forIndex index: Int) -> Binding<Color> {
+        return Binding<Color>(get: {
+            colors[index]
+        }, set: { colors[index] = $0 })
     }
 }
 

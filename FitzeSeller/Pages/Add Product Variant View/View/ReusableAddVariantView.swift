@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ReusableAddVariantView: View {
     
+    @Binding var color: Color
+    var removeAction: () -> Void
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
@@ -18,14 +21,7 @@ struct ReusableAddVariantView: View {
                 .padding(.bottom, 10)
                 .foregroundColor(.black)
             
-            Button {
-                print("OPEN COLOR PICKER")
-            } label: {
-                Circle()
-                    .frame(width: 40, height: 40)
-                    .foregroundColor(.redColor)
-            }
-            .buttonStyle(.plain)
+            ColorPickerView(color: $color)
             .padding(.bottom, 34)
             
             HStack(alignment: .center, spacing: 13) {
@@ -52,9 +48,11 @@ struct ReusableAddVariantView: View {
                 
                 Button {
                     NSOpenPanel.openImage { data in
+                        
                         print("DEBUG: \(data)")
-                        let saveURL = NSOpenPanel.showSavePanel{ result1 in
-                            try? data.map({ nsdata in
+                         
+                        NSOpenPanel.showSavePanel{ result1 in
+                            data.map({ nsdata in
                                 nsdata.write(to: result1, atomically: true)
                             })
                         }
@@ -88,8 +86,36 @@ struct ReusableAddVariantView: View {
     }
 }
 
-struct ReusableAddVariantView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReusableAddVariantView()
+struct ColorPickerView: View {
+    
+    @Binding var color: Color
+    
+    var body: some View {
+        
+        HStack(spacing: 20) {
+            Circle()
+                .foregroundColor(color)
+                .scaledToFit()
+                .frame(width: 40, height: 40)
+            
+            ZStack {
+                
+                ColorPicker("", selection: $color)
+                    .scaleEffect(CGSize(width: 2, height: 1))
+                
+                Text("Pick a color")
+                    .font(.custom("Sora-SemiBold", size: 16))
+                    .padding(.vertical, 4)
+                    .padding(.horizontal)
+                    .background(Color.white)
+                    .overlay(content: {
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor(.primaryColorOnly)
+                    })
+                    .allowsHitTesting(false)
+            }
+        }
     }
 }
+

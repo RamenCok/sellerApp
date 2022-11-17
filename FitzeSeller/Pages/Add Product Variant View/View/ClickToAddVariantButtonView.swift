@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ClickToAddVariantButtonView: View {
     
+    @Binding var colors: [Color]
+    
     var body: some View {
         
         Button {
-            print("Hello, world!")
+            self.colors.append(.red)
         } label: {
             HStack(alignment: .center, spacing: 20) {
                 Image(systemName: "plus")
@@ -28,11 +30,5 @@ struct ClickToAddVariantButtonView: View {
             .cornerRadius(22)
         }
         .buttonStyle(.plain)
-    }
-}
-
-struct ClickToAddVariantButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ClickToAddVariantButtonView()
     }
 }
