@@ -12,6 +12,9 @@ struct ReusableAddVariantView: View {
     @Binding var color: Color
     @Binding var imageData: NSData
     
+    @State var isDisabled = false
+    @State var fileName = ""
+    
     var removeAction: () -> Void
     
     var body: some View {
@@ -41,39 +44,66 @@ struct ReusableAddVariantView: View {
                 
                 VStack(alignment: .center, spacing: 4) {
                     
-                    Text("Drag your .zip file here")
-                        .font(.custom("Sora-SemiBold", size: 16))
-                        .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
-                    
-                    Text("or")
-                        .font(.custom("Sora-Regular", size: 14))
-                        .padding(.bottom, 4)
-                        .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
-                    
-                    Button {
-                        NSOpenPanel.openImage { data in
-                            
-                            data.map({ success in
-                                imageData = success
-                            })
-                        }
-                    } label: {
-                        Text("Select file from your computer")
-                            .font(.custom("Sora-Medium", size: 12))
+                    if isDisabled == false {
+                        Text("Drag your .zip file here")
+                            .font(.custom("Sora-SemiBold", size: 16))
                             .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
-                            .padding(.vertical, 6)
-                            .padding(.horizontal, 45)
-                            .background(Color.white.opacity(0.0000001))
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(lineWidth: 1)
-                                    .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
+                        
+                        Text("or")
+                            .font(.custom("Sora-Regular", size: 14))
+                            .padding(.bottom, 4)
+                            .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
+                        
+                        Button {
+                            NSOpenPanel.openImage { data, fileName  in
+                                
+                                data.map({ success in
+                                    imageData = success
+                                    isDisabled = true
+                                })
+                                
+                                self.fileName = fileName
                             }
+                        } label: {
+                            Text("Select file from your computer")
+                                .font(.custom("Sora-Medium", size: 12))
+                                .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
+                                .padding(.vertical, 6)
+                                .padding(.horizontal, 45)
+                                .background(Color.white.opacity(0.0000001))
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(lineWidth: 1)
+                                        .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
+                                }
+                        }
+                        .buttonStyle(.plain)
+                    } else {
+                        
+                        HStack(spacing: 5) {
+
+                            Image(systemName: "folder.fill")
+                                .font(.system(size: 16, weight: .bold))
+                                .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
+                            
+                            Text("\(fileName)")
+                                .font(.custom("Sora-SemiBold", size: 18))
+                                .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
+                            
+                            Button {
+                                isDisabled = false
+                            } label: {
+                                Image(systemName: "xmark").font(.system(size: 18, weight: .bold))
+                                    .foregroundColor(.redColor)
+                            }
+                            .padding(.leading, 5)
+                            .buttonStyle(.plain)
+                        }
                     }
-                    .buttonStyle(.plain)
                 }
                 .padding(.vertical, 50)
                 .frame(maxWidth: .infinity)
+                .frame(height: 300)
                 .overlay {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(style: StrokeStyle(lineWidth: 3, dash: [15]))

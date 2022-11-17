@@ -68,7 +68,7 @@ extension View {
 
 extension NSOpenPanel {
     
-    static func openImage(completion: @escaping (_ result: Result<NSData, Error>) -> ()) {
+    static func openImage(completion: @escaping (_ result: Result<NSData, Error>, _ fileName: String) -> ()) {
         let panel = NSOpenPanel()
         panel.allowsMultipleSelection = false
         panel.canChooseFiles = true
@@ -78,11 +78,11 @@ extension NSOpenPanel {
         
         panel.begin { result in
             if result == .OK, let url = panel.urls.first, let data = NSData(contentsOf: url) {
-                completion(.success(data))
+                completion(.success(data), url.lastPathComponent)
             } else {
                 completion(.failure(
                     NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to get file location"])
-                ))
+                ), "NO FILE")
             }
         }
     }
