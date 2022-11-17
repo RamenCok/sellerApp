@@ -11,11 +11,12 @@ class AppState: ObservableObject {
     enum CurrentView: Int {
         case login
         case main
+        case productinput
     }
     
     // Store App State with AppStorage
-     @AppStorage("scene") var switchScene = CurrentView.login
-//    @Published var switchScene = CurrentView.main
+//     @AppStorage("scene") var switchScene = CurrentView.login
+    @Published var switchScene = CurrentView.productinput
 }
 
 struct ContentView: View {
@@ -45,6 +46,12 @@ struct ContentView: View {
                     .background(Background())
                     .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
                     .transition(transition)
+                
+            case .productinput:
+                ProductSizeChartView()
+                    .background(Background())
+                    .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
+                    
             }
         }
         .animation(.default, value: appState.switchScene)
