@@ -10,11 +10,13 @@ import SwiftUI
 struct ClickToAddVariantButtonView: View {
     
     @Binding var colors: [Color]
+    @Binding var imagesData: [NSData]
     
     var body: some View {
         
         Button {
             self.colors.append(.red)
+            self.imagesData.append(NSData())
         } label: {
             HStack(alignment: .center, spacing: 20) {
                 Image(systemName: "plus")

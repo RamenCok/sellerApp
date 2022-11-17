@@ -10,6 +10,7 @@ import SwiftUI
 struct AddProductVariantView: View {
     
     @State var colors = [Color]()
+    @State var imagesData = [NSData]()
     
     var body: some View {
         
@@ -20,22 +21,30 @@ struct AddProductVariantView: View {
             
             ScrollView(.vertical, showsIndicators: true) {
                 
-                VStack(spacing: 30) {
+                VStack(alignment: .leading, spacing: 30) {
                     
-                    ForEach(0..<colors.count, id: \.self) { color in
+                    ForEach(0..<colors.count, id: \.self) { index in
                         
-                        ReusableAddVariantView(color: getBindingColor(forIndex: color)) {
+                        ReusableAddVariantView(color: getBindingColor(forIndex: index), imageData: getBindingImageData(forIndex: index)) {
                             
+                            self.colors.remove(at: index)
+                            self.imagesData.remove(at: index)
                         }
                     }
                     
-                    ClickToAddVariantButtonView(colors: $colors)
+                    ClickToAddVariantButtonView(colors: $colors, imagesData: $imagesData)
                 }
             }
             
             Button {
                 for i in 0..<colors.count {
                     print("DEBUG: \(colors[i].toHex() ?? "FFFFFF")")
+                }
+                
+                for i in 0..<imagesData.count {
+                    NSOpenPanel.showSavePanel{ result1 in
+                        imagesData[i].write(to: result1, atomically: true)
+                    }
                 }
             } label: {
                 Text("PRINT COLOR COKKKKKK")
@@ -51,6 +60,12 @@ struct AddProductVariantView: View {
         return Binding<Color>(get: {
             colors[index]
         }, set: { colors[index] = $0 })
+    }
+    
+    func getBindingImageData(forIndex index: Int) -> Binding<NSData> {
+        return Binding<NSData>(get: {
+            imagesData[index]
+        }, set: { imagesData[index] = $0 })
     }
 }
 
