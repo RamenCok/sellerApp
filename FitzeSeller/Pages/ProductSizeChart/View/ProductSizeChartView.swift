@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProductSizeChartView: View {
+    let screen = NSScreen.main?.visibleFrame
     
     @State var sizes = ["XS"]
     @State var bust = [""]
@@ -40,7 +41,7 @@ struct ProductSizeChartView: View {
                 }
 
             }
-            .frame(width: 500)
+            .frame(width: screen!.width * 0.5)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()

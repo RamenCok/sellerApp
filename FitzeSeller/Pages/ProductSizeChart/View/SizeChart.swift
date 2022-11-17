@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SkillListEditor: View {
-    
+    let screen = NSScreen.main?.visibleFrame
     @Binding var sizes: [String]
     @Binding var bust: [String]
     @Binding var waist: [String]
@@ -42,17 +43,32 @@ struct SkillListEditor: View {
             self.height.append("")
         }
         
-        HStack {
+        HStack(alignment: .firstTextBaseline, spacing: 50) {
             Text("Size")
                 .font(.custom("Sora-SemiBold", size: 24))
-            Spacer().frame(width: 200)
-            Text("Bust")
-                .font(.custom("Sora-SemiBold", size: 24))
-            Text("Waist")
-                .font(.custom("Sora-SemiBold", size: 24))
-            Text("Height")
-                .font(.custom("Sora-SemiBold", size: 24))
-        }
+                .frame(maxWidth: 200, alignment: .leading)
+//            Spacer().frame(width: 5)
+            HStack(spacing: 40){
+                Text("Bust")
+                    .font(.custom("Sora-SemiBold", size: 24))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(.clear)
+                Text("Waist")
+                    .font(.custom("Sora-SemiBold", size: 24))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(.clear)
+                Text("Height")
+                    .font(.custom("Sora-SemiBold", size: 24))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(.clear)
+                Text("   ")
+                    .font(.custom("Sora-SemiBold", size: 24))
+                    .frame(maxWidth: .infinity)
+            }.frame(maxWidth: .infinity, alignment: .leading)
+                .background(.clear)
+            
+        }   .frame(maxWidth: .infinity, alignment: .leading)
+            .background(.clear)
         Divider()
         
         ForEach(0..<sizes.count, id: \.self) { index in
@@ -67,6 +83,7 @@ struct SkillListEditor: View {
 }
 
 struct ListItem: View {
+    let screen = NSScreen.main?.visibleFrame
     
     @Binding var size: String
     @Binding var bust: String
@@ -79,32 +96,41 @@ struct ListItem: View {
     var body: some View {
         VStack(alignment: .leading){
             Spacer().frame(height: 8)
-            HStack{
+            HStack(spacing: 50){
                 Picker("", selection: $size) {
                     ForEach(sizes, id: \.self) {
                         Text($0)
-                    }
+                    }.font(.custom("Sora-SemiBold", size: 24))
                 }
-                .pickerStyle(.menu)
+                .background(.clear)
+                .labelsHidden()
+                .frame(maxWidth: 200, maxHeight: .infinity)
+//                .pickerStyle(.menu)
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack{
-                        TextField("", text: $bust)
-                            .placeholder(when: bust.isEmpty, text: "0"){}
-                        TextField("", text: $waist)
-                            .placeholder(when: waist.isEmpty, text: "0"){}
-                        TextField("", text: $height)
-                            .placeholder(when: height.isEmpty, text: "0"){}
-                    }
-                    .textFieldStyle(RoundedTextFieldStyle())
-                }
+//                Spacer().frame(width: 85)
+                HStack(spacing: 40){
+                    TextField("", text: $bust)
+                        .placeholder(when: bust.isEmpty, text: "0"){}
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    TextField("", text: $waist)
+                        .placeholder(when: waist.isEmpty, text: "0"){}
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    TextField("", text: $height)
+                        .placeholder(when: height.isEmpty, text: "0"){}
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Button(action: removeAction) {
+                        Image(systemName: "trash")
+                            .font(.system(size: 24))
+                            .foregroundColor(.red)
+                            .padding(.horizontal)
+                    }.buttonStyle(.plain)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                }.frame(maxWidth: .infinity, alignment: .leading)
                 
-                Button(action: removeAction) {
-                    Image(systemName: "xmark.bin")
-                        .foregroundColor(.red)
-                        .padding(.horizontal)
-                }.buttonStyle(.plain)
-            }
+            }.textFieldStyle(RoundedTextFieldStyle())
+                .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(.clear)
             
         }
     }
