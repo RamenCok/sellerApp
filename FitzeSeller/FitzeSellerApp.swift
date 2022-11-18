@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct FitzeSellerApp: App {
@@ -28,6 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let window = NSApplication.shared.windows.first!
         window.titlebarAppearsTransparent = true
+        FirebaseApp.configure()
         
         window.backgroundColor = NSColor(Color.backgroundColor) // Change to background color
 //        window.aspectRatio = NSSize(width: 16, height: 10)
