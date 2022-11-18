@@ -22,6 +22,7 @@ struct ProductListView: View {
     }
     
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 253), spacing: 20, alignment: .leading)]
+    private let draftColumns = [GridItem(.flexible())]
     
     @State var searchText = ""
     @State var isSelected = false
@@ -126,7 +127,7 @@ struct ProductListView: View {
                     }
                     
                     ScrollView(showsIndicators: false) {
-                        LazyVGrid(columns: adaptiveColumns, spacing: 62) {
+                        LazyVGrid(columns: ListName == "Draft" ? draftColumns : adaptiveColumns, spacing: ListName == "Draft" ? 25 : 62) {
                             ForEach(searchResults, id: \.id) { product in
                                 Button {
                                     if isSelected {
@@ -140,12 +141,24 @@ struct ProductListView: View {
                                         showSubview(view: AnyView(ProductDetailView(product: product)))
                                     }
                                 } label: {
-                                    CardView(product: product)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 32)
-                                                .stroke(selectedItems.contains(product) ? Color.primaryColor : Color.gray.opacity(0.2), lineWidth: selectedItems.contains(product) ? 3 : 1)
-                                        )
-                                        .shadow(color: selectedItems.contains(product) ? .clear : .gray.opacity(0.05), radius: 28, x: 0, y: 4)
+                                    if ListName == "Draft" {
+                                        DraftCardView(product: product)
+                                            .frame(maxWidth: .infinity)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 32)
+                                                    .stroke(selectedItems.contains(product) ? Color.primaryColor : Color.gray.opacity(0.2), lineWidth: selectedItems.contains(product) ? 3 : 1)
+                                            )
+                                            .shadow(color: selectedItems.contains(product) ? .clear : .gray.opacity(0.05), radius: 28, x: 0, y: 4)
+                                           
+                                    } else {
+                                        CardView(product: product)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 32)
+                                                    .stroke(selectedItems.contains(product) ? Color.primaryColor : Color.gray.opacity(0.2), lineWidth: selectedItems.contains(product) ? 3 : 1)
+                                            )
+                                            .shadow(color: selectedItems.contains(product) ? .clear : .gray.opacity(0.05), radius: 28, x: 0, y: 4)
+                                    }
+                                    
                                 }
                                 .buttonStyle(.plain)
                             }

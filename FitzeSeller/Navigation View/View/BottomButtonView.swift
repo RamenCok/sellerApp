@@ -16,7 +16,7 @@ struct BottomButtonView: View {
         VStack(spacing: 16) {
             
             Button {
-                print("DEBUG: add new product")
+                
             } label: {
                 Text("Add a new product")
                     .font(.custom("Sora-Regular", size: 16))
