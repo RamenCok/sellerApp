@@ -23,6 +23,7 @@
 		0E879406291B6BD600649AC7 /* PersonalizeBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879405291B6BD600649AC7 /* PersonalizeBrandView.swift */; };
 		0E879408291B92FB00649AC7 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879407291B92FB00649AC7 /* ProductListView.swift */; };
 		0E87940A291B967B00649AC7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E879409291B967B00649AC7 /* CardView.swift */; };
+		0EA5722F2923369800ABA7A8 /* ProductSizeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA5722E2923369800ABA7A8 /* ProductSizeChartView.swift */; };
 		0EA6F347291CA57700BB5F25 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6F346291CA57700BB5F25 /* Product.swift */; };
 		0EAF5858291DE8D100AC5E93 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF5857291DE8D100AC5E93 /* EmptyState.swift */; };
 		AC38B6AE2923569A002EB3B2 /* DraftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6AD2923569A002EB3B2 /* DraftCardView.swift */; };
@@ -31,6 +32,9 @@
 		AC38B6F22924D356002EB3B2 /* ReusableGenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6F12924D356002EB3B2 /* ReusableGenderButton.swift */; };
 		AC38B6F42924E4BE002EB3B2 /* FormHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6F32924E4BE002EB3B2 /* FormHeading.swift */; };
 		AC38B6F62925595E002EB3B2 /* OpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6F52925595E002EB3B2 /* OpenPanel.swift */; };
+		0ED4CE852923E110009CED84 /* SizeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED4CE842923E110009CED84 /* SizeChart.swift */; };
+		AC38B6FA29265148002EB3B2 /* ProductCommerceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6F929265148002EB3B2 /* ProductCommerceView.swift */; };
+		AC38B6FC29266E29002EB3B2 /* ProductECommerceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38B6FB29266E29002EB3B2 /* ProductECommerceList.swift */; };
 		AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */; };
 		AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C1FAF291B4B2B00C598AA /* ContentView.swift */; };
 		AC4C1FB2291B4B2C00C598AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4C1FB1291B4B2C00C598AA /* Assets.xcassets */; };
@@ -65,6 +69,7 @@
 		0E879405291B6BD600649AC7 /* PersonalizeBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizeBrandView.swift; sourceTree = "<group>"; };
 		0E879407291B92FB00649AC7 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		0E879409291B967B00649AC7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0EA5722E2923369800ABA7A8 /* ProductSizeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSizeChartView.swift; sourceTree = "<group>"; };
 		0EA6F346291CA57700BB5F25 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0EAF5857291DE8D100AC5E93 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		AC38B6AD2923569A002EB3B2 /* DraftCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftCardView.swift; sourceTree = "<group>"; };
@@ -73,6 +78,9 @@
 		AC38B6F12924D356002EB3B2 /* ReusableGenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableGenderButton.swift; sourceTree = "<group>"; };
 		AC38B6F32924E4BE002EB3B2 /* FormHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHeading.swift; sourceTree = "<group>"; };
 		AC38B6F52925595E002EB3B2 /* OpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPanel.swift; sourceTree = "<group>"; };
+		0ED4CE842923E110009CED84 /* SizeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeChart.swift; sourceTree = "<group>"; };
+		AC38B6F929265148002EB3B2 /* ProductCommerceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCommerceView.swift; sourceTree = "<group>"; };
+		AC38B6FB29266E29002EB3B2 /* ProductECommerceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductECommerceList.swift; sourceTree = "<group>"; };
 		AC4C1FAA291B4B2B00C598AA /* FitzeSeller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitzeSeller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4C1FAD291B4B2B00C598AA /* FitzeSellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitzeSellerApp.swift; sourceTree = "<group>"; };
 		AC4C1FAF291B4B2B00C598AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -126,6 +134,40 @@
 				AC38B6EF292494FA002EB3B2 /* TimelineTiles.swift */,
 				AC38B6F12924D356002EB3B2 /* ReusableGenderButton.swift */,
 				AC38B6F32924E4BE002EB3B2 /* FormHeading.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0EA5722C2923368100ABA7A8 /* ProductSizeChart */ = {
+			isa = PBXGroup;
+			children = (
+				0EA5722D2923368D00ABA7A8 /* View */,
+			);
+			path = ProductSizeChart;
+			sourceTree = "<group>";
+		};
+		0EA5722D2923368D00ABA7A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0EA5722E2923369800ABA7A8 /* ProductSizeChartView.swift */,
+				0ED4CE842923E110009CED84 /* SizeChart.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC38B6F729265071002EB3B2 /* ProductCommerceLink */ = {
+			isa = PBXGroup;
+			children = (
+				AC38B6F82926508C002EB3B2 /* View */,
+			);
+			path = ProductCommerceLink;
+			sourceTree = "<group>";
+		};
+		AC38B6F82926508C002EB3B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC38B6F929265148002EB3B2 /* ProductCommerceView.swift */,
+				AC38B6FB29266E29002EB3B2 /* ProductECommerceList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				AC38B6EB29248188002EB3B2 /* Add Product 2 */,
+				AC38B6F729265071002EB3B2 /* ProductCommerceLink */,
+				0EA5722C2923368100ABA7A8 /* ProductSizeChart */,
 				AC8B0F6A2922027500E8F9F9 /* Product List */,
 				AC8B0F612922012600E8F9F9 /* Authentication */,
 				DBF39DD2291C00CB00CE5CE4 /* Product Detail View */,
@@ -419,6 +463,7 @@
 				DB9B5523291B53E9009C76F0 /* NavigationView.swift in Sources */,
 				DB9B5529291B56BE009C76F0 /* ProfileView.swift in Sources */,
 				DB9B552B291B56F3009C76F0 /* BottomButtonView.swift in Sources */,
+				AC38B6FA29265148002EB3B2 /* ProductCommerceView.swift in Sources */,
 				DB9B5527291B5497009C76F0 /* NavBarIcons.swift in Sources */,
 				DB01CC3D291D5A4200002942 /* ProductAlertView.swift in Sources */,
 				DB12245E291CACE700F6ECD4 /* ProductTextView.swift in Sources */,
@@ -436,6 +481,8 @@
 				0E879408291B92FB00649AC7 /* ProductListView.swift in Sources */,
 				AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */,
 				DB36D74F291B5CB300A6B04B /* NotificationItemView.swift in Sources */,
+				0ED4CE852923E110009CED84 /* SizeChart.swift in Sources */,
+				0EA5722F2923369800ABA7A8 /* ProductSizeChartView.swift in Sources */,
 				DB9B5530291B5829009C76F0 /* NotificationsView.swift in Sources */,
 				AC38B6AE2923569A002EB3B2 /* DraftCardView.swift in Sources */,
 				DBF39DD6291C010700CE5CE4 /* ProductDetailView.swift in Sources */,
@@ -443,6 +490,7 @@
 				0E8793F0291B50DB00649AC7 /* StackNavigationView.swift in Sources */,
 				0E8793F2291B51E200649AC7 /* Extensions.swift in Sources */,
 				0E87940A291B967B00649AC7 /* CardView.swift in Sources */,
+				AC38B6FC29266E29002EB3B2 /* ProductECommerceList.swift in Sources */,
 				0E879406291B6BD600649AC7 /* PersonalizeBrandView.swift in Sources */,
 				AC38B6F22924D356002EB3B2 /* ReusableGenderButton.swift in Sources */,
 			);
