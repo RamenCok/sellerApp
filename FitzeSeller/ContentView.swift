@@ -48,7 +48,7 @@ struct ContentView: View {
                     .transition(transition)
                 
             case .productinput:
-                ProductSizeChartView()
+                ProductCommerceView()
                     .background(Background())
                     .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
                     
