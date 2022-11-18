@@ -79,6 +79,9 @@
 		DBF29DF529232FDB00D6A333 /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF29DF429232FDB00D6A333 /* AssetView.swift */; };
 		DBF29DF7292330FD00D6A333 /* AirForce.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DBF29DF6292330FD00D6A333 /* AirForce.usdz */; };
 		DBF29DF92923362800D6A333 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF29DF82923362800D6A333 /* RadioButton.swift */; };
+		DBF29DFE29233CF200D6A333 /* AddProductVariantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF29DFD29233CF200D6A333 /* AddProductVariantView.swift */; };
+		DBF29E002923407D00D6A333 /* ClickToAddVariantButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF29DFF2923407D00D6A333 /* ClickToAddVariantButtonView.swift */; };
+		DBF29E022923413200D6A333 /* ReusableAddVariantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF29E012923413200D6A333 /* ReusableAddVariantView.swift */; };
 		DBF39DD6291C010700CE5CE4 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF39DD5291C010700CE5CE4 /* ProductDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +133,9 @@
 		DBF29DF429232FDB00D6A333 /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		DBF29DF6292330FD00D6A333 /* AirForce.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = AirForce.usdz; sourceTree = "<group>"; };
 		DBF29DF82923362800D6A333 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		DBF29DFD29233CF200D6A333 /* AddProductVariantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVariantView.swift; sourceTree = "<group>"; };
+		DBF29DFF2923407D00D6A333 /* ClickToAddVariantButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickToAddVariantButtonView.swift; sourceTree = "<group>"; };
+		DBF29E012923413200D6A333 /* ReusableAddVariantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableAddVariantView.swift; sourceTree = "<group>"; };
 		DBF39DD5291C010700CE5CE4 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -320,6 +326,7 @@
 				AC38B6EB29248188002EB3B2 /* Add Product 2 */,
 				AC38B6F729265071002EB3B2 /* ProductCommerceLink */,
 				0EA5722C2923368100ABA7A8 /* ProductSizeChart */,
+				DBF29DFA29233CBE00D6A333 /* Add Product Variant View */,
 				AC8B0F6A2922027500E8F9F9 /* Product List */,
 				AC8B0F612922012600E8F9F9 /* Authentication */,
 				DBF39DD2291C00CB00CE5CE4 /* Product Detail View */,
@@ -416,6 +423,32 @@
 			sourceTree = "<group>";
 		};
 		DB9B552E291B581A009C76F0 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		DBF29DFA29233CBE00D6A333 /* Add Product Variant View */ = {
+			isa = PBXGroup;
+			children = (
+				DBF29DFC29233CDE00D6A333 /* View Model */,
+				DBF29DFB29233CD700D6A333 /* View */,
+			);
+			path = "Add Product Variant View";
+			sourceTree = "<group>";
+		};
+		DBF29DFB29233CD700D6A333 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBF29DFD29233CF200D6A333 /* AddProductVariantView.swift */,
+				DBF29DFF2923407D00D6A333 /* ClickToAddVariantButtonView.swift */,
+				DBF29E012923413200D6A333 /* ReusableAddVariantView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBF29DFC29233CDE00D6A333 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -559,9 +592,11 @@
 			files = (
 				0EA6F347291CA57700BB5F25 /* Product.swift in Sources */,
 				0E8793FE291B581800649AC7 /* LabelledDivider.swift in Sources */,
+				DBF29E002923407D00D6A333 /* ClickToAddVariantButtonView.swift in Sources */,
 				AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */,
 				DB9B5523291B53E9009C76F0 /* NavigationView.swift in Sources */,
 				DB9B5529291B56BE009C76F0 /* ProfileView.swift in Sources */,
+				DBF29DFE29233CF200D6A333 /* AddProductVariantView.swift in Sources */,
 				DB9B552B291B56F3009C76F0 /* BottomButtonView.swift in Sources */,
 				AC38B6FA29265148002EB3B2 /* ProductCommerceView.swift in Sources */,
 				DB9B5527291B5497009C76F0 /* NavBarIcons.swift in Sources */,
@@ -570,6 +605,7 @@
 				0E8793F4291B527200649AC7 /* ReusableButton.swift in Sources */,
 				0EAF5858291DE8D100AC5E93 /* EmptyState.swift in Sources */,
 				DBF29DF529232FDB00D6A333 /* AssetView.swift in Sources */,
+				DBF29E022923413200D6A333 /* ReusableAddVariantView.swift in Sources */,
 				0E879402291B66B300649AC7 /* ReusableTextField.swift in Sources */,
 				AC38B6F62925595E002EB3B2 /* OpenPanel.swift in Sources */,
 				0E8793F6291B53B100649AC7 /* SignUpLoginView.swift in Sources */,
