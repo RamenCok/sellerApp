@@ -11,12 +11,14 @@ struct ClickToAddVariantButtonView: View {
     
     @Binding var colors: [Color]
     @Binding var imagesData: [NSData]
+    @Binding var isDisabled: [Bool]
     
     var body: some View {
         
         Button {
             self.colors.append(.red)
             self.imagesData.append(NSData())
+            self.isDisabled.append(true)
         } label: {
             HStack(alignment: .center, spacing: 20) {
                 Image(systemName: "plus")

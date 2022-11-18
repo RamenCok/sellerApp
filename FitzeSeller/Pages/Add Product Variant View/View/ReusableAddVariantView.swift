@@ -12,7 +12,7 @@ struct ReusableAddVariantView: View {
     @Binding var color: Color
     @Binding var imageData: NSData
     
-    @State var isDisabled = false
+    @Binding var isDisabled: Bool
     @State var fileName = ""
     
     var removeAction: () -> Void
@@ -44,7 +44,7 @@ struct ReusableAddVariantView: View {
                 
                 VStack(alignment: .center, spacing: 4) {
                     
-                    if isDisabled == false {
+                    if isDisabled == true {
                         Text("Drag your .zip file here")
                             .font(.custom("Sora-SemiBold", size: 18))
                             .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
@@ -59,7 +59,7 @@ struct ReusableAddVariantView: View {
                                 
                                 data.map({ success in
                                     imageData = success
-                                    isDisabled = true
+                                    isDisabled = false
                                 })
                                 
                                 self.fileName = fileName
@@ -91,7 +91,7 @@ struct ReusableAddVariantView: View {
                                 .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
                             
                             Button {
-                                isDisabled = false
+                                isDisabled = true
                             } label: {
                                 Image(systemName: "xmark").font(.system(size: 18, weight: .bold))
                                     .foregroundColor(.redColor)
