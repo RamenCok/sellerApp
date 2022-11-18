@@ -160,12 +160,11 @@ struct ProductListView: View {
                                     }
                                     
                                 }
-                                .buttonStyle(.plain)
                             }
+                            .padding(.bottom, 20)
+                            .padding([.top, .leading], 5)
+                            .frame(alignment: .leading)
                         }
-                        .padding(.bottom, 20)
-                        .padding([.top, .leading], 5)
-                        .frame(alignment: .leading)
                     }
                 }
                 .padding(.horizontal, 40)
@@ -177,6 +176,7 @@ struct ProductListView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .onAppear {self.products = Product.data.filter { $0.tag == ListName }}
     }
     
     private func showSubview(view: AnyView) {

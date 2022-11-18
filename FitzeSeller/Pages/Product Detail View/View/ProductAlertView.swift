@@ -11,26 +11,26 @@ struct ProductAlertView: View {
     
     let tag: String
     var alertImageName: String {
-        if tag == "Need Action" {
+        switch tag {
+        case "Need Action":
             return "exclamationmark.circle"
-        }
-        else {
+        default:
             return "rectangle.and.text.magnifyingglass"
         }
     }
     var alertMessage: String {
-        if tag == "Need Action" {
+        switch tag {
+        case "Need Action":
             return "This product needs some revision"
-        }
-        else {
+        default:
             return "This product is on review"
         }
     }
     var alertColor: Color {
-        if tag == "Need Action" {
+        switch tag {
+        case "Need Action":
             return .red
-        }
-        else {
+        default:
             return .orange
         }
     }
