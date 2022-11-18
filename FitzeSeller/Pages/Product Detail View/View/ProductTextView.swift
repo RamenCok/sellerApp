@@ -36,14 +36,7 @@ struct ProductTextView: View {
             }
             
             // MARK: - Colors
-            HStack(spacing: 16) {
-                ForEach(0..<product.productColors.count) { color in
-                    Circle()
-                        .foregroundColor(product.productColors[color])
-                        .scaledToFit()
-                        .frame(maxWidth: 31, alignment: .center)
-                }
-            }
+            RadioButtonGroup(colors: product.productColors)
             .padding(.bottom, 25)
             
             // MARK: - Product Description
