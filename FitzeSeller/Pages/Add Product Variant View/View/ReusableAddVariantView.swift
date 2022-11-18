@@ -37,7 +37,7 @@ struct ReusableAddVariantView: View {
                         .foregroundColor(.black)
                     
                     Text("*Files of type ‘zip’ are only allowed and the maximum size limit is 100 MB")
-                        .font(.custom("Sora-Regular", size: 12))
+                        .font(.custom("Sora-Regular", size: 14))
                         .foregroundColor(.redColor)
                 }
                 .padding(.bottom, 20)
@@ -46,7 +46,7 @@ struct ReusableAddVariantView: View {
                     
                     if isDisabled == false {
                         Text("Drag your .zip file here")
-                            .font(.custom("Sora-SemiBold", size: 16))
+                            .font(.custom("Sora-SemiBold", size: 18))
                             .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
                         
                         Text("or")
@@ -66,7 +66,7 @@ struct ReusableAddVariantView: View {
                             }
                         } label: {
                             Text("Select file from your computer")
-                                .font(.custom("Sora-Medium", size: 12))
+                                .font(.custom("Sora-Medium", size: 16))
                                 .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
                                 .padding(.vertical, 6)
                                 .padding(.horizontal, 45)
