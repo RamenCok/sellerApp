@@ -10,6 +10,8 @@ import SwiftUI
 struct CardView: View {
     let product: Product
     
+    let productColors = Product.colorAsset.compactMap { $0["colors"] }.map { Color(hex: $0)! }
+    
     var body: some View {
         VStack(spacing: 20) {
             Image("card")
@@ -27,22 +29,22 @@ struct CardView: View {
                     .lineLimit(2)
                 
                 HStack {
-                    if product.productColors.count > 3 {
+                    if productColors.count > 3 {
                         Circle()
-                            .foregroundColor(product.productColors[0])
+                            .foregroundColor(productColors[0])
                             .frame(width: 20, height: 20)
                         Circle()
-                            .foregroundColor(product.productColors[1])
+                            .foregroundColor(productColors[1])
                             .frame(width: 20, height: 20)
                         Circle()
-                            .foregroundColor(product.productColors[2])
+                            .foregroundColor(productColors[2])
                             .frame(width: 20, height: 20)
-                        Text("+ \(product.productColors.count-3)")
+                        Text("+ \(productColors.count-3)")
                             .foregroundColor(.gray)
                             .font(.custom("Sora-Regular", size: 15))
                     }
                     else {
-                        ForEach(product.productColors, id: \.self) { color in
+                        ForEach(productColors, id: \.self) { color in
                             Circle()
                                 .foregroundColor(color)
                                 .frame(width: 20, height: 20)
@@ -70,16 +72,16 @@ struct CardView: View {
         .frame(width: 253, alignment: .topLeading)
         .background(Color.white)
         .cornerRadius(32)
-//        .overlay(
-//            RoundedRectangle(cornerRadius: 16)
-//                .stroke(.gray.opacity(0.2))
-//        )
-//        .shadow(color: .gray.opacity(0.05), radius: 14, x: 0, y: 4)
+        .overlay(
+            RoundedRectangle(cornerRadius: 32)
+                .stroke(.gray.opacity(0.2))
+        )
+        .shadow(color: .gray.opacity(0.05), radius: 14, x: 0, y: 4)
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(product: Product.data[2])
+        CardView(product: Product.data[0])
     }
 }

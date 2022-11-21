@@ -36,7 +36,8 @@ struct ProductTextView: View {
             }
             
             // MARK: - Colors
-            RadioButtonGroup(colors: product.productColors)
+            
+            RadioButtonGroup(colors: Product.colorAsset.compactMap { $0["colors"] }.map { Color(hex: $0)! } )
             .padding(.bottom, 25)
             
             // MARK: - Product Description
