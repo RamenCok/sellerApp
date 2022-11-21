@@ -16,7 +16,7 @@ class AppState: ObservableObject {
     
     // Store App State with AppStorage
 //     @AppStorage("scene") var switchScene = CurrentView.login
-    @Published var switchScene = CurrentView.productinput
+    @Published var switchScene = CurrentView.main
 }
 
 struct ContentView: View {
@@ -24,7 +24,8 @@ struct ContentView: View {
     @StateObject var viewModel = AuthViewModel()
     @StateObject var navViewModel = NavigationViewModel()
     
-    let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
+    let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing))
+    let backTransition: AnyTransition = .asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading))
     
     var body: some View {
         // Inject viewmodel as environment object here
@@ -40,17 +41,19 @@ struct ContentView: View {
                     .transition(transition)
                 
             case .main:
-                NavigationView(products: Product.data)
+                MainView(products: Product.data)
                     .environmentObject(appState)
                     .environmentObject(navViewModel)
                     .background(Background())
                     .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
-                    .transition(transition)
+                    .transition(backTransition)
                 
             case .productinput:
-                ProductCommerceView()
+                AddProductView()
+                    .environmentObject(appState)
                     .background(Background())
                     .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
+                    .transition(transition)
                     
             }
         }

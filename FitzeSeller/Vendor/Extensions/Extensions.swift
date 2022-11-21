@@ -65,39 +65,3 @@ extension View {
         .background(Color.clear)
     }
 }
-
-extension NSOpenPanel {
-    
-    static func openImage(completion: @escaping (_ result: Result<NSData, Error>, _ fileName: String) -> ()) {
-        let panel = NSOpenPanel()
-        panel.allowsMultipleSelection = false
-        panel.canChooseFiles = true
-        panel.canChooseDirectories = false
-        panel.allowedContentTypes = [.zip]
-        panel.canChooseFiles = true
-        
-        panel.begin { result in
-            if result == .OK, let url = panel.urls.first, let data = NSData(contentsOf: url) {
-                completion(.success(data), url.lastPathComponent)
-            } else {
-                completion(.failure(
-                    NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to get file location"])
-                ), "NO FILE")
-            }
-        }
-    }
-    
-    static func showSavePanel(completion: @escaping (_ result: URL) -> ())  {
-        
-        let savePanel = NSSavePanel()
-        savePanel.allowedContentTypes = [.zip]
-        savePanel.canCreateDirectories = true
-        savePanel.isExtensionHidden = false
-        savePanel.allowsOtherFileTypes = false
-        savePanel.title = "Save your text"
-        savePanel.message = "Choose a folder and a name to store your text."
-        savePanel.nameFieldLabel = "File name:"
-        let response = savePanel.runModal()
-        completion(savePanel.url!)
-    }
-}

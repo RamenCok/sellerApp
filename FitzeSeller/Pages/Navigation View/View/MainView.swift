@@ -12,7 +12,7 @@ class NavigationViewModel: ObservableObject {
     @Published var selectedTab = "Live"
 }
 
-struct NavigationView: View {
+struct MainView: View {
     
     @EnvironmentObject var vm: NavigationViewModel
     @EnvironmentObject var appState: AppState
@@ -43,12 +43,12 @@ struct NavigationView: View {
                     Spacer(minLength: 200)
                     
                     VStack(spacing: 16) {
-                        
                         Button {
-                            withAnimation(.easeOut(duration: 0.3)) {
-                                currentSubview = AnyView(AddProductView())
-                                showingSubview = true
-                            }
+                            appState.switchScene = .productinput
+//                            withAnimation(.easeOut(duration: 0.3)) {
+//                                currentSubview = AnyView(AddProductView().environmentObject(appState))
+//                                showingSubview = true
+//                            }
                         } label: {
                             Text("Add a new product")
                                 .font(.custom("Sora-Regular", size: 16))

@@ -43,7 +43,6 @@ struct ProductSizeChartView: View {
             }
             .frame(width: screen!.width * 0.5)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
     }
 }

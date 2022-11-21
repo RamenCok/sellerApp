@@ -1,38 +1,24 @@
 //
-//  AddProductView.swift
+//  AddProductInformationView.swift
 //  FitzeSeller
 //
-//  Created by Bryan Kenneth on 16/11/22.
+//  Created by Kevin Harijanto on 21/11/22.
 //
 
 import SwiftUI
 
-struct AddProductView: View {
-    @State var chosenPhase = 1
-    
-    @State var isOneLocked = false
-    @State var isTwoLocked = true
-    @State var isThreeLocked = true
-    @State var isFourLocked = true
-    
-    @State var gender = "Female"
-    @State var productName = ""
-    @State var productDesc = ""
+struct AddProductInformationView: View {
+    @Binding var chosenPhase: Int
+    @Binding var gender: String
+    @Binding var productName: String
+    @Binding var productDesc: String
     
     let screen = NSScreen.main?.visibleFrame
     
     var body: some View {
-        VStack(alignment: .center, spacing: screen!.height * 0.04476275739) {
-            HStack {
-                TimelineTiles(number: 1, chosenPhase: $chosenPhase)
-                TimelineTiles(number: 2, chosenPhase: $chosenPhase)
-                TimelineTiles(number: 3, chosenPhase: $chosenPhase)
-                TimelineTiles(number: 4, chosenPhase: $chosenPhase)
-            }
-            
-            Divider()
-                .padding(.horizontal, screen!.width * 0.1041666667)
-            
+        
+        switch chosenPhase {
+        case 1:
             ScrollView {
                 VStack(alignment: .leading, spacing: 40) {
                     VStack(alignment: .leading) {
@@ -83,49 +69,27 @@ struct AddProductView: View {
                 }.frame(maxWidth: .infinity, alignment: .leading)
                 
                     
-            }.frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
-                
-            HStack{
-                if chosenPhase > 1 {
-                    Button {
-                        if chosenPhase > 1{
-                            chosenPhase -= 1
-                        }
-                        
-                    } label: {
-                        HStack {
-                            Image(systemName: "chevron.left")
-                            Text("Previous")
-                        }
-                    }.buttonStyle(SecondaryButton())
-                        .frame(width: screen!.width * 0.09085648148)
-                }
-                
-                
-                if chosenPhase < 4 {
-                    Button {
-                        if chosenPhase < 4 {
-                            chosenPhase += 1
-                        }
-                        
-                    } label: {
-                        HStack {
-                            Text("Next")
-                            Image(systemName: "chevron.right")
-                        }
-                        
-                    }.buttonStyle(PrimaryButton())
-                        .frame(width: screen!.width * 0.09085648148)
-                }
-               
-
-            }.frame(width: screen!.width * 0.4675925926, alignment: .trailing)
+            }
+            .frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
+        case 2:
+            ProductSizeChartView()
+                .frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
+        case 3:
+            AddProductVariantView()
+                .frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
+        case 4:
+            ProductCommerceView()
+                .frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
+        default:
+            ProductCommerceView()
+                .frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
         }
+        
     }
 }
 
-//struct AddProductView_Previews: PreviewProvider {
+//struct AddProductInformationView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AddProductView()
+//        AddProductInformationView()
 //    }
 //}

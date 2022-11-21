@@ -126,6 +126,8 @@ struct ProductListView: View {
                         
                     }
                     
+                    
+                    
                     ScrollView(showsIndicators: false) {
                         LazyVGrid(columns: ListName == "Draft" ? draftColumns : adaptiveColumns, spacing: ListName == "Draft" ? 25 : 62) {
                             ForEach(searchResults, id: \.id) { product in
@@ -149,7 +151,7 @@ struct ProductListView: View {
                                                     .stroke(selectedItems.contains(product) ? Color.primaryColor : Color.gray.opacity(0.2), lineWidth: selectedItems.contains(product) ? 3 : 1)
                                             )
                                             .shadow(color: selectedItems.contains(product) ? .clear : .gray.opacity(0.05), radius: 28, x: 0, y: 4)
-                                           
+
                                     } else {
                                         CardView(product: product)
                                             .overlay(
@@ -158,8 +160,8 @@ struct ProductListView: View {
                                             )
                                             .shadow(color: selectedItems.contains(product) ? .clear : .gray.opacity(0.05), radius: 28, x: 0, y: 4)
                                     }
-                                    
                                 }
+                                .buttonStyle(.plain)
                             }
                             .padding(.bottom, 20)
                             .padding([.top, .leading], 5)

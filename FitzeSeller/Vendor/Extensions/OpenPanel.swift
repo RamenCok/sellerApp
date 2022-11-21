@@ -42,4 +42,23 @@ extension NSOpenPanel {
         let response = savePanel.runModal()
         completion(savePanel.url!)
     }
+    
+    static func openZip(completion: @escaping (_ result: Result<NSData, Error>, _ fileName: String) -> ()) {
+        let panel = NSOpenPanel()
+        panel.allowsMultipleSelection = false
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowedContentTypes = [.zip]
+        panel.canChooseFiles = true
+        
+        panel.begin { result in
+            if result == .OK, let url = panel.urls.first, let data = NSData(contentsOf: url) {
+                completion(.success(data), url.lastPathComponent)
+            } else {
+                completion(.failure(
+                    NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to get file location"])
+                ), "NO FILE")
+            }
+        }
+    }
 }

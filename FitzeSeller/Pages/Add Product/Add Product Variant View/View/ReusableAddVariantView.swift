@@ -55,7 +55,7 @@ struct ReusableAddVariantView: View {
                             .foregroundColor(Color(red: 204/255, green: 204/255, blue: 204/255))
                         
                         Button {
-                            NSOpenPanel.openImage { data, fileName  in
+                            NSOpenPanel.openZip { data, fileName  in
                                 
                                 data.map({ success in
                                     imageData = success

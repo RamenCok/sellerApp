@@ -13,6 +13,8 @@ struct AddProductVariantView: View {
     @State var imagesData = [NSData]()
     @State var isDisabled = [Bool]()
     
+    let screen = NSScreen.main?.visibleFrame
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 37) {
@@ -54,8 +56,6 @@ struct AddProductVariantView: View {
             .disabled(checkButton())
         }
         .padding(40)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Background())
     }
     
     func getBindingColor(forIndex index: Int) -> Binding<Color> {
