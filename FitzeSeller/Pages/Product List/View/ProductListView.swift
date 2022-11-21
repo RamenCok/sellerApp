@@ -178,7 +178,7 @@ struct ProductListView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .onAppear {self.products = Product.data.filter { $0.tag == ListName }}
+        .onAppear {self.products = products.filter { $0.tag == ListName }}
     }
     
     private func showSubview(view: AnyView) {
