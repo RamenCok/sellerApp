@@ -128,7 +128,8 @@ struct SignUpLoginView: View {
                                                                         let brand: [String: Any] = [
                                                                             "brandName" : "",
                                                                             "brandImage" : "",
-                                                                            "productRef" : []
+                                                                            "productRef" : [],
+                                                                            "productRefSeller" : ["Xn9yE1hjH0Sck776kpyq"]
                                                                         ]
                                                                         viewModel.writeBrandData(documents: brand, uids: (authResult?.user.uid)!) { error in
                                                                             if let error = error {
@@ -187,7 +188,8 @@ struct SignUpLoginView: View {
                                                 let brand: [String: Any] = [
                                                     "brandName" : "",
                                                     "brandImage" : "",
-                                                    "productRef" : []
+                                                    "productRef" : [],
+                                                    "productRefSeller" : ["Xn9yE1hjH0Sck776kpyq"]
                                                 ]
                                                 viewModel.writeBrandData(documents: brand, uids: (authResult?.user.uid)!) { error in
                                                     if let error = error {

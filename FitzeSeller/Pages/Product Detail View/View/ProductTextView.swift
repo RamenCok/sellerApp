@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductTextView: View {
     
-    let product: Product
+    let product: ProductFetch
     
     var brandName: String = ""
     var productDesc: String = ""

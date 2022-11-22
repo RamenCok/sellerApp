@@ -8,10 +8,11 @@
 import Foundation
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 class ProductListVM: ObservableObject {
     
-    @Published var products = [Product]()
+    @Published var products = [ProductFetch]()
     
     init() {
         getProducts()
@@ -19,7 +20,7 @@ class ProductListVM: ObservableObject {
     
     func getProducts() {
         
-        let uid = "2BJGJBd3lkpQMucG9jnH"
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         ServiceEsgeee().fetchProduct(ref: uid) { product in
             self.products.append(product)
         }

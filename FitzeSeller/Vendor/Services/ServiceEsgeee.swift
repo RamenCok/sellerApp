@@ -12,21 +12,21 @@ import FirebaseStorage
 
 class ServiceEsgeee {
     
-    func fetchProduct(ref: String, completion: @escaping (Product)-> Void) {
+    func fetchProduct(ref: String, completion: @escaping (ProductFetch)-> Void) {
         
         let data = Firestore.firestore().collection("brand").document(ref)
         data.addSnapshotListener { snapshot, error in
-            
+
             let productsDictionary = snapshot?.get("productRefSeller") as! [String]
             
-            var products: [Product] = []
+            var products: [ProductFetch] = []
             
             for i in productsDictionary {
                 
                 Firestore.firestore().collection("productSeller").document(i).getDocument { snapshot, error in
                     
                     let dictionary = snapshot?.data()
-                    var data = Product(dictionary: dictionary ?? ["" : ""])
+                    var data = ProductFetch(dictionary: dictionary ?? ["" : ""])
                     
                     let productSizeChartDict = snapshot?.get("productSizeChart") as! [[String: Any]]
                     
@@ -51,6 +51,7 @@ class ServiceEsgeee {
                         data.productLinks = productLinks
                     }
                     completion(data)
+                    print(data)
                 }
             }
         }

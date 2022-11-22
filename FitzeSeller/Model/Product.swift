@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct Product: Identifiable, Equatable {
-    static func == (lhs: Product, rhs: Product) -> Bool {
+struct ProductFetch: Identifiable, Equatable {
+    
+    static func == (lhs: ProductFetch, rhs: ProductFetch) -> Bool {
         return lhs.productName == rhs.productName && lhs.productDesc == rhs.productDesc && lhs.productImage == rhs.productImage
     }
     
@@ -32,6 +33,19 @@ struct Product: Identifiable, Equatable {
         self.productLinks = dictionary["buyLink"] as? [ProductLink] ?? [ProductLink(siteName: "", link: "")]
         self.tag = dictionary["tag"] as? String ?? ""
     }
+}
+
+
+struct Product: Identifiable, Equatable {
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        return lhs.productName == rhs.productName && lhs.productDesc == rhs.productDesc && lhs.productImage == rhs.productImage
+    }
+    
+    var id = UUID()
+    var productName: String
+    var productDesc: String
+    var productImage: String
+    var productGender: String
     var colorsAsset: [[String: String]] // color+zip link di storage, kl acc ganti jd name
     var productSizeChart: [[String: Any]]
     var buyLink: [[String: Any]]

@@ -10,7 +10,7 @@ import SwiftUI
 struct ProductDetailView: View {
     
     let screen = NSScreen.main?.visibleFrame
-    let product: Product
+    let product: ProductFetch
     
     @EnvironmentObject var vm: AssetVM
     

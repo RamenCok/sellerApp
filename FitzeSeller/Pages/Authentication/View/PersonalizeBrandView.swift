@@ -30,11 +30,11 @@ struct PersonalizeBrandView: View {
             
             VStack(spacing: 37) {
                 Button {
-                    NSOpenPanel.openImage { result in
-                        result.map { sucess in
-                            imageData = sucess
-                        }
-                    }
+//                    NSOpenPanel.openImage { result in
+//                        result.map { sucess in
+//                            imageData = sucess
+//                        }
+//                    }
 //                    viewModel.login()
                 } label: {
                     ZStack {

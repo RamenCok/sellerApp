@@ -22,7 +22,7 @@ struct MainView: View {
     @State private var currentSubview = AnyView(LoginView())
     @State private var showingSubview = false
     
-    @State var products: [Product] = []
+    @State var products: [ProductFetch] = []
     
     var body: some View {
         StackNavigationView(currentSubview: $currentSubview, showingSubview: $showingSubview) {

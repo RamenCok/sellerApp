@@ -59,7 +59,8 @@ struct SignUpView: View {
                                     let brand: [String: Any] = [
                                         "brandName" : "",
                                         "brandImage" : "",
-                                        "productRef" : []
+                                        "productRef" : [],
+                                        "productRefSeller" : ["Xn9yE1hjH0Sck776kpyq"]
                                     ]
                                     viewModel.writeBrandData(documents: brand, uids: (authData?.user.uid)!) { error in
                                         if let error = error {

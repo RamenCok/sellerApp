@@ -48,7 +48,8 @@ class ServiceKevin {
         }
         
         // add document to brand
-        let brandID = Firestore.firestore().collection("brand").document("2BJGJBd3lkpQMucG9jnH")
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let brandID = Firestore.firestore().collection("brand").document(uid)
 
         brandID.updateData([
             "productRefSeller": FieldValue.arrayUnion([ref!.documentID])
