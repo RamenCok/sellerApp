@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
 
 struct PersonalizeBrandView: View {
     @EnvironmentObject var appState: AppState
@@ -15,6 +15,7 @@ struct PersonalizeBrandView: View {
     @State var brandName = ""
     
     @State var uploadBrand = false
+    @State var imageData = NSData(data: Data())
     
     var body: some View {
         VStack(spacing: 55) {
@@ -29,7 +30,12 @@ struct PersonalizeBrandView: View {
             
             VStack(spacing: 37) {
                 Button {
-                    viewModel.login()
+                    NSOpenPanel.openImage { result in
+                        result.map { sucess in
+                            imageData = sucess
+                        }
+                    }
+//                    viewModel.login()
                 } label: {
                     ZStack {
                         Circle()
@@ -43,24 +49,35 @@ struct PersonalizeBrandView: View {
                 }.buttonStyle(.plain)
                 
                 VStack(spacing: 81) {
-                    TextField("",text: $brandName)
+                    TextField("",text: self.$viewModel.brand.brandName)
                         .textFieldStyle(RoundedTextFieldStyle())
                         .frame(width: 446)
-                        .placeholder(when: brandName.isEmpty, text: "Brand Name") {}
+                        .placeholder(when: viewModel.brand.brandName.isEmpty, text: "Brand Name") {}
                     
                     Button {
-                        appState.switchScene = .main
+                        let newBrand: [String: Any] = [
+                            "brandName" : viewModel.brand.brandName
+                        ]
+                        viewModel.saveBrandData(documents: newBrand, uids: Auth.auth().currentUser!.uid) { error in
+                            if let error = error{
+                                print(error.localizedDescription)
+                            } else {
+                                appState.switchScene = .main
+                            }
+                        }
+
                     } label: {
                         Text("Upload brand")
                     }
                     .buttonStyle(PrimaryButton())
-                    .disabled(brandName.isEmpty)
-                    .opacity(brandName.isEmpty ? 0.6 : 1)
-                    .scaleEffect(!brandName.isEmpty && uploadBrand ? 1.05 : 1)
+                    .disabled(viewModel.brand.brandName.isEmpty)
+                    .opacity(viewModel.brand.brandName.isEmpty ? 0.6 : 1)
+                    .scaleEffect(!viewModel.brand.brandName.isEmpty && uploadBrand ? 1.05 : 1)
                     .animation(.spring(), value: uploadBrand)
                     .onHover { hover in
                         uploadBrand = hover
                     }
+                    .frame(maxWidth: 462, maxHeight: .infinity)
                 }
             }
         }

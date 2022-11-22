@@ -13,6 +13,8 @@ struct LoginView: View {
     
     @State var email = ""
     @State var password = ""
+    @State var errorMsg = ""
+    @State var presentAlert = false
     
     @State var isHoverLogin = false
     
@@ -40,7 +42,34 @@ struct LoginView: View {
                 }.frame(width: 446)
                 
                 Button {
-                    appState.switchScene = .main
+                    
+                    viewModel.loginWithEmail(email: email, password: password) { authData, error in
+                        if let error = error {
+                            presentAlert = true
+                            errorMsg = error.localizedDescription
+                        } else {
+                            viewModel.getBrandData { doc, error in
+                                if let error = error {
+                                    print(error.localizedDescription)
+                                } else {
+                                    if let document = doc, document.exists {
+                                        let dictionary = document.data()
+                                        let brand = Brand(dictionary: dictionary ?? ["" : ""])
+                                        viewModel.brand = brand
+                                        if brand.brandName == "" {
+                                            appState.switchScene = .personalize
+                                        } else {
+                                            viewModel.state = .signedIn
+                                            appState.switchScene = .main
+                                        }
+                                    }
+                                }
+
+                               
+                            }
+                        }
+                    }
+//                    appState.switchScene = .main
                 } label: {
                     Text("Log In")
                 }
@@ -58,11 +87,11 @@ struct LoginView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-            .background(Background())
-            .frame(minWidth: 1728 / 1.5, minHeight: 1117 / 1.5)
-    }
-}
+//
+//struct LoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginView()
+//            .background(Background())
+//            .frame(minWidth: 1728 / 1.5, minHeight: 1117 / 1.5)
+//    }
+//}

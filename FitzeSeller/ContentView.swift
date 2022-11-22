@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
 class AppState: ObservableObject {
     enum CurrentView: Int {
         case login
+        case personalize
         case main
         case productinput
     }
     
     // Store App State with AppStorage
 //     @AppStorage("scene") var switchScene = CurrentView.login
-    @Published var switchScene = CurrentView.main
+    @Published var switchScene = Auth.auth().currentUser == nil ? CurrentView.login : CurrentView.main
 }
 
 struct ContentView: View {
@@ -25,6 +26,7 @@ struct ContentView: View {
     @StateObject var navViewModel = NavigationViewModel()
     
     let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing))
+    
     let backTransition: AnyTransition = .asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading))
     
     var body: some View {
@@ -39,11 +41,20 @@ struct ContentView: View {
                     .background(Background())
                     .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
                     .transition(transition)
-                
+            
+            case .personalize:
+                PersonalizeBrandView()
+                    .environmentObject(appState)
+                    .environmentObject(viewModel)
+                    .background(Background())
+                    .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
+                    .transition(transition)
+            
             case .main:
                 MainView(products: Product.data)
                     .environmentObject(appState)
                     .environmentObject(navViewModel)
+                    .environmentObject(viewModel)
                     .background(Background())
                     .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
                     .transition(backTransition)
