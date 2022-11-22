@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var authVM: AuthViewModel
     
     var body: some View {
         
@@ -20,7 +21,7 @@ struct ProfileView: View {
             
             VStack(alignment: .leading) {
                 
-                Text("Love, Bonito")
+                Text(authVM.brand.brandName)
                     .font(.custom("Sora-Regular", size: 20))
                 
                 Button {

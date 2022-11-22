@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignUpLoginView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var appState: AppState
     
     @State var isHoverApple = false
     @State var isHoverGoogle = false
@@ -52,7 +53,48 @@ struct SignUpLoginView: View {
                         }
                         
                         Button {
-                            viewModel.loginWithGoogle()
+                            viewModel.loginWithGoogle(completions: {authResult, error in
+                                if let error = error {
+                                    print(error.localizedDescription)
+                                } else {
+                                    print(authResult?.user.email)
+                                    viewModel.getBrandData { doc, error in
+                                        if let error = error {
+                                            print(error.localizedDescription)
+                                        } else {
+                                            if let document = doc, document.exists {
+                                                let dictionary = document.data()
+                                                let brand = Brand(dictionary: dictionary ?? ["" : ""])
+                                                viewModel.brand = brand
+                                                if brand.brandName == "" || brand.brandImage == "" {
+                                                    appState.switchScene = .personalize
+                                                } else {
+                                                    viewModel.state = .signedIn
+                                                    appState.switchScene = .main
+                                                }
+                                            } else {
+                                                let brand: [String: Any] = [
+                                                    "brandName" : "",
+                                                    "brandImage" : "",
+                                                    "productRef" : []
+                                                ]
+                                                viewModel.writeBrandData(documents: brand, uids: (authResult?.user.uid)!) { error in
+                                                    if let error = error {
+                                                        print(error.localizedDescription)
+                                                    } else {
+                                                        print("Write Data sucessful")
+                                                        appState.switchScene = .personalize
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                       
+                                    }
+                                    
+                                }
+                                
+                            })
                         } label: {
                             HStack {
                                 Image("google.logo")
@@ -117,9 +159,9 @@ struct SignUpLoginView: View {
     }
 }
 
-struct SignUpLoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpLoginView()
-            .preferredColorScheme(.light)
-    }
-}
+//struct SignUpLoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpLoginView()
+//            .preferredColorScheme(.light)
+//    }
+//}

@@ -16,6 +16,7 @@ struct MainView: View {
     
     @EnvironmentObject var vm: NavigationViewModel
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var authVM: AuthViewModel
     @State private var currentSubview = AnyView(LoginView())
     @State private var showingSubview = false
     
@@ -31,6 +32,7 @@ struct MainView: View {
                     ProfileView()
                         .padding(.top, 100)
                         .padding(.bottom, 96)
+                        .environmentObject(authVM)
                     
                     Group {
                         NavBarIcons(iconName: "wand.and.rays", tabBarName: "Live", selectedTab: $vm.selectedTab)
@@ -63,7 +65,9 @@ struct MainView: View {
                         .buttonStyle(.plain)
                         
                         Button {
-                            appState.switchScene = .login
+                            authVM.logout {
+                                appState.switchScene = .login
+                            }
                         } label: {
                             Text("Log Out")
                                 .font(.custom("Sora-Regular", size: 16))

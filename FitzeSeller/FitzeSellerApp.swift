@@ -7,16 +7,23 @@
 
 import SwiftUI
 import FirebaseCore
+import GoogleSignIn
 
 @main
 struct FitzeSellerApp: App {
     
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+    init() {
+        FirebaseApp.configure()
+    }
     var body: some Scene {
+        
         WindowGroup {
             ContentView()
                 .preferredColorScheme(.light)
+                .onOpenURL { url in
+                    GIDSignIn.sharedInstance.handle(url)
+                }
         }
         .windowToolbarStyle(.unifiedCompact(showsTitle: false))
         .commands { SidebarCommands() }
@@ -24,6 +31,7 @@ struct FitzeSellerApp: App {
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
