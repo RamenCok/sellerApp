@@ -16,13 +16,18 @@ struct AssetView: View {
         
         if vm.url == nil {
             
-            RoundedRectangle(cornerRadius: 32)
-                .stroke(lineWidth: 1)
-                .foregroundColor(.gray.opacity(0.15))
-                .shadow(color: .gray.opacity(0.1), radius: 46, x: 0, y: 4)
-                .frame(maxWidth: 476, maxHeight: 680, alignment: .center)
-                .background(Color.white)
-                .cornerRadius(32)
+            ZStack {
+                
+                RoundedRectangle(cornerRadius: 32)
+                    .stroke(lineWidth: 1)
+                    .foregroundColor(.gray.opacity(0.15))
+                    .shadow(color: .gray.opacity(0.1), radius: 46, x: 0, y: 4)
+                    .frame(maxWidth: 476, maxHeight: 680, alignment: .center)
+                    .background(Color.white)
+                    .cornerRadius(32)
+                
+                ProgressView()
+            }
             
         } else {
             SceneView(
