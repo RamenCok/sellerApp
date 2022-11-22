@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0256E5292C74E100A9A5A0 /* ServiceKevin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0256E4292C74E100A9A5A0 /* ServiceKevin.swift */; };
+		0E0256E7292C787900A9A5A0 /* AddProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0256E6292C787900A9A5A0 /* AddProductViewModel.swift */; };
 		0E7100DD292B220A00D1DCF4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0E7100DC292B220A00D1DCF4 /* FirebaseAuth */; };
 		0E7100DF292B220A00D1DCF4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0E7100DE292B220A00D1DCF4 /* FirebaseFirestore */; };
 		0E7100E1292B220A00D1DCF4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0E7100E0292B220A00D1DCF4 /* FirebaseStorage */; };
@@ -63,6 +65,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0256E4292C74E100A9A5A0 /* ServiceKevin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceKevin.swift; sourceTree = "<group>"; };
+		0E0256E6292C787900A9A5A0 /* AddProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewModel.swift; sourceTree = "<group>"; };
 		0E7100E2292B269E00D1DCF4 /* AddProductInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductInformationView.swift; sourceTree = "<group>"; };
 		0E8793E7291B4E9C00649AC7 /* Sora-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Regular.otf"; sourceTree = "<group>"; };
 		0E8793E8291B4E9C00649AC7 /* Sora-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Bold.otf"; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 				0EA5722C2923368100ABA7A8 /* ProductSizeChart */,
 				DBF29DFA29233CBE00D6A333 /* Add Product Variant View */,
 				AC38B6EC292481F7002EB3B2 /* View */,
+				0E0256E6292C787900A9A5A0 /* AddProductViewModel.swift */,
 			);
 			path = "Add Product";
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 				AC38B6F12924D356002EB3B2 /* ReusableGenderButton.swift */,
 				AC38B6F32924E4BE002EB3B2 /* FormHeading.swift */,
 				0E7100E2292B269E00D1DCF4 /* AddProductInformationView.swift */,
+				0E0256E4292C74E100A9A5A0 /* ServiceKevin.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -522,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EA6F347291CA57700BB5F25 /* Product.swift in Sources */,
+				0E0256E5292C74E100A9A5A0 /* ServiceKevin.swift in Sources */,
 				0E8793FE291B581800649AC7 /* LabelledDivider.swift in Sources */,
 				DBF29E002923407D00D6A333 /* ClickToAddVariantButtonView.swift in Sources */,
 				AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */,
@@ -542,6 +549,7 @@
 				0E8793F6291B53B100649AC7 /* SignUpLoginView.swift in Sources */,
 				0E8793F8291B55A900649AC7 /* AuthViewModel.swift in Sources */,
 				DBF29DF92923362800D6A333 /* RadioButton.swift in Sources */,
+				0E0256E7292C787900A9A5A0 /* AddProductViewModel.swift in Sources */,
 				0E8793FC291B563F00649AC7 /* Background.swift in Sources */,
 				AC38B6F0292494FA002EB3B2 /* TimelineTiles.swift in Sources */,
 				0E879404291B6B5300649AC7 /* SignUpView.swift in Sources */,

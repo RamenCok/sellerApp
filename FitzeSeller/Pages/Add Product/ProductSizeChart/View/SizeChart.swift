@@ -10,8 +10,9 @@ import Combine
 
 struct SkillListEditor: View {
     let screen = NSScreen.main?.visibleFrame
+    @Binding var productSizeChart: [[String: Any]]
     @Binding var sizes: [String]
-    @Binding var bust: [String]
+    @Binding var chest: [String]
     @Binding var waist: [String]
     @Binding var height: [String]
     
@@ -20,9 +21,9 @@ struct SkillListEditor: View {
                                set: { sizes[index] = $0 })
     }
     
-    func getBindingBust(forIndex index: Int) -> Binding<String> {
-        return Binding<String>(get: { bust[index] },
-                               set: { bust[index] = $0 })
+    func getBindingChest(forIndex index: Int) -> Binding<String> {
+        return Binding<String>(get: { chest[index] },
+                               set: { chest[index] = $0 })
     }
     
     func getBindingWaist(forIndex index: Int) -> Binding<String> {
@@ -35,19 +36,24 @@ struct SkillListEditor: View {
                                set: { height[index] = $0 })
     }
     
+    func getBinding(forIndex index: Int) -> Binding<[String: Any]> {
+        return Binding<[String: Any]>(get: { productSizeChart[index] },
+                               set: { productSizeChart[index] = $0 })
+    }
+    
     var body: some View {
         SizeChartHeading{
             self.sizes.append("XS")
-            self.bust.append("")
+            self.chest.append("")
             self.waist.append("")
             self.height.append("")
+            self.productSizeChart.append([:])
         }
         
         HStack(alignment: .firstTextBaseline, spacing: 50) {
             Text("Size")
                 .font(.custom("Sora-SemiBold", size: 24))
                 .frame(maxWidth: 200, alignment: .leading)
-//            Spacer().frame(width: 5)
             HStack(spacing: 40){
                 Text("Bust")
                     .font(.custom("Sora-SemiBold", size: 24))
@@ -72,11 +78,16 @@ struct SkillListEditor: View {
         Divider()
         
         ForEach(0..<sizes.count, id: \.self) { index in
-            ListItem(size: getBindingSizes(forIndex: index), bust: getBindingBust(forIndex: index), waist: getBindingWaist(forIndex: index), height: getBindingHeight(forIndex: index)) {
+            ListItem(productSizeChart: getBinding(forIndex: index),
+                     size: getBindingSizes(forIndex: index),
+                     chest: getBindingChest(forIndex: index),
+                     waist: getBindingWaist(forIndex: index),
+                     height: getBindingHeight(forIndex: index)) {
                 self.sizes.remove(at: index)
-                self.bust.remove(at: index)
+                self.chest.remove(at: index)
                 self.waist.remove(at: index)
                 self.height.remove(at: index)
+                self.productSizeChart.remove(at: index)
             }
         }
     }
@@ -84,9 +95,9 @@ struct SkillListEditor: View {
 
 struct ListItem: View {
     let screen = NSScreen.main?.visibleFrame
-    
+    @Binding var productSizeChart: [String: Any]
     @Binding var size: String
-    @Binding var bust: String
+    @Binding var chest: String
     @Binding var waist: String
     @Binding var height: String
     var removeAction: () -> Void
@@ -105,19 +116,36 @@ struct ListItem: View {
                 .background(.clear)
                 .labelsHidden()
                 .frame(maxWidth: 200, maxHeight: .infinity)
-//                .pickerStyle(.menu)
+                .onChange(of: size) { newValue in
+                    productSizeChart = ["sizeName": sizes.firstIndex(of: size) ?? 0,
+                                        "sizeDimension": ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0]]
+                }
                 
-//                Spacer().frame(width: 85)
                 HStack(spacing: 40){
-                    TextField("", text: $bust)
-                        .placeholder(when: bust.isEmpty, text: "0"){}
+                    TextField("", text: $chest)
+                        .placeholder(when: chest.isEmpty, text: "0"){}
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .onChange(of: chest) { newValue in
+                            productSizeChart = ["sizeName": sizes.firstIndex(of: size) ?? 0,
+                                                "sizeDimension": ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0]]
+                        }
+                        
                     TextField("", text: $waist)
                         .placeholder(when: waist.isEmpty, text: "0"){}
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .onChange(of: waist) { newValue in
+                            productSizeChart = ["sizeName": sizes.firstIndex(of: size) ?? 0,
+                                                "sizeDimension": ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0]]
+                        }
+                    
                     TextField("", text: $height)
                         .placeholder(when: height.isEmpty, text: "0"){}
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .onChange(of: height) { newValue in
+                            productSizeChart = ["sizeName": sizes.firstIndex(of: size) ?? 0,
+                                                "sizeDimension": ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0]]
+                        }
+                    
                     Button(action: removeAction) {
                         Image(systemName: "trash")
                             .font(.system(size: 24))
@@ -125,13 +153,12 @@ struct ListItem: View {
                             .padding(.horizontal)
                     }.buttonStyle(.plain)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                }.frame(maxWidth: .infinity, alignment: .leading)
-                
-            }.textFieldStyle(RoundedTextFieldStyle())
+                }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(.clear)
-            
+            }
+            .textFieldStyle(RoundedTextFieldStyle())
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(.clear)
         }
     }
 }
@@ -153,13 +180,5 @@ struct SizeChartHeading: View {
                     .font(.system(size: 32, weight: .bold))
             }.buttonStyle(.plain)
         }.padding(.bottom, 67)
-    }
-}
-
-struct SizeChart_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductSizeChartView()
-            .background(Background())
-            .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
     }
 }
