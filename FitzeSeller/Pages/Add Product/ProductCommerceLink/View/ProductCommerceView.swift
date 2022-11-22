@@ -9,41 +9,19 @@ import SwiftUI
 
 struct ProductCommerceView: View {
     let screen = NSScreen.main?.visibleFrame
-
-    
-    @State var siteName = [""]
-    @State var siteLink = [""]    
+    @Binding var productLinks: [[String: Any]]
+    @State var siteName = [String]()
+    @State var siteLink = [String]()
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .center){
-                ProductECommerceList(siteName: $siteName, siteLink: $siteLink)
-                
-                
-                Button {
-                    var dimension = [[String: Any]]()
-                    
-                    for i in 0..<siteName.count {
-                        let zipDimension = ["siteName": siteName[i], "link": siteLink[i]]
-                        dimension.append(zipDimension)
-                    }
-                
-                    
-//                    print(final)
-                    
-                } label: {
-                    Text("Zipped")
-                }
-
+                ProductECommerceList(productLinks: $productLinks,
+                                     siteName: $siteName,
+                                     siteLink: $siteLink)
             }
             .frame(width: screen!.width * 0.5)
         }
         .padding()
-    }
-}
-
-struct ProductCommerceView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductCommerceView()
     }
 }

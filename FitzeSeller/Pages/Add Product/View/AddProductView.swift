@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddProductView: View {
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var vm: AddProductViewModel
+
     @State var chosenPhase = 1
     
     @State var isOneLocked = false
@@ -16,10 +18,16 @@ struct AddProductView: View {
     @State var isThreeLocked = true
     @State var isFourLocked = true
     
-    @State var gender = "Female"
     @State var productName = ""
     @State var productDesc = ""
+    @State var productImage = ""
     
+    @State var productGender = ""
+    @State var colorsAsset = Product.colorAsset
+    @State var productSizeChart = [[String: Any]]()
+    @State var buyLink = [[String: Any]]()
+    @State var tag = "On Review"
+ 
     let screen = NSScreen.main?.visibleFrame
     
     var body: some View {
@@ -47,7 +55,15 @@ struct AddProductView: View {
                     Divider()
                         .padding(.horizontal, screen!.width * 0.1041666667)
                     
-                    AddProductInformationView(chosenPhase: $chosenPhase, gender: $gender, productName: $productName, productDesc: $productDesc)
+                    AddProductInformationView(chosenPhase: $chosenPhase,
+                                              productName: $productName,
+                                              productDesc: $productDesc,
+                                              productImage: $productImage,
+                                              productGender: $productGender,
+                                              colorsAsset: $colorsAsset,
+                                              productSizeChart: $productSizeChart,
+                                              productLinks: $buyLink,
+                                              tag: $tag)
                         
                     HStack{
                         if chosenPhase > 1 {
@@ -82,8 +98,23 @@ struct AddProductView: View {
                         }
                         else {
                             Button {
-                                // submit
+                                // upload to firebase
+                                print(colorsAsset)
+                                
+                                let upload = Product(productName: productName,
+                                                     productDesc: productDesc,
+                                                     productImage: productImage,
+                                                     productGender: productGender,
+                                                     colorsAsset: colorsAsset,
+                                                     productSizeChart: productSizeChart,
+                                                     buyLink: buyLink,
+                                                     tag: tag)
+                                vm.uploadProduct(product: upload) { callback in
+                                    print(callback)
+                                }
+                                // loading, baru switch
                                 appState.switchScene = .main
+                                
                             } label: {
                                 HStack {
                                     Text("Submit")

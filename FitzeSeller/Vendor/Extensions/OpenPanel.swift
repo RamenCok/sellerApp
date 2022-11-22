@@ -10,7 +10,7 @@ import SwiftUI
 
 extension NSOpenPanel {
     
-    static func openImage(completion: @escaping (_ result: Result<NSData, Error>) -> ()) {
+    static func openImage(completion: @escaping (_ result: Result<NSImage, Error>) -> ()) {
         let panel = NSOpenPanel()
         panel.allowsMultipleSelection = false
         panel.canChooseFiles = true
@@ -19,7 +19,7 @@ extension NSOpenPanel {
         panel.canChooseFiles = true
         
         panel.begin { result in
-            if result == .OK, let url = panel.urls.first, let data = NSData(contentsOf: url) {
+            if result == .OK, let url = panel.urls.first, let data = NSImage(contentsOf: url) {
                 completion(.success(data))
             } else {
                 completion(.failure(

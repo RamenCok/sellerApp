@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductECommerceList: View {
     let screen = NSScreen.main?.visibleFrame
-    
+    @Binding var productLinks: [[String: Any]]
     @Binding var siteName: [String]
     @Binding var siteLink: [String]
   
@@ -24,18 +24,23 @@ struct ProductECommerceList: View {
                                set: { siteLink[index] = $0 })
     }
     
+    func getBinding(forIndex index: Int) -> Binding<[String: Any]> {
+        return Binding<[String: Any]>(get: { productLinks[index] },
+                               set: { productLinks[index] = $0 })
+    }
+    
     
     var body: some View {
         commerceReading{
             self.siteName.append("Tokopedia")
             self.siteLink.append("")
+            self.productLinks.append([:])
         }
         
         HStack(alignment: .firstTextBaseline, spacing: 50) {
             Text("Platform")
                 .font(.custom("Sora-SemiBold", size: 24))
                 .frame(maxWidth: 200, alignment: .leading)
-//            Spacer().frame(width: 5)
             
             HStack(spacing: 40){
                 Text("Link")
@@ -50,12 +55,16 @@ struct ProductECommerceList: View {
             
         }   .frame(maxWidth: .infinity, alignment: .leading)
             .background(.clear)
+        
         Divider()
         
         ForEach(0..<siteName.count, id: \.self) { index in
-            ListPlatform(siteName: getBindingSiteName(forIndex: index), siteLink: getBindingSiteLink(forIndex: index)) {
+            ListPlatform(productLinks: getBinding(forIndex: index),
+                         siteName: getBindingSiteName(forIndex: index),
+                         siteLink: getBindingSiteLink(forIndex: index)) {
                 self.siteName.remove(at: index)
                 self.siteLink.remove(at: index)
+                self.productLinks.remove(at: index)
             }
         }
     }
@@ -63,7 +72,7 @@ struct ProductECommerceList: View {
 
 struct ListPlatform: View {
     let screen = NSScreen.main?.visibleFrame
-    
+    @Binding var productLinks: [String: Any]
     @Binding var siteName: String
     @Binding var siteLink: String
     
@@ -78,32 +87,39 @@ struct ListPlatform: View {
                 Picker("", selection: $siteName) {
                     ForEach(platforms, id: \.self) {
                         Text($0)
-                    }.font(.custom("Sora-SemiBold", size: 24))
+                    }
+                    .font(.custom("Sora-SemiBold", size: 24))
                 }
                 .background(.clear)
                 .labelsHidden()
                 .frame(maxWidth: 200, maxHeight: .infinity)
-//                .pickerStyle(.menu)
-                
-//                Spacer().frame(width: 85)
+                .onChange(of: siteName) { newValue in
+                    productLinks = ["siteName": siteName,
+                                    "link": siteLink]
+                }
+
                 HStack(spacing: 40){
                     TextField("", text: $siteLink)
                         .placeholder(when: siteLink.isEmpty, text: "Enter Link"){}
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .onChange(of: siteLink) { newValue in
+                            productLinks = ["siteName": siteName,
+                                            "link": siteLink]
+                        }
+                    
                     Button(action: removeAction) {
                         Image(systemName: "trash")
                             .font(.system(size: 24))
                             .foregroundColor(.red)
                             .padding(.horizontal)
                     }.buttonStyle(.plain)
-//                        .frame(maxWidth: .infinity, alignment: .leading)
                         
                 }.frame(maxWidth: .infinity, alignment: .leading)
                 
-            }.textFieldStyle(RoundedTextFieldStyle())
-                .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(.clear)
-            
+            }
+            .textFieldStyle(RoundedTextFieldStyle())
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(.clear)
         }
     }
 }
@@ -127,9 +143,3 @@ struct commerceReading: View {
         }.padding(.bottom, 67)
     }
 }
-//
-//struct ProductECommerceList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductECommerceList()
-//    }
-//}

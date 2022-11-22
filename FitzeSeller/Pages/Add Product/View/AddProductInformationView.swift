@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct AddProductInformationView: View {
+    @EnvironmentObject var vm: AddProductViewModel
     @Binding var chosenPhase: Int
-    @Binding var gender: String
     @Binding var productName: String
     @Binding var productDesc: String
+    @Binding var productImage: String
+    @Binding var productGender: String
+    
+    @Binding var colorsAsset: [[String: String]]
+    @Binding var productSizeChart: [[String: Any]]
+    @Binding var productLinks: [[String: Any]]
+    @Binding var tag: String
     
     let screen = NSScreen.main?.visibleFrame
     
@@ -24,9 +31,9 @@ struct AddProductInformationView: View {
                     VStack(alignment: .leading) {
                         FormHeading(text: "Gender")
                         HStack(spacing: 12) {
-                            ReusableGenderButton(text: "Female", chosenGender: $gender)
-                            ReusableGenderButton(text: "Male", chosenGender: $gender)
-                            ReusableGenderButton(text: "Unisex", chosenGender: $gender)
+                            ReusableGenderButton(text: "Female", chosenGender: $productGender)
+                            ReusableGenderButton(text: "Male", chosenGender: $productGender)
+                            ReusableGenderButton(text: "Unisex", chosenGender: $productGender)
                         }
                     }
                     
@@ -54,7 +61,15 @@ struct AddProductInformationView: View {
                         FormHeading(text: "Product Thumbnail (Real Photo)")
                         Button {
                             NSOpenPanel.openImage { result in
-                                print(result)
+                                // Freeze UI
+                                print("FREEZE")
+                                result.map { image in
+                                    vm.uploadImage(image: image) { url in
+                                        self.productImage = url
+                                        // Unfreeze UI
+                                        print("DONE!!")
+                                    }
+                                }
                             }
                         } label: {
                             Image(systemName: "plus")
@@ -67,21 +82,19 @@ struct AddProductInformationView: View {
                             .buttonStyle(.plain)
                     }
                 }.frame(maxWidth: .infinity, alignment: .leading)
-                
-                    
             }
             .frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
         case 2:
-            ProductSizeChartView()
+            ProductSizeChartView(productSizeChart: $productSizeChart)
                 .frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
         case 3:
-            AddProductVariantView()
+            AddProductVariantView(colorsAsset: $colorsAsset)
                 .frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
         case 4:
-            ProductCommerceView()
+            ProductCommerceView(productLinks: $productLinks)
                 .frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
         default:
-            ProductCommerceView()
+            ProductCommerceView(productLinks: $productLinks)
                 .frame(width: screen!.width * 0.4675925926, height: screen!.height * 0.5389435989, alignment: .leading)
         }
         
