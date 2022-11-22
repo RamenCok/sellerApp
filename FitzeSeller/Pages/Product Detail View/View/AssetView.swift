@@ -10,13 +10,12 @@ import SceneKit
 
 struct AssetView: View {
     
-    let url = Bundle.main.url(forResource: "AirForce", withExtension: "usdz")!
-    
     var body: some View {
         
-        SceneView(
-            scene: try! SCNScene(url: url, options: [.checkConsistency: true]),
-            options: [.allowsCameraControl, .autoenablesDefaultLighting])
+        let url = Bundle.main.url(forResource: "AirForce", withExtension: "usdz")!
+        SceneView(scene: try! SCNScene(url: url, options: [.checkConsistency: true]),
+                  options: [.allowsCameraControl, .autoenablesDefaultLighting]
+        )
         .scaledToFit()
         .frame(maxWidth: 476, maxHeight: 680, alignment: .center)
         .background(Color.white)

@@ -6,17 +6,23 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CardView: View {
     
     let product: Product
     
     var body: some View {
+        
         VStack(spacing: 20) {
-            Image("card")
+            
+            WebImage(url: URL(string: product.productImage))
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 253, height: 253, alignment: .top)
+                .placeholder {
+                    Rectangle().foregroundColor(.gray)
+                }
+                .frame(width: 253, height: 253)
+                .transition(.fade(duration: 0.5))
             
             VStack(alignment: .leading, spacing: 14) {
                 Text(product.productName)
@@ -51,6 +57,7 @@ struct CardView: View {
                     }
                 }
             }
+            .background(Color.white)
             .padding([.horizontal, .bottom], 20)
             .overlay {
                 if product.tag == "On Review" {

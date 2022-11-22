@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct ProductListView: View {
+    
     let ListName: String
     @Binding var products: [Product]
     
+    var filteredProducts: [Product] {
+        return products.filter { $0.tag == ListName }
+    }
+    
     var searchResults: [Product] {
         if searchText.isEmpty {
-            return products
+            return filteredProducts
         }
         else {
-            return products.filter { $0.productName.lowercased().contains(searchText.lowercased())
+            return filteredProducts.filter { $0.productName.lowercased().contains(searchText.lowercased())
             }
         }
     }
@@ -39,6 +44,7 @@ struct ProductListView: View {
                 VStack(alignment: .leading) {
                     HStack(spacing: 36) {
                         ZStack(alignment: .trailing) {
+                            
                             TextField("", text: $searchText)
                                 .textFieldStyle(RoundedTextFieldStyle())
                                 .placeholder(when: searchText.isEmpty, text: "Find Products"){}
@@ -56,15 +62,17 @@ struct ProductListView: View {
                             Image(systemName: "bell.badge")
                                 .font(.system(size: 24, weight: .medium))
                                 .foregroundColor(.primaryColor)
-                        }.buttonStyle(.plain)
+                        }
+                        .buttonStyle(.plain)
                     }
                     
                     HStack {
                         VStack(alignment: .leading) {
+                            
                             Text("\(ListName) Products")
                                 .font(.custom("Sora-Bold", size: 40))
                             
-                            Text("\(products.count) Products")
+                            Text("\(filteredProducts.count) Products")
                                 .font(.custom("Sora-Regular", size: 24))
                                 .foregroundColor(.textColor.opacity(0.4))
                         }
@@ -80,22 +88,24 @@ struct ProductListView: View {
                                         .font(.custom("Sora-Semibold", size: 24))
                                         .foregroundColor(.redColor)
                                         .underline()
-                                }.buttonStyle(.plain)
-                                    .alert("Are you sure want to delete?", isPresented: $showAlert) {
-                                        Button("Sure", role: .destructive) {
-                                            // delete item
-                                            for card in selectedItems {
-                                                products.removeAll(where: { $0 == card } )
-                                            }
-                                            // delete di database
-                                            isSelected.toggle()
-                                            selectedItems.removeAll()
+                                }
+                                .buttonStyle(.plain)
+                                .alert("Are you sure want to delete?", isPresented: $showAlert) {
+                                    Button("Sure", role: .destructive) {
+                                        // delete item
+                                        for card in selectedItems {
+                                            products.removeAll(where: { $0 == card } )
                                         }
-                                        Button("Cancel", role: .cancel) {
-                                            isSelected.toggle()
-                                            selectedItems.removeAll()
-                                        }
+                                        // delete di database
+                                        isSelected.toggle()
+                                        selectedItems.removeAll()
                                     }
+                                    
+                                    Button("Cancel", role: .cancel) {
+                                        isSelected.toggle()
+                                        selectedItems.removeAll()
+                                    }
+                                }
                                 
                                 Button {
                                     isSelected.toggle()
@@ -105,10 +115,10 @@ struct ProductListView: View {
                                         .font(.custom("Sora-Semibold", size: 24))
                                         .foregroundColor(.primaryColor)
                                         .underline()
-                                }.buttonStyle(.plain)
+                                }
+                                .buttonStyle(.plain)
                             }
-                        }
-                        else {
+                        } else {
                             Button {
                                 isSelected.toggle()
                                 // action select
@@ -126,10 +136,10 @@ struct ProductListView: View {
                         
                     }
                     
-                    
-                    
                     ScrollView(showsIndicators: false) {
-                        LazyVGrid(columns: ListName == "Draft" ? draftColumns : adaptiveColumns, spacing: ListName == "Draft" ? 25 : 62) {
+                        LazyVGrid(columns: ListName == "Draft" ? draftColumns : adaptiveColumns,
+                                  spacing: ListName == "Draft" ? 25 : 62) {
+                            
                             ForEach(searchResults, id: \.id) { product in
                                 Button {
                                     if isSelected {
@@ -138,8 +148,7 @@ struct ProductListView: View {
                                         } else {
                                             selectedItems.append(product)
                                         }
-                                    }
-                                    else {
+                                    } else {
                                         showSubview(view: AnyView(ProductDetailView(product: product)))
                                     }
                                 } label: {
@@ -178,7 +187,6 @@ struct ProductListView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .onAppear {self.products = products.filter { $0.tag == ListName }}
     }
     
     private func showSubview(view: AnyView) {
@@ -188,11 +196,3 @@ struct ProductListView: View {
         }
     }
 }
-
-//struct ProductListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationView(products: Product.data)
-//            .background(Background())
-//            .frame(minWidth: 1728 / 1.5, minHeight: 1117 / 1.5)
-//    }
-//}

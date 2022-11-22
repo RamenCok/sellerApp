@@ -85,20 +85,15 @@ struct MainView: View {
                     
                     switch vm.selectedTab {
                         case "Live":
-                        ProductListView(ListName: "Live", products: $products)
-                            .onAppear { self.products = productListVM.products.filter { $0.tag == "Live" }}
+                        ProductListView(ListName: "Live", products: $productListVM.products)
                         case "On Review":
-                            ProductListView(ListName: "On Review", products: $products)
-                                .onAppear { self.products = productListVM.products.filter { $0.tag == "On Review" }}
+                            ProductListView(ListName: "On Review", products: $productListVM.products)
                         case "Need Action":
                             ProductListView(ListName: "Need Action", products: $productListVM.products)
-                                .onAppear { self.products = productListVM.products.filter { $0.tag == "Need Action" }}
                         case "Archived":
                             ProductListView(ListName: "Archived", products: $productListVM.products)
-                                .onAppear { self.products = productListVM.products.filter { $0.tag == "Archived" }}
                         case "Draft":
                             ProductListView(ListName: "Draft", products: $productListVM.products)
-                                .onAppear { self.products = productListVM.products.filter { $0.tag == "Draft" }}
                         default: Text("")
                     }
                 }
