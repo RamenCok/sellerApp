@@ -17,13 +17,13 @@ class ServiceEsgeee {
         let data = Firestore.firestore().collection("brand").document(ref)
         data.addSnapshotListener { snapshot, error in
             
-            let productsDictionary = snapshot?.get("productRef") as! [String]
+            let productsDictionary = snapshot?.get("productRefSeller") as! [String]
             
             var products: [Product] = []
             
             for i in productsDictionary {
                 
-                Firestore.firestore().collection("product").document(i).getDocument { snapshot, error in
+                Firestore.firestore().collection("productSeller").document(i).getDocument { snapshot, error in
                     
                     let dictionary = snapshot?.data()
                     var data = Product(dictionary: dictionary ?? ["" : ""])

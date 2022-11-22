@@ -19,7 +19,7 @@ class ProductListVM: ObservableObject {
     
     func getProducts() {
         
-        let uid = "NzRbv4o3bKXMZ1retvuJ"
+        let uid = "2BJGJBd3lkpQMucG9jnH"
         ServiceEsgeee().fetchProduct(ref: uid) { product in
             self.products.append(product)
         }
