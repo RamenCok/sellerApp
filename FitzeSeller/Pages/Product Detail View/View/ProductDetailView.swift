@@ -12,6 +12,8 @@ struct ProductDetailView: View {
     let screen = NSScreen.main?.visibleFrame
     let product: Product
     
+    @EnvironmentObject var vm: AssetVM
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 34) {
@@ -28,6 +30,11 @@ struct ProductDetailView: View {
             }
         }
         .padding(100)
+        .onAppear {
+            Task.init {
+                await vm.asyncLoadModel(filename: "wetties")
+            }
+        }
     }
 }
 

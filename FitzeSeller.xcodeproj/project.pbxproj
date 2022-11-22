@@ -48,6 +48,7 @@
 		DB01CC3D291D5A4200002942 /* ProductAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB01CC3C291D5A4200002942 /* ProductAlertView.swift */; };
 		DB12245E291CACE700F6ECD4 /* ProductTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12245D291CACE700F6ECD4 /* ProductTextView.swift */; };
 		DB1A271A292CA70800C935C5 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DB1A2719292CA70800C935C5 /* SDWebImageSwiftUI */; };
+		DB1A271C292CAC0B00C935C5 /* AssetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A271B292CAC0B00C935C5 /* AssetVM.swift */; };
 		DB36D74F291B5CB300A6B04B /* NotificationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB36D74E291B5CB300A6B04B /* NotificationItemView.swift */; };
 		DB3ADA41292BBC4F007B517A /* ServiceEsgeee.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3ADA40292BBC4F007B517A /* ServiceEsgeee.swift */; };
 		DB3ADA44292BC241007B517A /* ProductListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3ADA43292BC241007B517A /* ProductListVM.swift */; };
@@ -105,6 +106,7 @@
 		AC4C1FB6291B4B2C00C598AA /* FitzeSeller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitzeSeller.entitlements; sourceTree = "<group>"; };
 		DB01CC3C291D5A4200002942 /* ProductAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAlertView.swift; sourceTree = "<group>"; };
 		DB12245D291CACE700F6ECD4 /* ProductTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTextView.swift; sourceTree = "<group>"; };
+		DB1A271B292CAC0B00C935C5 /* AssetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetVM.swift; sourceTree = "<group>"; };
 		DB36D74E291B5CB300A6B04B /* NotificationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItemView.swift; sourceTree = "<group>"; };
 		DB3ADA40292BBC4F007B517A /* ServiceEsgeee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEsgeee.swift; sourceTree = "<group>"; };
 		DB3ADA43292BC241007B517A /* ProductListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListVM.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 		DBF39DD4291C00DD00CE5CE4 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB1A271B292CAC0B00C935C5 /* AssetVM.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				AC38B6F42924E4BE002EB3B2 /* FormHeading.swift in Sources */,
 				AC38B6EE29248204002EB3B2 /* AddProductView.swift in Sources */,
 				0E879408291B92FB00649AC7 /* ProductListView.swift in Sources */,
+				DB1A271C292CAC0B00C935C5 /* AssetVM.swift in Sources */,
 				AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */,
 				DB36D74F291B5CB300A6B04B /* NotificationItemView.swift in Sources */,
 				0ED4CE852923E110009CED84 /* SizeChart.swift in Sources */,

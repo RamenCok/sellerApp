@@ -44,5 +44,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.titlebarSeparatorStyle = .none
         window.center()
     }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        
+        let docsUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        if FileManager.default.fileExists(atPath: docsUrl.path) {
+            do {
+                print("DEBUG: Deleting files")
+                try FileManager.default.removeItem(at: docsUrl)
+            } catch {
+                print("DEBUG: Cannot delete file")
+            }
+        }
+    }
 }
     

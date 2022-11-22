@@ -42,7 +42,7 @@ struct ProductTextView: View {
             
             // MARK: - Product Description
             ScrollView {
-                Text(product.productDesc)
+                Text(product.productDesc.replacingOccurrences(of: "\\n", with: "\n"))
                     .font(.custom("Sora-Regular", size: 16))
                     .foregroundColor(.textColor)
             }
