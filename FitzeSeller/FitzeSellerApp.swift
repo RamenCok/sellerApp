@@ -13,9 +13,11 @@ import GoogleSignIn
 struct FitzeSellerApp: App {
     
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     init() {
         FirebaseApp.configure()
     }
+    
     var body: some Scene {
         
         WindowGroup {
@@ -47,6 +49,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        window.standardWindowButton(.zoomButton)!.isHidden = true
         window.titlebarSeparatorStyle = .none
         window.center()
+    }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        
+        let docsUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        let fileUrl = docsUrl.path
+        
+        if FileManager.default.fileExists(atPath: "\(fileUrl)/FitzeCache") {
+            do {
+                print("DEBUG: Deleting files")
+                try FileManager.default.removeItem(at: URL(string: docsUrl.absoluteString + "/FitzeCache")!)
+            } catch {
+                print("DEBUG: Cannot delete file")
+            }
+        } else {
+            print("DEBUG: GORONG ISO GOBLOK!!!")
+        }
     }
 }
     

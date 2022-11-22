@@ -17,10 +17,12 @@ struct MainView: View {
     @EnvironmentObject var vm: NavigationViewModel
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var authVM: AuthViewModel
+    @EnvironmentObject var productListVM: ProductListVM
+    
     @State private var currentSubview = AnyView(LoginView())
     @State private var showingSubview = false
     
-    @State var products: [Product]
+    @State var products: [Product] = []
     
     var body: some View {
         StackNavigationView(currentSubview: $currentSubview, showingSubview: $showingSubview) {
@@ -86,22 +88,17 @@ struct MainView: View {
                 ZStack {
                     
                     switch vm.selectedTab {
-                    case "Live":
-                        ProductListView(ListName: "Live", products: $products)
-                            .onAppear {self.products = Product.data.filter { $0.tag == "Live" }}
-                    case "On Review":
-                        ProductListView(ListName: "On Review", products: $products)
-                            .onAppear {self.products = Product.data.filter { $0.tag == "On Review" }}
-                    case "Need Action":
-                        ProductListView(ListName: "Need Action", products: $products)
-                            .onAppear {self.products = Product.data.filter { $0.tag == "Need Action" }}
-                    case "Archived":
-                        ProductListView(ListName: "Archived", products: $products)
-                            .onAppear {self.products = Product.data.filter { $0.tag == "Archived" }}
-                    case "Draft":
-                        ProductListView(ListName: "Draft", products: $products)
-                            .onAppear {self.products = Product.data.filter { $0.tag == "Draft" }}
-                    default: Text("")
+                        case "Live":
+                        ProductListView(ListName: "Live", products: $productListVM.products)
+                        case "On Review":
+                            ProductListView(ListName: "On Review", products: $productListVM.products)
+                        case "Need Action":
+                            ProductListView(ListName: "Need Action", products: $productListVM.products)
+                        case "Archived":
+                            ProductListView(ListName: "Archived", products: $productListVM.products)
+                        case "Draft":
+                            ProductListView(ListName: "Draft", products: $productListVM.products)
+                        default: Text("")
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -110,7 +107,6 @@ struct MainView: View {
             .environmentObject(vm)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        
     }
 }
 

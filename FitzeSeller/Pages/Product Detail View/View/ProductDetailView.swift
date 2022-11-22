@@ -12,6 +12,8 @@ struct ProductDetailView: View {
     let screen = NSScreen.main?.visibleFrame
     let product: Product
     
+    @EnvironmentObject var vm: AssetVM
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 34) {
@@ -28,6 +30,14 @@ struct ProductDetailView: View {
             }
         }
         .padding(100)
+        .onAppear {
+            
+            vm.url = nil
+            
+            for i in 0..<product.colorsAsset.count {
+                vm.asyncLoadModel(filename: product.colorsAsset.compactMap { ($0["assetLink"] as! String)}[i])
+            }
+        }
     }
 }
 

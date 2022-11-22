@@ -50,7 +50,11 @@
 		AC8B0F6C292202A800E8F9F9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E8793ED291B4EB700649AC7 /* Info.plist */; };
 		DB01CC3D291D5A4200002942 /* ProductAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB01CC3C291D5A4200002942 /* ProductAlertView.swift */; };
 		DB12245E291CACE700F6ECD4 /* ProductTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12245D291CACE700F6ECD4 /* ProductTextView.swift */; };
+		DB1A271A292CA70800C935C5 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DB1A2719292CA70800C935C5 /* SDWebImageSwiftUI */; };
+		DB1A271C292CAC0B00C935C5 /* AssetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A271B292CAC0B00C935C5 /* AssetVM.swift */; };
 		DB36D74F291B5CB300A6B04B /* NotificationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB36D74E291B5CB300A6B04B /* NotificationItemView.swift */; };
+		DB3ADA41292BBC4F007B517A /* ServiceEsgeee.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3ADA40292BBC4F007B517A /* ServiceEsgeee.swift */; };
+		DB3ADA44292BC241007B517A /* ProductListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3ADA43292BC241007B517A /* ProductListVM.swift */; };
 		DB9B5523291B53E9009C76F0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B5522291B53E9009C76F0 /* MainView.swift */; };
 		DB9B5527291B5497009C76F0 /* NavBarIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B5526291B5497009C76F0 /* NavBarIcons.swift */; };
 		DB9B5529291B56BE009C76F0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B5528291B56BE009C76F0 /* ProfileView.swift */; };
@@ -107,7 +111,10 @@
 		AC4C1FB6291B4B2C00C598AA /* FitzeSeller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitzeSeller.entitlements; sourceTree = "<group>"; };
 		DB01CC3C291D5A4200002942 /* ProductAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAlertView.swift; sourceTree = "<group>"; };
 		DB12245D291CACE700F6ECD4 /* ProductTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTextView.swift; sourceTree = "<group>"; };
+		DB1A271B292CAC0B00C935C5 /* AssetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetVM.swift; sourceTree = "<group>"; };
 		DB36D74E291B5CB300A6B04B /* NotificationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItemView.swift; sourceTree = "<group>"; };
+		DB3ADA40292BBC4F007B517A /* ServiceEsgeee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEsgeee.swift; sourceTree = "<group>"; };
+		DB3ADA43292BC241007B517A /* ProductListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListVM.swift; sourceTree = "<group>"; };
 		DB9B5522291B53E9009C76F0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DB9B5526291B5497009C76F0 /* NavBarIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarIcons.swift; sourceTree = "<group>"; };
 		DB9B5528291B56BE009C76F0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -128,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC230AFB292B909500F16D96 /* GoogleSignInSwift in Frameworks */,
+				DB1A271A292CA70800C935C5 /* SDWebImageSwiftUI in Frameworks */,
 				0E7100DD292B220A00D1DCF4 /* FirebaseAuth in Frameworks */,
 				AC230AF9292B909500F16D96 /* GoogleSignIn in Frameworks */,
 				0E7100DF292B220A00D1DCF4 /* FirebaseFirestore in Frameworks */,
@@ -302,6 +310,7 @@
 		AC8B0F67292201F400E8F9F9 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				DB3ADA3F292BBC3F007B517A /* Services */,
 				AC8B0F692922020C00E8F9F9 /* Utilities */,
 				AC8B0F68292201FF00E8F9F9 /* Extensions */,
 			);
@@ -334,6 +343,7 @@
 		AC8B0F6A2922027500E8F9F9 /* Product List */ = {
 			isa = PBXGroup;
 			children = (
+				DB3ADA42292BC228007B517A /* View Model */,
 				AC8B0F6B2922027D00E8F9F9 /* View */,
 			);
 			path = "Product List";
@@ -347,6 +357,22 @@
 				AC38B6AD2923569A002EB3B2 /* DraftCardView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DB3ADA3F292BBC3F007B517A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DB3ADA40292BBC4F007B517A /* ServiceEsgeee.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DB3ADA42292BC228007B517A /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB3ADA43292BC241007B517A /* ProductListVM.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		DB9B5521291B53CA009C76F0 /* Navigation View */ = {
@@ -442,6 +468,7 @@
 		DBF39DD4291C00DD00CE5CE4 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB1A271B292CAC0B00C935C5 /* AssetVM.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -468,6 +495,7 @@
 				0E7100E0292B220A00D1DCF4 /* FirebaseStorage */,
 				AC230AF8292B909500F16D96 /* GoogleSignIn */,
 				AC230AFA292B909500F16D96 /* GoogleSignInSwift */,
+				DB1A2719292CA70800C935C5 /* SDWebImageSwiftUI */,
 			);
 			productName = FitzeSeller;
 			productReference = AC4C1FAA291B4B2B00C598AA /* FitzeSeller.app */;
@@ -500,6 +528,7 @@
 			packageReferences = (
 				0E7100DB292B220A00D1DCF4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				AC230AF7292B909500F16D96 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				DB1A2718292CA70800C935C5 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = AC4C1FAB291B4B2B00C598AA /* Products */;
 			projectDirPath = "";
@@ -539,12 +568,14 @@
 				AC4C1FB0291B4B2B00C598AA /* ContentView.swift in Sources */,
 				DB9B5523291B53E9009C76F0 /* MainView.swift in Sources */,
 				DB9B5529291B56BE009C76F0 /* ProfileView.swift in Sources */,
+				DB3ADA44292BC241007B517A /* ProductListVM.swift in Sources */,
 				DBF29DFE29233CF200D6A333 /* AddProductVariantView.swift in Sources */,
 				DB9B552B291B56F3009C76F0 /* BottomButtonView.swift in Sources */,
 				AC38B6FA29265148002EB3B2 /* ProductCommerceView.swift in Sources */,
 				DB9B5527291B5497009C76F0 /* NavBarIcons.swift in Sources */,
 				DB01CC3D291D5A4200002942 /* ProductAlertView.swift in Sources */,
 				DB12245E291CACE700F6ECD4 /* ProductTextView.swift in Sources */,
+				DB3ADA41292BBC4F007B517A /* ServiceEsgeee.swift in Sources */,
 				0E8793F4291B527200649AC7 /* ReusableButton.swift in Sources */,
 				AC230AFE292BC18A00F16D96 /* Brand.swift in Sources */,
 				0EAF5858291DE8D100AC5E93 /* EmptyState.swift in Sources */,
@@ -561,6 +592,7 @@
 				AC38B6F42924E4BE002EB3B2 /* FormHeading.swift in Sources */,
 				AC38B6EE29248204002EB3B2 /* AddProductView.swift in Sources */,
 				0E879408291B92FB00649AC7 /* ProductListView.swift in Sources */,
+				DB1A271C292CAC0B00C935C5 /* AssetVM.swift in Sources */,
 				AC4C1FAE291B4B2B00C598AA /* FitzeSellerApp.swift in Sources */,
 				DB36D74F291B5CB300A6B04B /* NotificationItemView.swift in Sources */,
 				0ED4CE852923E110009CED84 /* SizeChart.swift in Sources */,
@@ -793,6 +825,14 @@
 				kind = branch;
 			};
 		};
+		DB1A2718292CA70800C935C5 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -820,6 +860,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC230AF7292B909500F16D96 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		DB1A2719292CA70800C935C5 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB1A2718292CA70800C935C5 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

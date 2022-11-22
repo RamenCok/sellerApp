@@ -6,16 +6,23 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CardView: View {
+    
     let product: Product
     
     var body: some View {
+        
         VStack(spacing: 20) {
-            Image("card")
+            
+            WebImage(url: URL(string: product.productImage))
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 253, height: 253, alignment: .top)
+                .placeholder {
+                    Rectangle().foregroundColor(.gray)
+                }
+                .frame(width: 253, height: 253)
+                .transition(.fade(duration: 0.5))
             
             VStack(alignment: .leading, spacing: 14) {
                 Text(product.productName)
@@ -27,22 +34,22 @@ struct CardView: View {
                     .lineLimit(2)
                 
                 HStack {
-                    if product.productColors.count > 3 {
+                    if product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }.count > 3 {
                         Circle()
-                            .foregroundColor(product.productColors[0])
+                            .foregroundColor(product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }[0])
                             .frame(width: 20, height: 20)
                         Circle()
-                            .foregroundColor(product.productColors[1])
+                            .foregroundColor(product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }[1])
                             .frame(width: 20, height: 20)
                         Circle()
-                            .foregroundColor(product.productColors[2])
+                            .foregroundColor(product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }[2])
                             .frame(width: 20, height: 20)
-                        Text("+ \(product.productColors.count-3)")
+                        Text("+ \(product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }.count-3)")
                             .foregroundColor(.gray)
                             .font(.custom("Sora-Regular", size: 15))
                     }
                     else {
-                        ForEach(product.productColors, id: \.self) { color in
+                        ForEach(product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }, id: \.self) { color in
                             Circle()
                                 .foregroundColor(color)
                                 .frame(width: 20, height: 20)
@@ -50,6 +57,7 @@ struct CardView: View {
                     }
                 }
             }
+            .background(Color.white)
             .padding([.horizontal, .bottom], 20)
             .overlay {
                 if product.tag == "On Review" {
@@ -70,16 +78,10 @@ struct CardView: View {
         .frame(width: 253, alignment: .topLeading)
         .background(Color.white)
         .cornerRadius(32)
-//        .overlay(
-//            RoundedRectangle(cornerRadius: 16)
-//                .stroke(.gray.opacity(0.2))
-//        )
-//        .shadow(color: .gray.opacity(0.05), radius: 14, x: 0, y: 4)
-    }
-}
-
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(product: Product.data[2])
+        .overlay(
+            RoundedRectangle(cornerRadius: 32)
+                .stroke(.gray.opacity(0.2))
+        )
+        .shadow(color: .gray.opacity(0.05), radius: 14, x: 0, y: 4)
     }
 }

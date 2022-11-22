@@ -51,9 +51,3 @@ struct ProductAlertView: View {
         .shadow(color: .gray.opacity(0.1), radius: 46, x: 0, y: 4)
     }
 }
-
-struct ProductAlertView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductAlertView(tag: Product.data[0].tag)
-    }
-}

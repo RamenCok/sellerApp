@@ -36,12 +36,13 @@ struct ProductTextView: View {
             }
             
             // MARK: - Colors
-            RadioButtonGroup(colors: product.productColors)
+            
+            RadioButtonGroup(colors: product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! } )
             .padding(.bottom, 25)
             
             // MARK: - Product Description
             ScrollView {
-                Text("Dreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional side Dreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional sideDreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional sideDreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional sideDreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional sideDreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional sideDreamy frills to brighten up your day. Crafted from sweat-wicking textured cotton, this mini dress features an A-line silhouette, V-neckline, and flared sleves. Comes with functional side pockets and zipper on the side.\n\nA-line silhouette, V-neckline, and flared sleves. Comes with functional side")
+                Text(product.productDesc.replacingOccurrences(of: "\\n", with: "\n"))
                     .font(.custom("Sora-Regular", size: 16))
                     .foregroundColor(.textColor)
             }

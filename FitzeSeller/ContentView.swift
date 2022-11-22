@@ -24,6 +24,8 @@ struct ContentView: View {
     @StateObject var appState = AppState()
     @StateObject var viewModel = AuthViewModel()
     @StateObject var navViewModel = NavigationViewModel()
+    @StateObject var listViewVM = ProductListVM()
+    @StateObject var assetVM = AssetVM()
     
     let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing))
     
@@ -51,10 +53,12 @@ struct ContentView: View {
                     .transition(transition)
             
             case .main:
-                MainView(products: Product.data)
+                MainView()
                     .environmentObject(appState)
                     .environmentObject(navViewModel)
                     .environmentObject(viewModel)
+                    .environmentObject(listViewVM)
+                    .environmentObject(assetVM)
                     .background(Background())
                     .frame(minWidth: 1600 / 1.2, minHeight: 1000 / 1.2)
                     .transition(backTransition)
