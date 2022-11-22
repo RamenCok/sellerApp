@@ -31,8 +31,11 @@ struct ProductDetailView: View {
         }
         .padding(100)
         .onAppear {
-            Task.init {
-                await vm.asyncLoadModel(filename: "wetties")
+            
+            vm.url = nil
+            
+            for i in 0..<product.colorsAsset.count {
+                vm.asyncLoadModel(filename: product.colorsAsset.compactMap { ($0["assetLink"] as! String)}[i])
             }
         }
     }

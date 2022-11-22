@@ -48,13 +48,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ notification: Notification) {
         
         let docsUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-        if FileManager.default.fileExists(atPath: docsUrl.path) {
+        let fileUrl = docsUrl.path
+        
+        if FileManager.default.fileExists(atPath: "\(fileUrl)/FitzeCache") {
             do {
                 print("DEBUG: Deleting files")
-                try FileManager.default.removeItem(at: docsUrl)
+                try FileManager.default.removeItem(at: URL(string: docsUrl.absoluteString + "/FitzeCache")!)
             } catch {
                 print("DEBUG: Cannot delete file")
             }
+        } else {
+            print("DEBUG: GORONG ISO GOBLOK!!!")
         }
     }
 }

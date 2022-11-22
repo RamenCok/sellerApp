@@ -62,7 +62,7 @@ class ServiceEsgeee {
         
         // 1. Create local directory
         let docsUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-        let fileUrl = docsUrl.appendingPathComponent("\(relativePath).usdz")
+        let fileUrl = docsUrl.appendingPathComponent("FitzeCache/\(relativePath).usdz")
         
         // 2. Check if asset is already in the local filesystem, if it is, load that asset and return
         if FileManager.default.fileExists(atPath: fileUrl.path) {

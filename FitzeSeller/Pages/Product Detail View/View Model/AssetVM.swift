@@ -20,9 +20,6 @@ class AssetVM: ObservableObject {
         } completion2: { percentage, isDownloading in
             self.percentage = percentage
             self.isDownloading = isDownloading
-            
-            print("DEBUG: \(self.percentage)")
-            print("DEBUG: \(self.isDownloading)")
         }
     }
 }
