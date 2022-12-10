@@ -158,6 +158,7 @@ struct SignUpLoginView: View {
                                     }
                             }
                         )
+                        .frame(width: 462, height: 54)
                         .scaleEffect(isHoverApple ? 1.05 : 1)
                         .animation(.linear(duration: 0.1), value: isHoverApple)
                         .onHover { hover in

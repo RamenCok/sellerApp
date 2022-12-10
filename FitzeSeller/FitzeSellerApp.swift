@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseAuth
 import GoogleSignIn
 
 @main
@@ -16,6 +17,7 @@ struct FitzeSellerApp: App {
     
     init() {
         FirebaseApp.configure()
+        try! Auth.auth().signOut()
     }
     
     var body: some Scene {

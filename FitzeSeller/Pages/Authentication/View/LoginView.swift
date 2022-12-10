@@ -42,16 +42,19 @@ struct LoginView: View {
                 }.frame(width: 446)
                 
                 Button {
+                    print(email)
                     
                     viewModel.loginWithEmail(email: email, password: password) { authData, error in
                         if let error = error {
-                            presentAlert = true
                             errorMsg = error.localizedDescription
+                            presentAlert = true
                         } else {
                             viewModel.getBrandData { doc, error in
                                 if let error = error {
-                                    print(error.localizedDescription)
+                                    presentAlert = true
+                                    errorMsg = error.localizedDescription
                                 } else {
+                                    print("Login Successful")
                                     if let document = doc, document.exists {
                                         let dictionary = document.data()
                                         let brand = Brand(dictionary: dictionary ?? ["" : ""])

@@ -63,6 +63,8 @@ class AuthViewModel: ObservableObject {
     }
     
     func loginWithEmail(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void) {
+        print(email)
+//        Auth.auth().signIn(withEmail: email, password: password)
         Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }
     
