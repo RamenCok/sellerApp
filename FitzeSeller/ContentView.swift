@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+
 class AppState: ObservableObject {
     enum CurrentView: Int {
         case login
@@ -16,8 +17,8 @@ class AppState: ObservableObject {
     }
     
     // Store App State with AppStorage
-//     @AppStorage("scene") var switchScene = CurrentView.login
-    @Published var switchScene = Auth.auth().currentUser == nil ? CurrentView.login : CurrentView.main
+     @AppStorage("scene") var switchScene = CurrentView.login
+//    @Published var switchScene = Auth.auth().currentUser == nil ? CurrentView.login : CurrentView.main
 }
 
 struct ContentView: View {

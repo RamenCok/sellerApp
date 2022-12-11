@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class ProductListVM: ObservableObject {
     
-    @Published var products = [ProductFetch]()
+    @Published var products = [Product]()
     
     init() {
         getProducts()
@@ -20,7 +20,12 @@ class ProductListVM: ObservableObject {
     
     func getProducts() {
         
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        guard let uid = Auth.auth().currentUser?.uid else {
+//            print("No UID")
+//            return
+//        }
+        
+        let uid = "2BJGJBd3lkpQMucG9jnH"
         ServiceEsgeee().fetchProduct(ref: uid) { product in
             self.products.append(product)
         }

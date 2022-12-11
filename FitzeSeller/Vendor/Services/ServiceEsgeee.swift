@@ -9,49 +9,19 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 import FirebaseStorage
+import FirebaseFirestoreSwift
 
 class ServiceEsgeee {
     
-    func fetchProduct(ref: String, completion: @escaping (ProductFetch)-> Void) {
-        
-        let data = Firestore.firestore().collection("brand").document(ref)
+    func fetchProduct(ref: String, completion: @escaping (Product)-> Void) {
+        let db = Firestore.firestore()
+        let data = db.collection("brand").document(ref)
         data.addSnapshotListener { snapshot, error in
-
-            let productsDictionary = snapshot?.get("productRefSeller") as! [String]
+            let productsRef = snapshot?.get("productRefSeller") as! [String]
             
-            var products: [ProductFetch] = []
-            
-            for i in productsDictionary {
-                
-                Firestore.firestore().collection("productSeller").document(i).getDocument { snapshot, error in
-                    
-                    let dictionary = snapshot?.data()
-                    var data = ProductFetch(dictionary: dictionary ?? ["" : ""])
-                    
-                    let productSizeChartDict = snapshot?.get("productSizeChart") as! [[String: Any]]
-                    
-                    var productSizeChart: [ProductSizeChart] = []
-                    
-                    for product in productSizeChartDict {
-                        let productSize = ProductSizeChart(sizeName: product["sizeName"] as! Int, sizeDimension: product["sizeDimension"] as! [String : Int])
-                        productSizeChart.append(productSize)
-                    }
-                    
-                    data.productSizeChart = productSizeChart
-                    
-                    if let productLinksDict = snapshot?.get("buyLink") {
-                        
-                        var productLinks: [ProductLink] = []
-                        
-                        for productLink in productLinksDict as! [[String: Any]] {
-                            let productLink = ProductLink(siteName: productLink["siteName"] as! String, link: productLink["link"] as! String)
-                            productLinks.append(productLink)
-                        }
-                        
-                        data.productLinks = productLinks
-                    }
-                    completion(data)
-                    print(data)
+            for i in productsRef {
+                db.collection("productSeller").document(i).getDocument { snapshot, error in
+                    completion(try! snapshot!.data(as: Product.self))
                 }
             }
         }

@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct CardView: View {
     
-    let product: ProductFetch
+    let product: Product
     
     var body: some View {
         
@@ -34,22 +34,22 @@ struct CardView: View {
                     .lineLimit(2)
                 
                 HStack {
-                    if product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }.count > 3 {
+                    if product.colorsAsset.compactMap { $0.colors }.map { Color(hex: $0)! }.count > 3 {
                         Circle()
-                            .foregroundColor(product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }[0])
+                            .foregroundColor(product.colorsAsset.compactMap { $0.colors }.map { Color(hex: $0)! }[0])
                             .frame(width: 20, height: 20)
                         Circle()
-                            .foregroundColor(product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }[1])
+                            .foregroundColor(product.colorsAsset.compactMap { $0.colors }.map { Color(hex: $0)! }[1])
                             .frame(width: 20, height: 20)
                         Circle()
-                            .foregroundColor(product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }[2])
+                            .foregroundColor(product.colorsAsset.compactMap { $0.colors }.map { Color(hex: $0)! }[2])
                             .frame(width: 20, height: 20)
-                        Text("+ \(product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }.count-3)")
+                        Text("+ \(product.colorsAsset.compactMap { $0.colors }.map { Color(hex: $0)! }.count-3)")
                             .foregroundColor(.gray)
                             .font(.custom("Sora-Regular", size: 15))
                     }
                     else {
-                        ForEach(product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! }, id: \.self) { color in
+                        ForEach(product.colorsAsset.compactMap { $0.colors }.map { Color(hex: $0)! }, id: \.self) { color in
                             Circle()
                                 .foregroundColor(color)
                                 .frame(width: 20, height: 20)

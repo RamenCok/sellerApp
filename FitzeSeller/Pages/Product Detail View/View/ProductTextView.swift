@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductTextView: View {
     
-    let product: ProductFetch
+    let product: Product
     
     var brandName: String = ""
     var productDesc: String = ""
@@ -37,7 +37,7 @@ struct ProductTextView: View {
             
             // MARK: - Colors
             
-            RadioButtonGroup(colors: product.colorsAsset.compactMap { $0["colors"] as! String }.map { Color(hex: $0)! } )
+            RadioButtonGroup(colors: product.colorsAsset.compactMap { $0.colors }.map { Color(hex: $0)! } )
             .padding(.bottom, 25)
             
             // MARK: - Product Description

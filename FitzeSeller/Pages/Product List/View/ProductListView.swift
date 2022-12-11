@@ -10,13 +10,13 @@ import SwiftUI
 struct ProductListView: View {
     
     let ListName: String
-    @Binding var products: [ProductFetch]
+    @Binding var products: [Product]
     
-    var filteredProducts: [ProductFetch] {
+    var filteredProducts: [Product] {
         return products.filter { $0.tag == ListName }
     }
     
-    var searchResults: [ProductFetch] {
+    var searchResults: [Product] {
         if searchText.isEmpty {
             return filteredProducts
         }
@@ -31,7 +31,7 @@ struct ProductListView: View {
     
     @State var searchText = ""
     @State var isSelected = false
-    @State  var selectedItems: [ProductFetch] = []
+    @State  var selectedItems: [Product] = []
     @State private var showAlert = false
     
     @State private var currentSubview = AnyView(LoginView())

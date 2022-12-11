@@ -10,7 +10,7 @@ import SwiftUI
 struct ProductDetailView: View {
     
     let screen = NSScreen.main?.visibleFrame
-    let product: ProductFetch
+    let product: Product
     
     @EnvironmentObject var vm: AssetVM
     
@@ -35,7 +35,7 @@ struct ProductDetailView: View {
             vm.url = nil
             
             for i in 0..<product.colorsAsset.count {
-                vm.asyncLoadModel(filename: product.colorsAsset.compactMap { ($0["assetLink"] as! String)}[i])
+                vm.asyncLoadModel(filename: product.colorsAsset.compactMap { $0.assetLink }[i])
             }
         }
     }

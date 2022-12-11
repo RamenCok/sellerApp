@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DraftCardView: View {
-    let product: ProductFetch
+    let product: Product
     
     var body: some View {
         HStack{

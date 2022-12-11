@@ -22,20 +22,20 @@ struct MainView: View {
     @State private var currentSubview = AnyView(LoginView())
     @State private var showingSubview = false
     
-    @State var products: [ProductFetch] = []
+    @State var products: [Product] = []
     
     var body: some View {
         StackNavigationView(currentSubview: $currentSubview, showingSubview: $showingSubview) {
             HStack(spacing: 0) {
-                
+
                 //MARK: - Tab Bar
                 VStack(alignment: .leading, spacing: 0) {
-                    
+
                     ProfileView()
                         .padding(.top, 100)
                         .padding(.bottom, 96)
                         .environmentObject(authVM)
-                    
+
                     Group {
                         NavBarIcons(iconName: "wand.and.rays", tabBarName: "Live", selectedTab: $vm.selectedTab)
                         NavBarIcons(iconName: "rectangle.and.text.magnifyingglass", tabBarName: "On Review", selectedTab: $vm.selectedTab)
@@ -43,9 +43,9 @@ struct MainView: View {
                         NavBarIcons(iconName: "archivebox", tabBarName: "Archived", selectedTab: $vm.selectedTab)
                         NavBarIcons(iconName: "folder", tabBarName: "Draft", selectedTab: $vm.selectedTab)
                     }
-                    
+
                     Spacer(minLength: 200)
-                    
+
                     VStack(spacing: 16) {
                         Button {
                             appState.switchScene = .productinput
@@ -65,7 +65,7 @@ struct MainView: View {
                         }
                         .frame(maxWidth: 375, alignment: .center)
                         .buttonStyle(.plain)
-                        
+
                         Button {
                             authVM.logout {
                                 appState.switchScene = .login
@@ -83,10 +83,10 @@ struct MainView: View {
                 .frame(maxHeight: .infinity)
                 .background(Color.backgroundColor)
                 .shadow(color: .gray.opacity(0.25), radius: 43, x: 0, y: 0)
-                
+
                 //MARK: - Tab Content
                 ZStack {
-                    
+
                     switch vm.selectedTab {
                         case "Live":
                         ProductListView(ListName: "Live", products: $productListVM.products)
