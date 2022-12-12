@@ -13,9 +13,15 @@ class AssetVM: ObservableObject {
     @Published var percentage: Float = 0.0
     @Published var isDownloading: Bool = true
     
+    let service: FirebaseService
+    
+    init(service: FirebaseService) {
+        self.service = service
+    }
+    
     func asyncLoadModel(filename: String) {
         
-        ServiceEsgeee().downloadAsset(relativePath: filename) { fileUrl in
+        service.downloadAsset(relativePath: filename) { fileUrl in
             self.url = fileUrl
         } completion2: { percentage, isDownloading in
             self.percentage = percentage

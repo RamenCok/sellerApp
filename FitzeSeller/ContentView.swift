@@ -17,7 +17,7 @@ class AppState: ObservableObject {
     }
     
     // Store App State with AppStorage
-     @AppStorage("scene") var switchScene = CurrentView.login
+    @AppStorage("scene") var switchScene = CurrentView.login
 //    @Published var switchScene = Auth.auth().currentUser == nil ? CurrentView.login : CurrentView.main
 }
 
@@ -26,7 +26,7 @@ struct ContentView: View {
     @StateObject var viewModel = AuthViewModel()
     @StateObject var navViewModel = NavigationViewModel()
     @StateObject var listViewVM = ProductListVM(service: Service())
-    @StateObject var assetVM = AssetVM()
+    @StateObject var assetVM = AssetVM(service: Service())
     
     @StateObject var addProductViewModel = AddProductViewModel(service: Service())
     let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing))
