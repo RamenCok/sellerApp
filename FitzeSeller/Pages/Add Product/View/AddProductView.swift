@@ -23,9 +23,9 @@ struct AddProductView: View {
     @State var productImage = ""
     
     @State var productGender = ""
-    @State var colorsAsset = Product.colorAsset
-    @State var productSizeChart = [[String: Any]]()
-    @State var buyLink = [[String: Any]]()
+    @State var colorsAsset = [ColorsAsset]()
+    @State var productSizeChart = [ProductSizeChart]()
+    @State var buyLink = [ProductLink]()
     @State var tag = "On Review"
  
     let screen = NSScreen.main?.visibleFrame
@@ -99,8 +99,7 @@ struct AddProductView: View {
                         else {
                             Button {
                                 // upload to firebase
-                                print(colorsAsset)
-                                
+
                                 let upload = Product(productName: productName,
                                                      productDesc: productDesc,
                                                      productImage: productImage,
@@ -120,8 +119,10 @@ struct AddProductView: View {
                                     Text("Submit")
                                 }
                                 
-                            }.buttonStyle(PrimaryButton())
-                                .frame(width: screen!.width * 0.09085648148)
+                            }
+                            .buttonStyle(PrimaryButton())
+                            .frame(width: screen!.width * 0.09085648148)
+                            .disabled(isReadyToUpload())
                         }
                     }.frame(width: screen!.width * 0.4675925926, alignment: .trailing)
                 }
@@ -130,6 +131,16 @@ struct AddProductView: View {
             .padding(40)
             .zIndex(-1)
         }
+    }
+    
+    func isReadyToUpload() -> Bool {
+        return productName.isEmpty &&
+        productDesc.isEmpty &&
+        productGender.isEmpty &&
+//        productImage.isEmpty &&
+        colorsAsset.isEmpty &&
+        productSizeChart.isEmpty &&
+        buyLink.isEmpty
     }
 }
 

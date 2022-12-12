@@ -14,7 +14,10 @@ class ProductListVM: ObservableObject {
     
     @Published var products = [Product]()
     
-    init() {
+    let service: FirebaseService
+    
+    init(service: FirebaseService) {
+        self.service = service
         getProducts()
     }
     
@@ -26,7 +29,7 @@ class ProductListVM: ObservableObject {
 //        }
         
         let uid = "2BJGJBd3lkpQMucG9jnH"
-        ServiceEsgeee().fetchProduct(ref: uid) { product in
+        service.fetchProduct(ref: uid) { product in
             self.products.append(product)
         }
     }

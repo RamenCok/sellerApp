@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductCommerceView: View {
     let screen = NSScreen.main?.visibleFrame
-    @Binding var productLinks: [[String: Any]]
+    @Binding var productLinks: [ProductLink]
     @State var siteName = [String]()
     @State var siteLink = [String]()
     

@@ -10,7 +10,7 @@ import Combine
 
 struct SkillListEditor: View {
     let screen = NSScreen.main?.visibleFrame
-    @Binding var productSizeChart: [[String: Any]]
+    @Binding var productSizeChart: [ProductSizeChart]
     @Binding var sizes: [String]
     @Binding var chest: [String]
     @Binding var waist: [String]
@@ -36,8 +36,8 @@ struct SkillListEditor: View {
                                set: { height[index] = $0 })
     }
     
-    func getBinding(forIndex index: Int) -> Binding<[String: Any]> {
-        return Binding<[String: Any]>(get: { productSizeChart[index] },
+    func getBinding(forIndex index: Int) -> Binding<ProductSizeChart> {
+        return Binding<ProductSizeChart>(get: { productSizeChart[index] },
                                set: { productSizeChart[index] = $0 })
     }
     
@@ -47,7 +47,7 @@ struct SkillListEditor: View {
             self.chest.append("")
             self.waist.append("")
             self.height.append("")
-            self.productSizeChart.append([:])
+            self.productSizeChart.append(ProductSizeChart(sizeName: 0, sizeDimension: [:]))
         }
         
         HStack(alignment: .firstTextBaseline, spacing: 50) {
@@ -95,7 +95,7 @@ struct SkillListEditor: View {
 
 struct ListItem: View {
     let screen = NSScreen.main?.visibleFrame
-    @Binding var productSizeChart: [String: Any]
+    @Binding var productSizeChart: ProductSizeChart
     @Binding var size: String
     @Binding var chest: String
     @Binding var waist: String
@@ -117,8 +117,11 @@ struct ListItem: View {
                 .labelsHidden()
                 .frame(maxWidth: 200, maxHeight: .infinity)
                 .onChange(of: size) { newValue in
-                    productSizeChart = ["sizeName": sizes.firstIndex(of: size) ?? 0,
-                                        "sizeDimension": ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0]]
+                    productSizeChart = ProductSizeChart(sizeName: sizes.firstIndex(of: size) ?? 0,
+                                                        sizeDimension:
+                                                            ["chest": Int(chest) ?? 0,
+                                                             "height": Int(height) ?? 0,
+                                                             "waist": Int(waist) ?? 0])
                 }
                 
                 HStack(spacing: 40){
@@ -126,24 +129,22 @@ struct ListItem: View {
                         .placeholder(when: chest.isEmpty, text: "0"){}
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .onChange(of: chest) { newValue in
-                            productSizeChart = ["sizeName": sizes.firstIndex(of: size) ?? 0,
-                                                "sizeDimension": ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0]]
+                            productSizeChart = ProductSizeChart(sizeName: sizes.firstIndex(of: size) ?? 0, sizeDimension: ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0])
+                                                                    
                         }
                         
                     TextField("", text: $waist)
                         .placeholder(when: waist.isEmpty, text: "0"){}
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .onChange(of: waist) { newValue in
-                            productSizeChart = ["sizeName": sizes.firstIndex(of: size) ?? 0,
-                                                "sizeDimension": ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0]]
+                            productSizeChart = ProductSizeChart(sizeName: sizes.firstIndex(of: size) ?? 0, sizeDimension: ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0])
                         }
                     
                     TextField("", text: $height)
                         .placeholder(when: height.isEmpty, text: "0"){}
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .onChange(of: height) { newValue in
-                            productSizeChart = ["sizeName": sizes.firstIndex(of: size) ?? 0,
-                                                "sizeDimension": ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0]]
+                            productSizeChart = ProductSizeChart(sizeName: sizes.firstIndex(of: size) ?? 0, sizeDimension: ["chest": Int(chest) ?? 0, "height": Int(height) ?? 0, "waist": Int(waist) ?? 0])
                         }
                     
                     Button(action: removeAction) {

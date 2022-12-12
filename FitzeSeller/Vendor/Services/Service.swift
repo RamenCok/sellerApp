@@ -1,8 +1,8 @@
 //
-//  ServiceEsgeee.swift
+//  Service.swift
 //  FitzeSeller
 //
-//  Created by Stephen Giovanni Saputra on 21/11/22.
+//  Created by Kevin Harijanto on 12/12/22.
 //
 
 import Foundation
@@ -10,9 +10,20 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 import FirebaseFirestoreSwift
+import SwiftUI
 
-class ServiceEsgeee {
+protocol FirebaseService {
+    func fetchProduct(ref: String, completion: @escaping (Product)-> Void)
+    func downloadAsset(relativePath: String,
+                       completion: @escaping(_ fileUrl: URL) -> Void,
+                       completion2: @escaping(_ percentage: Float,_ isDownloading: Bool) -> Void)
+    func uploadImage(image: Data, completion: @escaping (String) -> Void)
+    func uploadProduct(product: Product , completion: @escaping (String) -> Void)
+}
+
+class Service: FirebaseService {
     
+    // MARK: - Fetching
     func fetchProduct(ref: String, completion: @escaping (Product)-> Void) {
         let db = Firestore.firestore()
         let data = db.collection("brand").document(ref)
@@ -70,5 +81,45 @@ class ServiceEsgeee {
             // Stop progress indicator
             downloadTask.resume()
         }
+    }
+    
+    // MARK: - Uploading
+    
+    func uploadImage(image: Data, completion: @escaping (String) -> Void) {
+        
+        let storage = Storage.storage().reference().child("ProductImages/test.jpeg")
+        
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        
+        storage.putData(image, metadata: metaData) { _ in
+            storage.downloadURL { url, error in
+                guard let productImageURL = url?.absoluteString else { return }
+                
+                completion(productImageURL)
+            }
+        }
+    }
+    
+    func uploadProduct(product: Product , completion: @escaping (String) -> Void) {
+        var documentID = ""
+        
+        do {
+            let ref = try Firestore.firestore().collection("productSeller").addDocument(from: product)
+            documentID = ref.documentID
+            print("Document added with ID: \(ref.documentID)")
+        }
+        catch {
+            print("Error adding document: \(error)")
+        }
+        
+        // add document to brand
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let uid = "2BJGJBd3lkpQMucG9jnH"
+        let brandID = Firestore.firestore().collection("brand").document(uid)
+
+        brandID.updateData([
+            "productRefSeller": FieldValue.arrayUnion([documentID])
+        ])
     }
 }

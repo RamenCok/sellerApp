@@ -25,10 +25,10 @@ struct ContentView: View {
     @StateObject var appState = AppState()
     @StateObject var viewModel = AuthViewModel()
     @StateObject var navViewModel = NavigationViewModel()
-    @StateObject var listViewVM = ProductListVM()
+    @StateObject var listViewVM = ProductListVM(service: Service())
     @StateObject var assetVM = AssetVM()
     
-    @StateObject var addProductViewModel = AddProductViewModel()
+    @StateObject var addProductViewModel = AddProductViewModel(service: Service())
     let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .trailing))
     
     let backTransition: AnyTransition = .asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading))

@@ -9,7 +9,11 @@ import SwiftUI
 
 class AddProductViewModel: ObservableObject {
     
-    let service = ServiceKevin()
+    let service: FirebaseService
+    
+    init(service: FirebaseService) {
+        self.service = service
+    }
     
     func uploadImage(image: NSImage, completion: @escaping (String) -> Void) {
         service.uploadImage(image: jpegDataFrom(image:image)) { callback in

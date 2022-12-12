@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddProductVariantView: View {
-    @Binding var colorsAsset: [[String: String]]
+    @Binding var colorsAsset: [ColorsAsset]
     @State var colors = [Color]()
     @State var imagesData = [NSData]()
     @State var isDisabled = [Bool]()
@@ -41,10 +41,10 @@ struct AddProductVariantView: View {
             }
             
             Button {
-                colorsAsset.removeAll()
                 for i in 0..<colors.count {
                     print("DEBUG: \(colors[i].toHex() ?? "FFFFFF")")
-                    colorsAsset.append(["assetLink": "Test", "colors": colors[i].toHex() ?? "FFFFFF"])
+                    let color = ColorsAsset(assetLink: "test", colors: colors[i].toHex() ?? "FFFFFF")
+                    colorsAsset.append(color)
                 }
 
 //                for i in 0..<imagesData.count {
@@ -53,9 +53,9 @@ struct AddProductVariantView: View {
 //                    }
 //                }
             } label: {
-                Text("PRINT COLOR COKKKKKK")
+                Text("Pencet ini dulu!")
             }
-            .disabled(checkButton())
+//            .disabled(checkButton())
         }
         .padding(40)
     }

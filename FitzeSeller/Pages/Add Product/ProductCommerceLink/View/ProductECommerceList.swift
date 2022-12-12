@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductECommerceList: View {
     let screen = NSScreen.main?.visibleFrame
-    @Binding var productLinks: [[String: Any]]
+    @Binding var productLinks: [ProductLink]
     @Binding var siteName: [String]
     @Binding var siteLink: [String]
   
@@ -24,8 +24,8 @@ struct ProductECommerceList: View {
                                set: { siteLink[index] = $0 })
     }
     
-    func getBinding(forIndex index: Int) -> Binding<[String: Any]> {
-        return Binding<[String: Any]>(get: { productLinks[index] },
+    func getBinding(forIndex index: Int) -> Binding<ProductLink> {
+        return Binding<ProductLink>(get: { productLinks[index] },
                                set: { productLinks[index] = $0 })
     }
     
@@ -34,7 +34,7 @@ struct ProductECommerceList: View {
         commerceReading{
             self.siteName.append("Tokopedia")
             self.siteLink.append("")
-            self.productLinks.append([:])
+            self.productLinks.append(ProductLink(siteName: "", link: ""))
         }
         
         HStack(alignment: .firstTextBaseline, spacing: 50) {
@@ -72,7 +72,7 @@ struct ProductECommerceList: View {
 
 struct ListPlatform: View {
     let screen = NSScreen.main?.visibleFrame
-    @Binding var productLinks: [String: Any]
+    @Binding var productLinks: ProductLink
     @Binding var siteName: String
     @Binding var siteLink: String
     
@@ -94,8 +94,7 @@ struct ListPlatform: View {
                 .labelsHidden()
                 .frame(maxWidth: 200, maxHeight: .infinity)
                 .onChange(of: siteName) { newValue in
-                    productLinks = ["siteName": siteName,
-                                    "link": siteLink]
+                    productLinks = ProductLink(siteName: siteName, link: siteLink)
                 }
 
                 HStack(spacing: 40){
@@ -103,8 +102,7 @@ struct ListPlatform: View {
                         .placeholder(when: siteLink.isEmpty, text: "Enter Link"){}
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .onChange(of: siteLink) { newValue in
-                            productLinks = ["siteName": siteName,
-                                            "link": siteLink]
+                            productLinks = ProductLink(siteName: siteName, link: siteLink)
                         }
                     
                     Button(action: removeAction) {

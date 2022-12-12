@@ -15,9 +15,9 @@ struct AddProductInformationView: View {
     @Binding var productImage: String
     @Binding var productGender: String
     
-    @Binding var colorsAsset: [[String: String]]
-    @Binding var productSizeChart: [[String: Any]]
-    @Binding var productLinks: [[String: Any]]
+    @Binding var colorsAsset: [ColorsAsset]
+    @Binding var productSizeChart: [ProductSizeChart]
+    @Binding var productLinks: [ProductLink]
     @Binding var tag: String
     
     let screen = NSScreen.main?.visibleFrame

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductSizeChartView: View {
     let screen = NSScreen.main?.visibleFrame
-    @Binding var productSizeChart: [[String: Any]]
+    @Binding var productSizeChart: [ProductSizeChart]
     @State var sizes = [String]()
     @State var chest = [String]()
     @State var waist = [String]()
